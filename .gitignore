@@ -17,3 +17,10 @@
 /yarn-error.log
 
 .byebug_history
+// To add:
+node_modules/
+bundle.js
+bundle.js.map
+.byebug_history
+.DS_Store
+npm-debug.log
