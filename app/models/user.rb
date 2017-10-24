@@ -52,10 +52,10 @@ class User < ApplicationRecord
   end
 
   def generate_unique_session_token
-    self.session_token = new_session_token
+    self.session_token = create_new_session_token
 
     while User.find_by(session_token: self.session_token)
-      self.session_token = new_session_token
+      self.session_token = create_new_session_token
     end
 
     self.session_token
