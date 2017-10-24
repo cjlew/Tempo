@@ -1,4 +1,8 @@
+import React from 'react';
 import { Provider } from 'react-redux';
+import Splash from './splash/splash';
+import SessionFormContainer from './session_form/session_form_container';
+
 import {
   Route,
   Redirect,
@@ -6,7 +10,7 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+
 
 const App = () => (
   <div>
@@ -16,6 +20,10 @@ const App = () => (
       </Link>
     </header>
 
+    <Route path='/login' component={SessionFormContainer}/>
+    <Route path='/signup' component={SessionFormContainer}/>
+
+    <Route exact path='/' component={Splash}/>
   </div>
 );
 

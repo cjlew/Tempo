@@ -17,10 +17,10 @@ export const receiveErrors = (errors) => {
   };
 };
 
-export const login = (currentUser) => (dispatch) => {
-    return APIUtil.login(currentUser)
-      .then((currentUser) => {
-        return dispatch(receiveCurrentUser(currentUser));
+export const login = (user) => (dispatch) => {
+    return APIUtil.login(user)
+      .then((user) => {
+        return dispatch(receiveCurrentUser(user));
       },
       (errors) => {
         return dispatch(receiveErrors(errors.responseJSON));
@@ -37,10 +37,10 @@ export const logout = () => (dispatch) => {
       });
 };
 
-export const signup = (currentUser) => (dispatch) => {
-    return APIUtil.signup(currentUser)
-      .then((currentUser) => {
-        return dispatch(receiveCurrentUser(currentUser));
+export const signup = (user) => (dispatch) => {
+    return APIUtil.signup(user)
+      .then((user) => {
+        return dispatch(receiveCurrentUser(user));
       },
       (errors) => {
         return dispatch(receiveErrors(errors.responseJSON));
