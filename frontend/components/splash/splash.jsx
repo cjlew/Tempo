@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const splash = () => {
+const Splash = ({ logout }) => {
   return(
     <div id='session-buttons'>
 
@@ -9,8 +9,10 @@ const splash = () => {
 
       <Link id='signup-button' to='/signup'>Sign Up</Link>
 
+      <button onClick={logout}>Log Out</button>
+
     </div>
   );
 };
 
-export default splash;
+export default Splash;

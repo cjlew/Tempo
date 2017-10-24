@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Splash from './splash/splash';
+import SplashContainer from './splash/splash_container';
 import SessionFormContainer from './session_form/session_form_container';
 
 import {
@@ -23,7 +23,7 @@ const App = () => (
     <Route path='/login' component={SessionFormContainer}/>
     <Route path='/signup' component={SessionFormContainer}/>
 
-    <Route exact path='/' component={Splash}/>
+    <Route exact path='/' component={SplashContainer}/>
   </div>
 );
 
