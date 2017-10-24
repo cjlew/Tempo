@@ -77,7 +77,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br/>
-            
+
               <label>Email:
                 <input type="text"
                   value={this.state.email}
