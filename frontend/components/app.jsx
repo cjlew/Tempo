@@ -15,9 +15,7 @@ import {
 const App = () => (
   <div>
     <header>
-      <Link to="/" className="header-link">
-        <h1>Tempo</h1>
-      </Link>
+
     </header>
 
     <Route path='/login' component={SessionFormContainer}/>

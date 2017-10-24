@@ -1,0 +1,19 @@
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#welcome-message {
+  font-size: 30;
+  text-align: center;
+}

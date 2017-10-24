@@ -5,11 +5,15 @@ const Splash = ({ logout }) => {
   return(
     <div id='session-buttons'>
 
+      <Link to="/" className="header-link">
+        <h1>Tempo</h1>
+      </Link>
+
       <Link id='login-button' to='/login'>Login</Link>
 
       <Link id='signup-button' to='/signup'>Sign Up</Link>
 
-      <button onClick={logout}>Log Out</button>
+      <Link id='logout-button' to='/' onClick={logout}>Log Out</Link>
 
     </div>
   );
