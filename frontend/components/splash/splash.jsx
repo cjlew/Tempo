@@ -3,14 +3,27 @@ import { Link } from 'react-router-dom';
 
 const Splash = ({ logout }) => {
   return(
-    <div id='session-buttons'>
+    <div id='splash-cont'>
 
-      <Link id='login-button' to='/login'>Login</Link>
+      <div id='splash-session-buttons'>
+        <Link id='splash-header-link' to="/" className="splash-header-link">
+          <h1>Tempo</h1>
+        </Link>
+        <Link id='login-button' to='/login'>Login</Link>
+        <div id='splash-border-line'></div>
+        <Link id='signup-button' to='/signup'>Sign Up</Link>
 
-      <Link id='signup-button' to='/signup'>Sign Up</Link>
-
-      <button onClick={logout}>Log Out</button>
-
+        <Link id='logout-button' to='/' onClick={logout}>Log Out</Link>
+      </div>
+      <div id='splash-blurb-cont'>
+        <h1>Listen to amazing music right now</h1>
+        <h3>All the songs you love for free</h3>
+          <ul>
+            <li>Search and discover new songs</li>
+            <li>Create playlists of your favorite music</li>
+            <li>Share your playlists with your friends</li>
+          </ul>
+      </div>
     </div>
   );
 };

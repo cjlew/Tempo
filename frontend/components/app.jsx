@@ -10,18 +10,16 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
-
+import { AuthRoute } from '../util/route_util';
 
 const App = () => (
   <div>
     <header>
-      <Link to="/" className="header-link">
-        <h1>Tempo</h1>
-      </Link>
+
     </header>
 
-    <Route path='/login' component={SessionFormContainer}/>
-    <Route path='/signup' component={SessionFormContainer}/>
+    <AuthRoute path='/login' component={SessionFormContainer}/>
+    <AuthRoute path='/signup' component={SessionFormContainer}/>
 
     <Route exact path='/' component={SplashContainer}/>
   </div>
