@@ -61,24 +61,22 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const EmailInput = () => {if (this.props.formType === 'signup') {
-        return (
-          <div id='email-input'>
-            <br/>
-            <br/>
-            <input type="text"
-              placeholder='Email'
-              value={this.state.email}
-              onChange={this.update('email')}
-              className="login-input"
-            />
-          </div>
-      );
 
-    } else {
-      return <br/>;
-    }
-    };
+    let EmailInput = this.props.formType === 'signup' ?
+      (
+        <div id='email-input'>
+          <br/>
+          <br/>
+          <input type="text"
+            placeholder='Email'
+            value={this.state.email}
+            onChange={this.update('email')}
+            className="login-input"
+          />
+        </div>
+      ) : <br/>;
+
+
     return (
       <div className="login-form-container">
         <Link to="/" className="splash-header-link">
@@ -117,7 +115,7 @@ class SessionForm extends React.Component {
                 />
 
             </div>
-              <EmailInput />
+              {EmailInput}
             <br/>
             <input id='submit-form-button' type="submit" value={`${this.props.formType.toUpperCase()}`} />
             <br/>
