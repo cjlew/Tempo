@@ -1,3 +1,3 @@
-class ArtistsController < ApplicationController
+class Api::ArtistsController < ApplicationController
 
 end

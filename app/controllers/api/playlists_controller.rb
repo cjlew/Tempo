@@ -1,4 +1,4 @@
-class PlaylistsController < ApplicationController
+class Api::PlaylistsController < ApplicationController
   def new
   end
 
