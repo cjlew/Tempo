@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Splash = ({ logout }) => {
   return(
     <div id='background-wrap'>
-      <div id='dimmer'>
+      <div id='dimmer'></div>
         <div id='splash-cont'>
             <div id='splash-session-buttons'>
               <Link id='splash-header-link' to="/" className="splash-header-link">
@@ -26,7 +26,7 @@ const Splash = ({ logout }) => {
                 </ul>
             </div>
           </div>
-        </div>
+
       </div>
   );
 };
