@@ -11,38 +11,63 @@
   padding: 10px 75px 10px 75px;
   border-radius: 15px;
   font-size: 20px;
-  background-color: #4979c6;
-  color: white;
+  background-color: #FFFFFF;
+  color: #1DB954;
   text-decoration: none;
-
 }
 
 #signup-button {
   margin-top: 15px;
-  padding: 10px 75px 10px 75px;
+  padding: 10px 65px 10px 65px;
   border-radius: 15px;
   font-size: 20px;
-  background-color: #4979c6;
-  color: white;
+  background-color: #1DB954;
+  color: #FFFFFF;
   text-decoration: none;
 
 }
 
+#dimmer {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: .7;
+}
+
 #splash-header-link {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  color: #f2f7ff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 40px;
 }
 
-#header-link {
-
-}
 
 #splash-border-line{
-  border-top: 1px solid;
+  border-top: 1px solid lightgrey;
   width: 300px;
   height: 2px;
 }
 
+#splash-blurb-cont {
+  color: #ffffff;
+}
+
+#splash-blurb-cont h1 {
+  font-size: 40px;
+}
+
+#splash-blurb-cont h3{
+  font-size: 30px;
+}
+
+#splash-blurb-cont ul li {
+  font-size: 20px;
+}
+
 #splash-cont {
+  width: 75%;
+  height: 75%;
  position: fixed;
  top: 50%;
  left: 50%;
@@ -50,5 +75,12 @@
  display: flex;
  justify-content: center;
  align-items: center;
+ opacity: 1;
+}
 
+#background-wrap {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-image: url('splash-background.jpeg');
 }

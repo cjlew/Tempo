@@ -6,7 +6,6 @@ html,
   h1,
   h2,
   Link,
-  li,
   h3,
   button {
     margin: 0;
@@ -16,4 +15,16 @@ html,
     text-decoration: none;
     box-shadow: none;
     border-color: none;
+    opacity: 1;
+    background-color: transparent;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+
+  #root{
+    height: 100%;
+    width: 100%;
   }
