@@ -27,7 +27,8 @@ class SessionForm extends React.Component {
 
   handleDemoLogin(e) {
     e.preventDefault();
-    
+    const user = this.setState({username:'guest', password:'password'});
+    this.props.demoLogin({user});
   }
 
   handleSubmit(e) {
@@ -57,7 +58,24 @@ class SessionForm extends React.Component {
   }
 
   render() {
-
+    const EmailInput = () => {if (this.props.formType === 'signup') {
+        return (
+          <div id='email-input-container'>
+            <br/>
+            <label>Email
+              <br/>
+              <input type="text"
+                value={this.state.email}
+                onChange={this.update('email')}
+                className="login-input"
+              />
+            </label>
+          </div>
+      );
+    } else {
+      return <br/>;
+    }
+    };
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -84,16 +102,7 @@ class SessionForm extends React.Component {
                 className="login-input"
               />
             </label>
-            <br/>
-
-              <label>Email
-                <br/>
-                <input type="text"
-                  value={this.state.email}
-                  onChange={this.update('email')}
-                  className="login-input"
-                />
-              </label>
+              <EmailInput />
             <br/>
             <input type="submit" value="Submit" />
           </div>
