@@ -10,7 +10,7 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
-
+import { AuthRoute } from '../util/route_util';
 
 const App = () => (
   <div>
@@ -18,8 +18,8 @@ const App = () => (
 
     </header>
 
-    <Route path='/login' component={SessionFormContainer}/>
-    <Route path='/signup' component={SessionFormContainer}/>
+    <AuthRoute path='/login' component={SessionFormContainer}/>
+    <AuthRoute path='/signup' component={SessionFormContainer}/>
 
     <Route exact path='/' component={SplashContainer}/>
   </div>

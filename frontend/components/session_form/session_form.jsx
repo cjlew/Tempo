@@ -60,17 +60,18 @@ class SessionForm extends React.Component {
   render() {
     const EmailInput = () => {if (this.props.formType === 'signup') {
         return (
-          <div id='email-input-container'>
+          <div id='email-input'>
 
             <br/>
-            <label>Email
+
               <br/>
               <input type="text"
+                placeholder='Email'
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="login-input"
               />
-            </label>
+
           </div>
       );
     } else {
@@ -82,33 +83,42 @@ class SessionForm extends React.Component {
         <Link to="/" className="splash-header-link">
           <h1>Tempo</h1>
         </Link>
+        <div id='border-line'></div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <span id="welcome-message">Welcome to Tempo</span>
-          <br/>
-          <span>Please {this.props.formType} or {this.navLink()}</span>
+          <div id='session-form-welcome'>
+            <span id="welcome-message">Welcome to Tempo</span>
+            <br/>
+            <span >Please {this.props.formType} or {this.navLink()}</span>
+          </div>
           {this.renderErrors()}
           <div className="login-form">
             <br/>
-            <label>Username
-              <br/>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="login-input"
-              />
-            </label>
+            <div id='username-input'>
+
+                <br/>
+                <input type="text"
+                  placeholder='Username'
+                  value={this.state.username}
+                  onChange={this.update('username')}
+                  className="login-input"
+                />
+
+            </div>
             <br/>
-            <label>Password
-              <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
+            <div id='password-input'>
+
+                <br/>
+                <input type="password"
+                  placeholder='Password'
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input"
+                />
+
+            </div>
               <EmailInput />
             <br/>
-            <input type="submit" value="Submit" />
+            <input id='submit-form-button' type="submit" value={`${this.props.formType.toUpperCase()}`} />
           </div>
         </form>
       </div>

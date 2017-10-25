@@ -13,7 +13,40 @@
   text-align: center;
 }
 
-#welcome-message {
-  font-size: 30;
+.login-input {
+  width: 300px;
+  height: 30px;
+}
+
+#session-form-welcome{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#session-form-welcome span{
+  font-size: 50;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+#welcome-message {
+  font-size: 50;
+}
+
+#border-line{
+  margin: 10px 0px 10px 0px;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+#submit-form-button {
+  margin-bottom: 15px;
+  padding: 10px 75px 10px 75px;
+  border-radius: 15px;
+  font-size: 20px;
+  background-color: #4979c6;
+  color: white;
+  text-decoration: none;
+  border: none;
 }
