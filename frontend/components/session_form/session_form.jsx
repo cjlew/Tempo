@@ -61,6 +61,7 @@ class SessionForm extends React.Component {
     const EmailInput = () => {if (this.props.formType === 'signup') {
         return (
           <div id='email-input-container'>
+
             <br/>
             <label>Email
               <br/>
@@ -78,6 +79,9 @@ class SessionForm extends React.Component {
     };
     return (
       <div className="login-form-container">
+        <Link to="/" className="splash-header-link">
+          <h1>Tempo</h1>
+        </Link>
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <span id="welcome-message">Welcome to Tempo</span>
           <br/>

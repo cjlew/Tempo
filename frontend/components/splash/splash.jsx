@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 const Splash = ({ logout }) => {
   return(
     <div id='splash-cont'>
+
       <div id='splash-session-buttons'>
-        <Link to="/" className="splash-header-link">
+        <Link id='splash-header-link' to="/" className="splash-header-link">
           <h1>Tempo</h1>
         </Link>
         <Link id='login-button' to='/login'>Login</Link>
@@ -15,12 +16,12 @@ const Splash = ({ logout }) => {
         <Link id='logout-button' to='/' onClick={logout}>Log Out</Link>
       </div>
       <div id='splash-blurb-cont'>
-        <h1>hey</h1>
-        <h3>check it</h3>
+        <h1>Listen to amazing music right now</h1>
+        <h3>All the songs you love for free</h3>
           <ul>
-            <li>cause of this</li>
-            <li>and this</li>
-            <li>dont forget this</li>
+            <li>Search and discover new songs</li>
+            <li>Create playlists of your favorite music</li>
+            <li>Share your playlists with your friends</li>
           </ul>
       </div>
     </div>
