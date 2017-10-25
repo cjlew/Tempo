@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     };
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -27,13 +28,15 @@ class SessionForm extends React.Component {
 
   handleDemoLogin(e) {
     e.preventDefault();
-    const user = this.setState({username:'guest', password:'password'});
-    this.props.demoLogin({user});
+    this.setState({username:'guest', password:'password'}, () => {
+      let user = this.state;
+      this.props.demoLogin({user});
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = this.state;
+    let user = this.state;
     this.props.processForm({user});
   }
 
@@ -61,19 +64,17 @@ class SessionForm extends React.Component {
     const EmailInput = () => {if (this.props.formType === 'signup') {
         return (
           <div id='email-input'>
-
             <br/>
-
-              <br/>
-              <input type="text"
-                placeholder='Email'
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-              />
-
+            <br/>
+            <input type="text"
+              placeholder='Email'
+              value={this.state.email}
+              onChange={this.update('email')}
+              className="login-input"
+            />
           </div>
       );
+
     } else {
       return <br/>;
     }
@@ -119,8 +120,12 @@ class SessionForm extends React.Component {
               <EmailInput />
             <br/>
             <input id='submit-form-button' type="submit" value={`${this.props.formType.toUpperCase()}`} />
+            <br/>
           </div>
         </form>
+          <form onSubmit={this.handleDemoLogin}>
+            <input id='submit-form-button' type='submit' value='Demo Login' />
+          </form>
       </div>
     );
   }
