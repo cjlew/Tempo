@@ -16,6 +16,10 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
+  has_many :owned_playlists,
+    foreign_key: :creator_id,
+    class_name: 'User'
+
   attr_reader :password
 
   after_initialize :ensure_session_token

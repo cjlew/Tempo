@@ -12,6 +12,10 @@
 class Playlist < ApplicationRecord
   validates :creator_id, :title, presence: true
 
+  belongs_to :creator,
+    foreign_key: :creator_id,
+    class_name: 'User'
+
   has_many :playlist_song_memberships,
     foreign_key: :playlist_id,
     class_name: 'Playlist'
