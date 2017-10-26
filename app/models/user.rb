@@ -18,7 +18,8 @@ class User < ApplicationRecord
 
   has_many :owned_playlists,
     foreign_key: :creator_id,
-    class_name: 'User'
+    primary_key: :id,
+    class_name: 'Playlist'
 
   attr_reader :password
 
