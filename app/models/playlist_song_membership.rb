@@ -13,11 +13,11 @@
 class PlaylistSongMembership < ApplicationRecord
   validates :playlist_id, :song_id, :playlist_ord, presence: true
 
-  has_many :songs,
+  belongs_to :song,
     foreign_key: :song_id,
     class_name: 'Song'
 
-  has_many :playlists,
+  belongs_to :playlist,
     foreign_key: :playlist_id,
     class_name: 'Playlist'
 

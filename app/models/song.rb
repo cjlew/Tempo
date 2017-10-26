@@ -13,12 +13,13 @@
 #
 
 class Song < ApplicationRecord
-  validates :album_id, :title, :artist_id, :explicit, :ord, presence: true
+  validates :album_id, :title, :artist_id, :ord, presence: true
+  validates :explicit, inclusion: { in: [true, false] }
 
   has_many :playlist_song_memberships,
     foreign_key: :song_id,
     class_name: 'PlaylistSongMembership'
-    
+
   belongs_to :artist,
     foreign_key: :artist_id,
     class_name: 'Artist'

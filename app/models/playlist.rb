@@ -18,9 +18,9 @@ class Playlist < ApplicationRecord
 
   has_many :playlist_song_memberships,
     foreign_key: :playlist_id,
-    class_name: 'Playlist'
+    class_name: 'PlaylistSongMembership'
 
   has_many :songs,
     through: :playlist_song_memberships,
-    source: :songs
+    source: :song
 end
