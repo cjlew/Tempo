@@ -10,7 +10,7 @@ html,
   button {
     margin: 0;
     padding: 0;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Lato', sans-serif;
     border: none;
     text-decoration: none;
     box-shadow: none;
@@ -18,7 +18,10 @@ html,
     opacity: 1;
     background-color: transparent;
   }
+  Link, a {
+    color: inherit;
 
+  }
   html, body {
     height: 100%;
     width: 100%;

@@ -12,22 +12,33 @@
   text-decoration: none;
   font-size: 30px;
 }
+.splash-header-link h1 {
+  font-family: 'Bree Serif', serif;
+}
 
 .login-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   text-align: center;
 }
 
+input {
+  padding-left: 10px;
+  outline: none;
+
+}
+
 .login-input {
   width: 300px;
-  height: 30px;
+  height: 40px;
 }
 
 #session-form-welcome{
+  font-size: 20px;
   display:flex;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
 }
@@ -50,11 +61,14 @@
 
 #submit-form-button {
   margin-bottom: 15px;
-  padding: 10px 75px 10px 75px;
-  border-radius: 15px;
-  font-size: 20px;
+  height: 40px;
+  width: 300px;
+  border-radius: 30px;
+  font-size: 25px;
   background-color: #1DB954;
   color: #FFFFFF;
   text-decoration: none;
-  border: none;
+  text-align: center;
+  line-height: 30px;
+  border-style: none;
 }

@@ -4,32 +4,40 @@
   flex-direction: column;
   align-items: center;
   padding-right: 100px;
+
 }
 
 #login-button {
   margin-bottom: 15px;
   height: 60px;
   width: 350px;
-  border-radius: 20px;
-  font-size: 20px;
-  background-color: #FFFFFF;
-  color: #1DB954;
+  border-radius: 30px;
+  font-size: 30px;
+  background-color: #1DB954;
+  color: #FFFFFF;
   text-decoration: none;
   text-align: center;
-  line-height: 50px;
+  line-height: 55px;
+  border: none;
+}
+
+#logout-button {
+  color: white;
+  font-size: 30px;
 }
 
 #signup-button {
   margin-top: 15px;
   height: 60px;
   width: 350px;
-  border-radius: 20px;
-  font-size: 20px;
-  background-color: #1DB954;
-  color: #FFFFFF;
+  border-radius: 30px;
+  font-size: 30px;
+  background-color: #FFFFFF;
+  color: #1DB954;
+  border: none;
   text-decoration: none;
   text-align: center;
-  line-height: 50px;
+  line-height: 55px;
 
 }
 
@@ -37,7 +45,7 @@
   height: 100%;
   width: 100%;
   background-color: black;
-  opacity: .6;
+  opacity: .7;
 }
 
 #splash-header-link {
@@ -46,27 +54,34 @@
   font-weight: bold;
   text-decoration: none;
   font-size: 40px;
+  font-family: 'Bree Serif', serif;
+
 }
 
 
-#splash-border-line{
+#splash-border-line-top{
   border-top: 1px solid lightgrey;
   width: 300px;
   height: 2px;
 }
+
 
 #splash-blurb-cont {
   color: #ffffff;
 }
 
 #splash-blurb-cont h1 {
-  font-size: 40px;
+  font-size: 50px;
+  color: #1DB954;
 }
 
 #splash-blurb-cont h3{
   font-size: 30px;
 }
 
+#splash-blurb-cont ul {
+  padding-left: 20px;
+}
 #splash-blurb-cont ul li {
   font-size: 20px;
 }
@@ -82,6 +97,11 @@
  justify-content: center;
  align-items: center;
  opacity: 1;
+}
+
+#splash-header-link h1 {
+  font-family: 'Bree Serif', serif;
+  font-size: 45px;
 }
 
 #background-wrap {

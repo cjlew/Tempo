@@ -61,12 +61,12 @@ class SessionForm extends React.Component {
   }
 
   render() {
-
+    let submit = this.props.formType === 'signup'? 'Sign Up' : 'Log In';
     let EmailInput = this.props.formType === 'signup' ?
       (
         <div id='email-input'>
           <br/>
-          <br/>
+        
           <input type="text"
             placeholder='Email'
             value={this.state.email}
@@ -103,7 +103,7 @@ class SessionForm extends React.Component {
                 />
 
             </div>
-            <br/>
+
             <div id='password-input'>
 
                 <br/>
@@ -118,8 +118,8 @@ class SessionForm extends React.Component {
               {EmailInput}
             <br/>
             <input id='submit-form-button' type="submit"
-              value={`${this.props.formType.toUpperCase()}`} />
-            <br/>
+              value={`${submit}`} />
+
           </div>
         </form>
           <form onSubmit={this.handleDemoLogin}>
