@@ -3,6 +3,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def index
+
     @playlists = Playlist.all
   end
 
@@ -12,7 +13,7 @@ class Api::PlaylistsController < ApplicationController
 
   def create
     @playlist = Playlist.new(playlist_params)
-
+    @playlist.creator_id = current_user.id
     if @playlist.save
       render json: 'api/playlists/show'
     else
@@ -26,7 +27,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def update
-    @playlist = Playlist.find(params[:id])
+    @playlist = current_user.owned_playlists.find(params[:id])
 
     if @playlist.update(playlist_params)
       render json: 'api/playlists/show'
@@ -36,7 +37,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def delete
-    @playlist = Playlist.find(params[:id])
+    @playlist = current_user.owned_playlists.find(params[:id])
     @playlist.delete
   end
 

@@ -117,7 +117,8 @@ class SessionForm extends React.Component {
             </div>
               {EmailInput}
             <br/>
-            <input id='submit-form-button' type="submit" value={`${this.props.formType.toUpperCase()}`} />
+            <input id='submit-form-button' type="submit"
+              value={`${this.props.formType.toUpperCase()}`} />
             <br/>
           </div>
         </form>

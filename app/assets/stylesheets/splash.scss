@@ -8,22 +8,28 @@
 
 #login-button {
   margin-bottom: 15px;
-  padding: 10px 75px 10px 75px;
-  border-radius: 15px;
+  height: 60px;
+  width: 350px;
+  border-radius: 20px;
   font-size: 20px;
   background-color: #FFFFFF;
   color: #1DB954;
   text-decoration: none;
+  text-align: center;
+  line-height: 50px;
 }
 
 #signup-button {
   margin-top: 15px;
-  padding: 10px 65px 10px 65px;
-  border-radius: 15px;
+  height: 60px;
+  width: 350px;
+  border-radius: 20px;
   font-size: 20px;
   background-color: #1DB954;
   color: #FFFFFF;
   text-decoration: none;
+  text-align: center;
+  line-height: 50px;
 
 }
 
