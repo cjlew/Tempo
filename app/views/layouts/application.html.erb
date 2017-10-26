@@ -5,8 +5,9 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
     <script type="text/javascript">
-      window.background_url = '<%=image_url('splash-background.jpeg')%>'
+      window.background_url = "<%= image_url('splash-background.jpeg') %>"
     </script>
 
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato" rel="stylesheet">
