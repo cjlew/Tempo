@@ -1,0 +1,32 @@
+
+#main-page-header-grid-container {
+  grid-area: header;
+  background-color: #5e6672;
+}
+
+#main-page-sidebar-grid-container {
+  grid-area: sidebar;
+  background-color: grey;
+}
+
+#main-page-mediaplayer-grid-container {
+  grid-area: mediaplayer;
+  background-color: green;
+}
+
+#main-page-main-content-grid-container {
+  grid-area: main;
+  background-color: #5e6672;
+}
+
+#main-page-grid-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 50px auto 70px;
+  grid-template-areas:
+  "sidebar header"
+  "sidebar main"
+  "mediaplayer mediaplayer";
+}

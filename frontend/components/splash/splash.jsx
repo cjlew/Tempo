@@ -14,7 +14,7 @@ const Splash = ({ logout }) => {
               <div id='splash-border-line-top'></div>
               <Link id='signup-button' to='/signup'>Sign Up</Link>
 
-              <Link id='logout-button' to='/' onClick={logout}>TEMP Log Out TEMP</Link>
+              
             </div>
             <div id='splash-blurb-cont'>
               <h1>Listen to amazing music right now</h1>
