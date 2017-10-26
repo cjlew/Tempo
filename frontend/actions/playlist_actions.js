@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/playlists_api_util';
+import * as APIUtil from '../util/playlist_api_util';
 
 export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';

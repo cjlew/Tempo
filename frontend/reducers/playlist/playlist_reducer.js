@@ -5,8 +5,7 @@ const playlistReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_PLAYLIST:
-      const newPlaylist = {[action.playlist.id]: action.playlist};
-      return merge({}, state, newPlaylist);
+      return Object.assign({}, state, action.playlist);
     case RECEIVE_PLAYLISTS:
       return merge({}, action.playlists);
     case REMOVE_PLAYLIST:
@@ -17,3 +16,5 @@ const playlistReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export default playlistReducer;
