@@ -1,0 +1,12 @@
+#playlists-index-list{
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+#playlists-index-header {
+  text-align: center;
+  margin-bottom: 40px;
+}

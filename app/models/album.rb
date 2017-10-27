@@ -18,6 +18,6 @@ class Album < ApplicationRecord
     class_name: 'Artist'
 
   has_many :songs,
-    foreign_key: :song_id,
+    foreign_key: :album_id,
     class_name: 'Song'
 end

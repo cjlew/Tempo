@@ -18,6 +18,9 @@ html,
     opacity: 1;
     background-color: transparent;
   }
+  li {
+    list-style: none;
+  }
   Link, a {
     color: inherit;
     text-decoration: none;
@@ -27,7 +30,7 @@ html,
     height: 100%;
     width: 100%;
   }
-  
+
   #app {
     height: 100%;
     width: 100%;

@@ -30,9 +30,7 @@ export default class Header extends React.Component {
         </div>
 
         <div id='header-logo'>
-          <Link to='/'>
-            Tempo
-          </Link>
+          
         </div>
 
         <div id='header-currentUser-info'>

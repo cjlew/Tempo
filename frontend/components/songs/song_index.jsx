@@ -4,7 +4,9 @@ import Modal from 'react-modal';
 
 const SongIndex = () => {
 
-  return {};
+  return (
+    <h1>SongIndex</h1>
+  );
 };
 
 export default SongIndex;

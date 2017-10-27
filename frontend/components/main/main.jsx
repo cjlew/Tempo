@@ -1,6 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import HeaderContainer from '../header/header_container';
+import PlaylistIndexContainer from '../playlists/playlists_index_container';
+import {
+  Route,
+  Redirect,
+  Switch,
+  Link,
+  HashRouter
+} from 'react-router-dom';
+
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -8,7 +16,6 @@ export default class Main extends React.Component {
   }
   componentDidMount () {
     this.props.fetchPlaylists();
-    this.props.fetchSongs();
   }
 
   render () {
@@ -18,6 +25,10 @@ export default class Main extends React.Component {
 
         <div id='main-page-header-grid-container'>
           <HeaderContainer />
+        </div>
+
+        <div id='main-page-main-content-grid-container'>
+          <Route exact path='/' component={PlaylistIndexContainer} />
         </div>
 
         <div id='main-page-sidebar-grid-container'></div>
