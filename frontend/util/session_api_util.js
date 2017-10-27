@@ -14,10 +14,13 @@ export const logout = () => (
   })
 );
 
-export const signup = (user) => (
+export const signup = (formData) => (
   $.ajax({
     method: 'POST',
     url: 'api/users',
-    data: user
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData
   })
 );

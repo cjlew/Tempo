@@ -2,13 +2,17 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string           not null
-#  email           :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                           :integer          not null, primary key
+#  username                     :string           not null
+#  email                        :string           not null
+#  password_digest              :string           not null
+#  session_token                :string           not null
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  profile_picture_file_name    :string
+#  profile_picture_content_type :string
+#  profile_picture_file_size    :integer
+#  profile_picture_updated_at   :datetime
 #
 
 class User < ApplicationRecord
@@ -16,6 +20,9 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
+  has_attached_file :profile_picture, default_url: 'profile_test.jpeg'
+  validates_attachment_content_type :profile_picture,
+                                    content_type: /\Aimage\/.*\Z/
   has_many :owned_playlists,
     foreign_key: :creator_id,
     primary_key: :id,
