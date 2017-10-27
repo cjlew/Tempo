@@ -21,12 +21,17 @@ class PlaylistIndexItem extends React.Component {
     <li id='playlist-index-list-item'>
       <Link to={`/playlists/${this.props.playlist.id}`} onClick={this.handleClick}>
         <div id='playlist-index-item-img-cont'>
-
         </div>
       </Link>
 
+      <br/>
+
       <Link to={`/playlists/${this.props.playlist.id}`} onClick={this.handleClick}>
         <h3 id='playlist-index-item-title'>{this.props.playlist.title}</h3>
+      </Link>
+
+      <Link to={`/users/${this.props.playlist.creator_id}`} onClick={this.handleClick}>
+        <h3 id='playlist-index-item-creator'>By {this.props.playlist.creator_username}</h3>
       </Link>
     </li>
   );

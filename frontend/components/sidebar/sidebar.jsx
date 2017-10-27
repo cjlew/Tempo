@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export default class Header extends React.Component {
 
   render() {
-    debugger
     return(
       <div id='sidebar-container'>
         <div id='sidebar-toggle-container'></div>
