@@ -3,7 +3,6 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def index
-
     @playlists = Playlist.all
   end
 

@@ -66,7 +66,7 @@ class SessionForm extends React.Component {
       (
         <div id='email-input'>
           <br/>
-        
+
           <input type="text"
             placeholder='Email'
             value={this.state.email}

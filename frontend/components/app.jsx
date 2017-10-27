@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import SplashContainer from './splash/splash_container';
 import SessionFormContainer from './session_form/session_form_container';
 import MainContainer from './main/main_container';
-
+import PlaylistShowContainer from './playlists/playlist_show_container';
 import {
   Route,
   Redirect,
@@ -21,7 +21,7 @@ const App = (props) => {
   <div id='app'>
     <AuthRoute path='/login' component={SessionFormContainer}/>
     <AuthRoute path='/signup' component={SessionFormContainer}/>
-
+    <Route path='/playlists/:playlistId' component={PlaylistShowContainer}/>
     <Route exact path='/'
             component={props.store.getState().session.currentUser
                         ? MainContainer : SplashContainer}/>
