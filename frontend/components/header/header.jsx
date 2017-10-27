@@ -30,10 +30,11 @@ export default class Header extends React.Component {
         </div>
 
         <div id='header-logo'>
-          
+
         </div>
 
         <div id='header-currentUser-info'>
+          
           <Link id='header-currentUser-link'
             to={`/users/${this.props.currentUser.id}`}>
             {this.props.currentUser.username}

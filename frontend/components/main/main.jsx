@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderContainer from '../header/header_container';
 import PlaylistIndexContainer from '../playlists/playlists_index_container';
+import SidebarContainer from '../sidebar/sidebar_container';
 import {
   Route,
   Redirect,
@@ -31,7 +32,10 @@ export default class Main extends React.Component {
           <Route exact path='/' component={PlaylistIndexContainer} />
         </div>
 
-        <div id='main-page-sidebar-grid-container'></div>
+        <div id='main-page-sidebar-grid-container'>
+          <SidebarContainer />
+        </div>
+        
         <div id='main-page-mediaplayer-grid-container'></div>
       </div>
 
