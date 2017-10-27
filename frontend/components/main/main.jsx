@@ -3,6 +3,7 @@ import HeaderContainer from '../header/header_container';
 import PlaylistIndexContainer from '../playlists/playlists_index_container';
 import SidebarContainer from '../sidebar/sidebar_container';
 import {
+  withRouter,
   Route,
   Redirect,
   Switch,
@@ -11,7 +12,7 @@ import {
 } from 'react-router-dom';
 
 
-export default class Main extends React.Component {
+class Main extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -35,7 +36,7 @@ export default class Main extends React.Component {
         <div id='main-page-sidebar-grid-container'>
           <SidebarContainer />
         </div>
-        
+
         <div id='main-page-mediaplayer-grid-container'></div>
       </div>
 
@@ -44,3 +45,5 @@ export default class Main extends React.Component {
 
 
 }
+
+export default withRouter(Main);

@@ -40,26 +40,21 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    if (this.props.formType === 'signup'){
       const file = this.state.imageFile;
       let formData = new FormData();
 
       formData.append("user[username]", this.state.username);
-      debugger
       formData.append("user[password]", this.state.password);
       formData.append("user[email]", this.state.email);
 
       if (file) {
         formData.append("user[profile_picture]", file);
       }
-
-      debugger
-      this.props.processForm(formData)
-
-
-    // let user = this.state;
-
-    // this.props.processForm({user});
+      this.props.processForm(formData);
+    }  else {
+      let user = this.state;
+      this.props.processForm({user});}
   }
 
   navLink() {
@@ -117,7 +112,7 @@ class SessionForm extends React.Component {
         <div id='profile-picture-input'>
           <br/>
           <img id='profile-picture-preview'
-                src={this.state.imageUrl ? this.state.imageUrl : '/app/assets/images/no-user-image.gif'}/>
+              src={this.state.imageUrl ? this.state.imageUrl : '/app/assets/images/no-user-image.gif'}/>
           <br/>
           <input id='profile-picture-button' type='file'
                  onChange={this.updateFile}

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import SplashContainer from './splash/splash_container';
 import SessionFormContainer from './session_form/session_form_container';
-import MainContainer from './main/main_container';
 import PlaylistShowContainer from './playlists/playlist_show_container';
+import HomeContainer from './home/home_container';
 import {
   Route,
   Redirect,
@@ -14,19 +13,21 @@ import {
 import { AuthRoute } from '../util/route_util';
 
 
-const App = (props) => {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-
-  <div id='app'>
-    <AuthRoute path='/login' component={SessionFormContainer}/>
-    <AuthRoute path='/signup' component={SessionFormContainer}/>
-    <Route path='/playlists/:playlistId' component={PlaylistShowContainer}/>
-    <Route exact path='/'
-            component={props.store.getState().session.currentUser
-                        ? MainContainer : SplashContainer}/>
-  </div>
-);
-};
+  render(){
+    return (
+      <div id='app'>
+        <AuthRoute path='/login' component={SessionFormContainer}/>
+        <AuthRoute path='/signup' component={SessionFormContainer}/>
+        <Route path='/playlists/:playlistId' component={PlaylistShowContainer}/>
+        <Route exact path='/' component={HomeContainer} />
+      </div>
+    );
+  }
+}
 
 export default App;

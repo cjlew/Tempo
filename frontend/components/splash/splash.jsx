@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 const Splash = ({ logout }) => {
   return(
@@ -14,7 +14,7 @@ const Splash = ({ logout }) => {
               <div id='splash-border-line-top'></div>
               <Link id='signup-button' to='/signup'>Sign Up</Link>
 
-              
+
             </div>
             <div id='splash-blurb-cont'>
               <h1>Listen to amazing music right now</h1>
@@ -33,4 +33,4 @@ const Splash = ({ logout }) => {
   );
 };
 
-export default Splash;
+export default withRouter(Splash);
