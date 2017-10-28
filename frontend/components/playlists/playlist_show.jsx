@@ -22,33 +22,7 @@ export default class PlaylistIndex extends React.Component{
 
 
   render(){
-    const {playlist, songs} = this.props;
-    let buttonsToDisplay;
-    if(playlist.user_owns){
-      buttonsToDisplay = (
-        <div id="">
-          <button id=""
-          onClick={this.props.editPlaylist}>Rename</button>
-        <button id=''
-          onClick={this.props.deletePlaylist}>Delete</button>
-        </div>
-      );
-    }
-
-    return(
-      <div className="hbox playlist-detail-flex-container">
-        <div className="vbox playlist-media-info-container">
-            {buttonsToDisplay}
-        </div>
-
-        <div className="playlist-song-index-container vieport">
-          <SongIndexContainer
-            songs={Object.values(songs)}
-            />
-        </div>
-      </div>
-
-    );
+    
   }
 
 }
