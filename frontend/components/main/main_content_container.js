@@ -1,16 +1,15 @@
 import { connect } from 'react-redux';
 import { fetchPlaylists } from '../../actions/playlist_actions';
 import { fetchSongs } from '../../actions/song_actions';
-import Main from './main';
+import MainContent from './main_content';
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.currentUser,
-
+    state
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, { location }) => {
 return {
   fetchSongs: () => dispatch(fetchSongs()),
   fetchPlaylists: () => dispatch(fetchPlaylists())
@@ -20,4 +19,4 @@ return {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-) (Main);
+) (MainContent);
