@@ -19,10 +19,10 @@ class Main extends React.Component {
     super(props);
   }
   componentDidMount () {
-    this.props.fetchPlaylists();
   }
 
   componentWillReceiveProps(newProps) {
+    debugger
     if (newProps.location.pathname !== this.props.location.pathname) {
       this.props.fetchPlaylists();
     }

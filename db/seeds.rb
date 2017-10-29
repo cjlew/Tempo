@@ -11,6 +11,7 @@
 User.delete_all
 Playlist.delete_all
 Album.delete_all
+Song.delete_all
 
 def build_song(title, artist, album, ord)
   Song.create!(title: title, artist_id: artist.id, album_id: album.id, ord: ord)
