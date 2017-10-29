@@ -15,9 +15,9 @@
 
 class Playlist < ApplicationRecord
   validates :creator_id, :title, presence: true
-  
-  has_attached_file :image, default_url: 'profile_test.jpeg'
-  validates_attachment_content_type :image,
+
+  has_attached_file :images, default_url: 'profile_test.jpeg'
+  validates_attachment_content_type :images,
                                     content_type: /\Aimage\/.*\Z/
 
   belongs_to :creator,

@@ -8,12 +8,16 @@
 
 # Database song / album seeder
 # Components of macro made by David Webster
+User.delete_all
+Playlist.delete_all
+Album.delete_all
+
 def build_song(title, artist, album, ord)
   Song.create!(title: title, artist_id: artist.id, album_id: album.id, ord: ord)
 end
 
 def titleize_song(path)
-  /([\d]+)\s(.+)(?:.mp3|.MP3)/.match(path)[-1]
+  /([\d]+)\s(.+)(?:.mp3|.MP3)/.match(path.to_s)[-1]
 end
 
 def titleize(path)
@@ -29,7 +33,7 @@ def titleize(path)
 end
 
 def ord?(path)
-  /([\d]+)\S/.match(path)[0].to_i
+  /([\d]+)\S/.match(path.to_s)[0].to_i
 end
 
 def is_image?(path)
@@ -37,11 +41,14 @@ def is_image?(path)
 end
 
 Pathname.new("#{Rails.root}/app/assets/artists").children.each do |artist|
+  next if /DS_Store/.match(artist.to_s)
+
   artist_name = titleize(artist)
 
   @artist = Artist.create!(name: artist_name)
 
   artist.children.each do |child|
+    next if /DS_Store/.match(child.to_s)
 
 
     if child.file?
@@ -54,6 +61,7 @@ Pathname.new("#{Rails.root}/app/assets/artists").children.each do |artist|
         @album = Album.create!(title: titleize(album), release_year: 0000, artist_id: @artist.id)
 
         album.children.each do |song|
+          next if /DS_Store/.match(song.to_s)
           if is_image?(song)
             @album.artwork = File.open(song.to_s)
             @album.save!
@@ -73,14 +81,9 @@ end
 
 
 
-
-User.delete_all
-Playlist.delete_all
-Album.delete_all
-
 guest = User.create!(username: 'guest', password: 'password', email: 'guest1@guest.com')
 guest2 = User.create!(username:'guest2', password: 'password', email:'guest2@guest.com')
-#
+
 # artist1 = Artist.create!(name:'Chris Lew')
 # artist2 = Artist.create!(name:'George')
 # artist3 = Artist.create!(name:'Tyler The Creator')
@@ -118,22 +121,19 @@ guest2 = User.create!(username:'guest2', password: 'password', email:'guest2@gue
 #
 #
 #
-# playlist1 = Playlist.create!(creator_id: guest.id, title: 'My list')
-# playlist2 = Playlist.create!(creator_id: guest2.id, title: 'Hot Jams')
-# playlist3 = Playlist.create!(creator_id: guest2.id, title: 'Slow Songs')
-# playlist4 = Playlist.create!(creator_id: guest.id, title: 'Hip op')
-# playlist5 = Playlist.create!(creator_id: guest.id, title: 'RnR')
-#
-#
-# PlaylistSongMembership.create!(playlist_id: playlist1.id, song_id: song1.id, playlist_ord: 1)
-# PlaylistSongMembership.create!(playlist_id: playlist1.id, song_id: song2.id, playlist_ord: 2)
-# PlaylistSongMembership.create!(playlist_id: playlist1.id, song_id: song8.id, playlist_ord: 3)
-# PlaylistSongMembership.create!(playlist_id: playlist1.id, song_id: song4.id, playlist_ord: 4)
-# PlaylistSongMembership.create!(playlist_id: playlist1.id, song_id: song5.id, playlist_ord: 5)
-#
-# PlaylistSongMembership.create!(playlist_id: playlist2.id, song_id: song2.id, playlist_ord: 1)
-# PlaylistSongMembership.create!(playlist_id: playlist2.id, song_id: song10.id, playlist_ord: 2)
-#
+playlist1 = Playlist.create!(creator_id: guest.id, title: 'My list')
+playlist2 = Playlist.create!(creator_id: guest2.id, title: 'Hot Jams')
+playlist3 = Playlist.create!(creator_id: guest2.id, title: 'Slow Songs')
+playlist4 = Playlist.create!(creator_id: guest.id, title: 'Hip op')
+playlist5 = Playlist.create!(creator_id: guest.id, title: 'RnR')
+
+
+PlaylistSongMembership.create!(playlist_id: playlist1.id, song_id: Song.first.id, playlist_ord: 1)
+PlaylistSongMembership.create!(playlist_id: playlist1.id, song_id: Song.last.id, playlist_ord: 2)
+
+PlaylistSongMembership.create!(playlist_id: playlist2.id, song_id: Song.last.id, playlist_ord: 1)
+PlaylistSongMembership.create!(playlist_id: playlist2.id, song_id: Song.first.id, playlist_ord: 2)
+
 # PlaylistSongMembership.create!(playlist_id: playlist3.id, song_id: song3.id, playlist_ord: 1)
 # PlaylistSongMembership.create!(playlist_id: playlist3.id, song_id: song7.id, playlist_ord: 2)
 # PlaylistSongMembership.create!(playlist_id: playlist3.id, song_id: song10.id, playlist_ord: 3)
