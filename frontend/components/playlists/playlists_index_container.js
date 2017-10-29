@@ -7,6 +7,7 @@ import {
 import PlaylistIndex from './playlists_index';
 
 const mapStateToProps = (state, ownProps) => {
+  
   return {
     playlists: Object.keys(state.entities.playlists)
                      .map(key => state.entities.playlists[key])

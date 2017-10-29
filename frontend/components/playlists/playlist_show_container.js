@@ -11,7 +11,6 @@ import PlaylistShow from './playlist_show';
 const mapStateToProps = (state, ownProps) => {
   const playlistId = parseInt(ownProps.match.params.playlistId);
   let playlist = state.entities.playlists[playlistId];
-
   let songs = [];
 
   playlist.song_ids.forEach(id => {
@@ -20,7 +19,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     playlist,
     songs,
-    state
   };
 
 };

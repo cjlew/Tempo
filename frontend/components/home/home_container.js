@@ -5,10 +5,11 @@ import { fetchPlaylists } from '../../actions/playlist_actions';
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.currentUser,
+    state
   };
 };
 
-const mapDispatchToProps = (dispatch, { location }) => {
+const mapDispatchToProps = (dispatch) => {
 return {
   fetchPlaylists: () => dispatch(fetchPlaylists()),
 };

@@ -6,6 +6,7 @@ import Main from './main';
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.currentUser,
+    state
   };
 };
 

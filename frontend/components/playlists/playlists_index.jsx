@@ -14,7 +14,8 @@ class PlaylistIndex extends React.Component {
   render () {
     let PlaylistItems = this.props.playlists.map(playlist =>
                   (<PlaylistIndexItem playlist={playlist}
-                                      key={playlist.id}/>));
+                                      key={playlist.id}
+                                      fetchSongs={this.props.fetchSongs}/>));
 
     return (
       <div id='playlist-index-container'>
