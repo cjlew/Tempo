@@ -52,6 +52,11 @@
   text-align: center;
 }
 
+#playlist-show-delete-link:hover {
+  filter: brightness(50%);
+
+}
+
 // Right
 #playlist-show-container-right{
   display: flex;

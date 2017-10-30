@@ -54,7 +54,9 @@ class PlaylistIndex extends React.Component {
                 contentLabel="new-playlist-modal">
             <button onClick={this.closeModal}>Close</button>
             <NewPlaylist currentUser={this.props.currentUser}
-                         createPlaylist={this.props.createPlaylist} />
+                         createPlaylist={this.props.createPlaylist}
+                         closeModal={this.closeModal}
+                         fetchPlaylists={this.props.fetchPlaylists}/>
           </Modal>
 
         </div>

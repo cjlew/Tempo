@@ -26,7 +26,7 @@ export default class PlaylistShow extends React.Component{
 
   handleRemove(e) {
     e.preventDefault();
-    this.props.deletePlaylist(this.props.match.params.playlistId);
+    this.props.deletePlaylist(this.props.match.params.playlistId).then(()=> this.props.history.push(`/`));
   }
 
 

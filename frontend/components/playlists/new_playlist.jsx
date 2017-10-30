@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 class NewPlaylist extends React.Component {
-  constructor({ currentUser, createPlaylist }) {
-    super({ currentUser, createPlaylist });
+  constructor({ currentUser, createPlaylist, closeModal, fetchPlaylists }) {
+    super({ currentUser, createPlaylist, closeModal, fetchPlaylists });
     this.state = {
       title: '',
       creator_id: currentUser.id,
@@ -20,7 +20,13 @@ class NewPlaylist extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let playlist = this.state;
-    this.props.createPlaylist(playlist);
+
+    this.props.createPlaylist(playlist).then((newPlaylist) => {
+      this.props.fetchPlaylists();
+      // why is the promise returning the value like this
+      this.props.history.push(`/playlists/${Object.values(newPlaylist.playlist)[0].id}`);
+    }, () => console.log('broke'));
+
   }
 
 

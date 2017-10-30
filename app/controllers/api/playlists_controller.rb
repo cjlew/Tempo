@@ -14,7 +14,7 @@ class Api::PlaylistsController < ApplicationController
     @playlist = Playlist.new(playlist_params)
     @playlist.creator_id = current_user.id
     if @playlist.save
-      render json: 'api/playlists/show'
+      render :show
     else
       render json: @playlist.errors.full_messages, status: 422
     end
@@ -29,7 +29,7 @@ class Api::PlaylistsController < ApplicationController
     @playlist = current_user.owned_playlists.find(params[:id])
 
     if @playlist.update(playlist_params)
-      render json: 'api/playlists/show'
+      render :show
     else
       render json: @playlist.errors.full_messages, status: 422
     end
@@ -39,6 +39,7 @@ class Api::PlaylistsController < ApplicationController
     @playlist = current_user.owned_playlists.find(params[:id])
     @playlist.delete
     @playlist
+    render :show
   end
 
   def playlist_params
