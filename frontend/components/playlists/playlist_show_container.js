@@ -7,15 +7,21 @@ import {
   deletePlaylist,
 } from '../../actions/playlist_actions';
 import PlaylistShow from './playlist_show';
+import { withRouter } from 'react-router-dom';
+
 
 const mapStateToProps = (state, ownProps) => {
   const playlistId = parseInt(ownProps.match.params.playlistId);
   let playlist = state.entities.playlists[playlistId];
   let songs = [];
-
-  playlist.song_ids.forEach(id => {
-        songs.push(state.entities.songs[id]);
-    });
+  if (playlist) {
+    playlist.song_ids.forEach(id => {
+        const song = state.entities.songs[id];
+        if (song) {
+          songs.push(song);
+        }
+      });
+  }
   return {
     playlist,
     songs,
@@ -31,7 +37,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchSongs: () => dispatch(fetchSongs()),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(PlaylistShow);
+)(PlaylistShow));

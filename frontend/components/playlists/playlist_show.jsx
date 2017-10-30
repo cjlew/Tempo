@@ -6,7 +6,7 @@ import UpdatePlaylist from './update_playlist';
 import DeletePlaylist from './delete_playlist';
 
 
-export default class PlaylistIndex extends React.Component{
+export default class PlaylistShow extends React.Component{
   constructor(props){
     super(props);
   }
@@ -24,28 +24,33 @@ export default class PlaylistIndex extends React.Component{
 
 
   render(){
-    const SongList = this.props.songs.map(song =>
-      <SongIndexItem song={song} key={song.id}/>);
+    debugger
 
-    return (
-      <div id='playlist-show-container'>
-        <div id='playlist-show-container-left'>
-          <img id='playlist-show-image'></img>
+    const SongList = this.props.songs.map(song =>{
+      return (
+        <SongIndexItem song={song} key={song.id}/>);
+      });
+    if (this.props.playlist && this.props.songs) {
+      return (
+        <div id='playlist-show-container'>
+          <div id='playlist-show-container-left'>
+            <img id='playlist-show-image'></img>
 
-          <p id='playlist-show-title'>{this.props.playlist.title}</p>
-          <p id='playlist-show-song-count'>{this.props.songs.length} songs</p>
-          <Link id='playlist-show-play-all'></Link>
-          <Link id='playlist-show-follow'></Link>
+            <p id='playlist-show-title'>{this.props.playlist.title}</p>
+            <p id='playlist-show-song-count'>{this.props.songs.length} songs</p>
+          </div>
+
+          <div id='playlist-show-container-right'>
+            <ul id='playlist-show-container-songs'>
+              {SongList}
+            </ul>
+          </div>
         </div>
 
-        <div id='playlist-show-container-right'>
-          <ul id='playlist-show-container-songs'>
-            {SongList}
-          </ul>
-        </div>
-      </div>
-
-    );
+      );
+    } else {
+      return (<p>Loading</p>);
+    }
   }
 
 }

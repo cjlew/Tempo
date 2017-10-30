@@ -24,6 +24,7 @@ class App extends React.Component {
           <AuthRoute path='/login' component={SessionFormContainer}/>
           <AuthRoute path='/signup' component={SessionFormContainer}/>
           <Route path='/' component={HomeContainer} />
+
         </Switch>
       </div>
     );

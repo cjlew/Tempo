@@ -7,7 +7,7 @@ class SongIndexItem extends React.Component {
   }
 
   render () {
-    const Explicit = this.song.explicit ? 'Explicit' : '';
+    const Explicit = this.props.song.explicit ? 'Explicit' : '';
     return(
       <li id='song-index-item-container'>
         <Link to='/' id='song-index-item-link'>

@@ -35,6 +35,8 @@ class PlaylistIndex extends React.Component {
   //
 
   render () {
+    debugger
+
     let PlaylistItems = this.props.playlists.map(playlist =>
                   (<PlaylistIndexItem playlist={playlist}
                                       key={playlist.id}
@@ -46,7 +48,8 @@ class PlaylistIndex extends React.Component {
           <h1 id='playlists-index-header'>Playlists</h1>
           <button id='playlists-index-new-playlist-button'
                   onClick={this.openModal}>New Playlist</button>
-          <Modal isOpen={this.state.modalIsOpen}
+                <Modal
+                isOpen={this.state.modalIsOpen}
                 onAfterOpen={this.afterOpenModal}
                 onRequestClose={this.closeModal}
                 contentLabel="new-playlist-modal">

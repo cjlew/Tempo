@@ -5,24 +5,14 @@ import ReactDOM from 'react-dom';
 class PlaylistIndexItem extends React.Component {
   constructor(props) {
     super(props);
-
-
-
-  }
-  
-
-  handleClick(e){
-    e.preventDefault();
-    this.props.fetchSongs();
-    this.props.history.push(`/playlists/${this.props.playlist.id}`);
   }
 
   render() {
     return(
 
     <li id='playlist-index-list-item'>
-      <Link to={`/playlists/${this.props.playlist.id}`}
-            onClick={this.handleClick}>
+      <Link to={`/playlists/${this.props.playlist.id}`}>
+
         <div id='playlist-index-item-img-cont'>
           <div id='playlist-index-item-music-note'>
 
@@ -32,13 +22,11 @@ class PlaylistIndexItem extends React.Component {
 
       <br/>
 
-      <Link to={`/playlists/${this.props.playlist.id}`}
-            onClick={this.handleClick}>
+      <Link to={`/playlists/${this.props.playlist.id}`}>
         <h3 id='playlist-index-item-title'>{this.props.playlist.title}</h3>
       </Link>
 
-      <Link to={`/users/${this.props.playlist.creator_id}`}
-            onClick={this.handleClick}>
+      <Link to={`/users/${this.props.playlist.creator_id}`}>
         <h3 id='playlist-index-item-creator'>By {this.props.playlist.creator_username}</h3>
       </Link>
     </li>

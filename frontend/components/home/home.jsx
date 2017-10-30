@@ -5,6 +5,7 @@ import SplashContainer from '../splash/splash_container';
 
 const Home = ({ currentUser }) => {
     const HomeRender = currentUser ? MainContainer  : SplashContainer;
+    debugger
     return (<HomeRender />);
 };
 

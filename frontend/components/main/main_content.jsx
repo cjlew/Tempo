@@ -12,13 +12,28 @@ import {
 } from 'react-router-dom';
 
 
-const MainContent = (props) => {
-  return(
-    <div id='main-page-main-content-grid-container'>
-      <Route path='/playlists/:playlistId' component={PlaylistShowContainer}/>
-      <Route exact path='/' component={PlaylistIndexContainer} />
-    </div>
-  );
-};
+class MainContent extends React.Component {
+  constructor(props){
+
+    super(props);
+  }
+
+  componentWillReceiveProps() {
+
+  }
+
+  render() {
+
+    return(
+      <div id='main-page-main-content-grid-container'>
+        <Switch>
+          <Route path='/playlists/:playlistId' component={PlaylistShowContainer}/>
+          <Route path='/' component={PlaylistIndexContainer} />
+        </Switch>
+      </div>
+    );
+  }
+
+}
 
 export default withRouter(MainContent);

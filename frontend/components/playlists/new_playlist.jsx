@@ -25,20 +25,20 @@ class NewPlaylist extends React.Component {
 
 
   render () {
-    
+
     return (
       <div id='new-playlist-container'>
         <h1 id='new-playlist-header'>Create New Playlist</h1>
         <form onSubmit={this.handleSubmit}>
-          <label id='new-playlist-label'>Playlist Name
+          <p id='new-playlist-label'>Playlist Name</p>
             <input type="text"
               placeholder='Start typing...'
               value={this.state.title}
               onChange={this.update('title')}
               id='new-playlist-title-input'
             />
-          </label>
-          <input type='submit' onClick={this.handleSubmit} value="Create"/>
+
+          <input id='new-playlist-submit' type='submit' onClick={this.handleSubmit} value="Create"/>
         </form>
 
       </div>

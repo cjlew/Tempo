@@ -6,6 +6,8 @@ import {
   fetchPlaylist,
 } from '../../actions/playlist_actions';
 import PlaylistIndex from './playlists_index';
+import { withRouter } from 'react-router-dom';
+
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -23,7 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchSongs: () => dispatch(fetchSongs()),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(PlaylistIndex);
+)(PlaylistIndex));
