@@ -10,6 +10,7 @@ import DeletePlaylist from './delete_playlist';
 export default class PlaylistShow extends React.Component{
   constructor(props){
     super(props);
+    this.handleRemove = this.handleRemove.bind(this);
   }
 
 
@@ -23,6 +24,11 @@ export default class PlaylistShow extends React.Component{
 
     }
 
+  handleRemove(e) {
+    e.preventDefault();
+    this.props.deletePlaylist(this.props.match.params.playlistId);
+  }
+
 
   render(){
     const songs = this.props.songs;
@@ -31,11 +37,13 @@ export default class PlaylistShow extends React.Component{
       return (
         <div id='playlist-show-container'>
           <div id='playlist-show-container-left'>
-            <img id='playlist-show-image'></img>
-
+            <img id='playlist-show-image'/>
             <p id='playlist-show-title'>{this.props.playlist.title}</p>
             <p id='playlist-show-creator'>By {this.props.playlist.creator_username}</p>
             <p id='playlist-show-song-count'>{this.props.songs.length} {this.props.songs.length === 1 ? 'SONG' : 'SONGS' }</p>
+            <Link id='playlist-show-delete-link' to='/' onClick={this.handleRemove}>
+              Delete Playlist
+            </Link>
           </div>
 
           <div id='playlist-show-container-right'>

@@ -35,9 +35,10 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @playlist = current_user.owned_playlists.find(params[:id])
     @playlist.delete
+    @playlist
   end
 
   def playlist_params
