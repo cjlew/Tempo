@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20171029182207) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "images_file_name"
-    t.string "images_content_type"
-    t.integer "images_file_size"
-    t.datetime "images_updated_at"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["creator_id"], name: "index_playlists_on_creator_id"
     t.index ["title"], name: "index_playlists_on_title"
   end
