@@ -27,7 +27,6 @@ class Main extends React.Component {
   }
 
   render () {
-    debugger
 
     return(
       <div id='main-page-grid-container'>

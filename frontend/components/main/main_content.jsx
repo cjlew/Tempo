@@ -25,7 +25,7 @@ class MainContent extends React.Component {
   render() {
 
     return(
-      <div id='main-page-main-content-grid-container'>
+      <div id='main-page-main-content-container'>
         <Switch>
           <Route path='/playlists/:playlistId' component={PlaylistShowContainer}/>
           <Route path='/' component={PlaylistIndexContainer} />

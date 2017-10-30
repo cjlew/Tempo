@@ -1,0 +1,56 @@
+#playlist-show-container {
+  margin-top: 30px;
+  display:flex;
+  justify-content: space-around;
+  height: 100%;
+}
+
+// Left
+#playlist-show-container-left{
+ display: flex;
+ flex-direction: column;
+
+}
+#playlist-show-image{
+  width: 320px;
+  height: 320px;
+}
+#playlist-show-image:hover {
+  filter: brightness(50%);
+
+}
+
+#playlist-show-title{
+  text-align: center;
+  font-size: 30px;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+#playlist-show-creator{
+  text-align: center;
+  font-size: 15px;
+  color: #ffffff;
+  margin-top: 18px;
+
+}
+
+#playlist-show-song-count{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #ffffff;
+
+}
+
+// Right
+#playlist-show-container-right{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-left: -130px;
+}
+
+#playlist-show-container-songs {
+
+}

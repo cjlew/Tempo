@@ -1,0 +1,95 @@
+#song-index-item-container {
+  display:flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+
+
+#song-index-item-container:hover {
+  background-color: rgba(25, 20, 20, .3);
+}
+
+#song-index-item-link {
+
+}
+
+#song-index-item-info-left {
+}
+
+#song-index-item-title {
+  font-size: 20;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+#song-index-item-artist-album {
+  font-size: 12;
+  color: #ffffff;
+}
+
+#song-index-item-info-right {
+  display:flex;
+  justify-content: space-around;
+}
+
+#song-index-item-explicit{
+  font-size: 12;
+  color: #ffffff;
+}
+
+#song-index-item-duration {
+  font-size: 12;
+  color: #ffffff;
+}
+
+// button
+#song-index-item-button-container{
+  position: relative;
+
+}
+
+#song-index-item-container:hover #song-index-item-button{
+  display:block;
+}
+
+#song-index-item-button{
+  display:none;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#song-index-item-button-dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #191414;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0px;
+
+}
+#song-index-item-button-dropdown-content button{
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+
+}
+
+#song-index-item-button-dropdown-content button:hover{
+  background-color: #f1f1f1;
+  color: #191414;
+
+}
+
+#song-index-item-button-container:hover #song-index-item-button-dropdown-content {
+  display:block
+}
+#song-index-item-button-container:hover #song-index-item-button {
+  background-color: #191414;
+  color: #ffffff;
+}

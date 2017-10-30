@@ -1,12 +1,18 @@
 import React from 'react';
 import Modal from 'react-modal';
-// import AddToPlaylistContainer from '../playlist/add_to_playlist_container';
+import { Link, withRouter } from 'react-router-dom';
+import SongIndexItem from './song_index_item';
 
-const SongIndex = () => {
-
+const SongIndex = ({songs}) => {
+  const SongList = songs.map(song =>{
+    return (
+      <SongIndexItem song={song} key={song.id}/>);
+    });
   return (
-    <h1>SongIndex</h1>
+    <ul id='song-index-list'>
+      {SongList}
+    </ul>
   );
 };
 
-export default SongIndex;
+export default withRouter(SongIndex);

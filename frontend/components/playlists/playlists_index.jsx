@@ -35,7 +35,6 @@ class PlaylistIndex extends React.Component {
   //
 
   render () {
-    debugger
 
     let PlaylistItems = this.props.playlists.map(playlist =>
                   (<PlaylistIndexItem playlist={playlist}
