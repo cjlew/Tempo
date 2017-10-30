@@ -65,13 +65,16 @@ class PlaylistIndex extends React.Component {
           <h1 id='playlists-index-header'>Playlists</h1>
           <button id='playlists-index-new-playlist-button'
                   onClick={this.openModal}>New Playlist</button>
-                <Modal isOpen={this.state.modalIsOpen}
+          <Modal isOpen={this.state.modalIsOpen}
                 onAfterOpen={this.afterOpenModal}
                 onRequestClose={this.closeModal}
                 contentLabel="new-playlist-modal"
                 style={customStyles}>
             <div id='modal-content'>
-              <button onClick={this.closeModal}><i className='material-icons'>clear</i></button>
+
+              <button id='modal-close-modal' onClick={this.closeModal}>
+                <i id='modal-close-modal-icon' className='material-icons'>clear</i>
+              </button>
               <NewPlaylist currentUser={this.props.currentUser}
                            createPlaylist={this.props.createPlaylist}
                            closeModal={this.closeModal}

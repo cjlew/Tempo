@@ -13,22 +13,15 @@ export default class PlaylistShow extends React.Component{
     this.handleRemove = this.handleRemove.bind(this);
   }
 
-
-
   componentWillMount(){
     this.props.fetchPlaylist(this.props.match.params.playlistId);
     this.props.fetchSongs();
   }
 
-  componentWillReceiveProps(newProps){
-
-    }
-
   handleRemove(e) {
     e.preventDefault();
     this.props.deletePlaylist(this.props.match.params.playlistId).then(()=> this.props.history.push(`/`));
   }
-
 
   render(){
     const songs = this.props.songs;

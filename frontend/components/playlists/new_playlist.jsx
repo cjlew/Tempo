@@ -35,7 +35,7 @@ class NewPlaylist extends React.Component {
     return (
       <div id='new-playlist-container'>
         <h1 id='new-playlist-header'>Create New Playlist</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form id='new-playlist-submit-form' onSubmit={this.handleSubmit}>
           <p id='new-playlist-label'>Playlist Name</p>
             <input type="text"
               placeholder='Start typing...'
@@ -43,7 +43,7 @@ class NewPlaylist extends React.Component {
               onChange={this.update('title')}
               id='new-playlist-title-input'
             />
-
+          <br/>
           <input id='new-playlist-submit' type='submit' onClick={this.handleSubmit} value="Create"/>
         </form>
 
