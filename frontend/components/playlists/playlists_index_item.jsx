@@ -1,13 +1,15 @@
 import React from 'react';
 import { withRouter, Link }from 'react-router-dom';
-
-
+import ReactDOM from 'react-dom';
 
 class PlaylistIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+
+
+
   }
+  
 
   handleClick(e){
     e.preventDefault();
@@ -22,6 +24,9 @@ class PlaylistIndexItem extends React.Component {
       <Link to={`/playlists/${this.props.playlist.id}`}
             onClick={this.handleClick}>
         <div id='playlist-index-item-img-cont'>
+          <div id='playlist-index-item-music-note'>
+
+          </div>
         </div>
       </Link>
 

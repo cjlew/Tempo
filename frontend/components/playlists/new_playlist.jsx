@@ -1,0 +1,49 @@
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+
+class NewPlaylist extends React.Component {
+  constructor({ currentUser, createPlaylist }) {
+    super({ currentUser, createPlaylist });
+    this.state = {
+      title: '',
+      creator_id: currentUser.id,
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let playlist = this.state;
+    this.props.createPlaylist(playlist);
+  }
+
+
+  render () {
+    
+    return (
+      <div id='new-playlist-container'>
+        <h1 id='new-playlist-header'>Create New Playlist</h1>
+        <form onSubmit={this.handleSubmit}>
+          <label id='new-playlist-label'>Playlist Name
+            <input type="text"
+              placeholder='Start typing...'
+              value={this.state.title}
+              onChange={this.update('title')}
+              id='new-playlist-title-input'
+            />
+          </label>
+          <input type='submit' onClick={this.handleSubmit} value="Create"/>
+        </form>
+
+      </div>
+  );
+}
+}
+
+export default withRouter(NewPlaylist);

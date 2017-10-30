@@ -1,7 +1,25 @@
 #playlist-index-item-img-cont {
-  width: 224px;
-  height: 224px;
+  width: 180px;
+  height: 180px;
   background-color: #282828;
+}
+#playlist-index-item-music-note {
+  background-position: center;
+  width: 180px;
+  height: 180px;
+  background-image: image-url(music_note_black);
+  background-size: 75px 75px;
+  background-repeat: no-repeat;
+}
+#playlist-index-item-music-note:hover {
+  width: 180px;
+  height: 180px;
+  background-image: image-url(music_note_white);
+  background-size: 75px 75px;
+  background-repeat: no-repeat;}
+
+#playlist-index-item-img-cont:hover {
+  filter: brightness(50%);
 }
 
 #playlist-index-list-item {
