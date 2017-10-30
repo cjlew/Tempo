@@ -9,7 +9,39 @@
 
 #playlists-index-header {
   text-align: center;
-  margin-bottom: 40px;
-  color: #FFFFFF;
 
+  color: #FFFFFF;
+  vertical-align: center;
+}
+
+#playlist-index-header-invis {
+  width: 150px;
+}
+
+#playlists-index-new-playlist-button {
+    height: 30px;
+    width: 150px;
+    border-radius: 30px;
+    font-size: 15px;
+    background-color: #1DB954;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    line-height: 20px;
+    border: none;
+    outline: none;
+    // position: absolute;
+    // top: 10px;
+    // right: 150px;
+
+}
+
+#playlist-index-header-button {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  // position: relative;
 }
