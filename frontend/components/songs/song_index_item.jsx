@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import AddSongToPlaylistContainer from '../playlists/add_song_to_playlist_container';
-
+import ReactHowler from 'react-howler';
 import Modal from 'react-modal';
 
 const customStyles ={
@@ -62,7 +62,7 @@ class SongIndexItem extends React.Component {
           <div id='song-index-item-info-right'>
             <div id='song-index-item-button-container'>
               <button id='song-index-item-button'>
-                <i className='material-icons'>expand more</i>
+                <i className='material-icons'>expand_more</i>
               </button>
               <div id='song-index-item-button-dropdown-content'>
                 <button onClick={this.handleRemove} id='song-index-item-dropdown-remove'>Remove from this Playlist</button>
@@ -87,7 +87,7 @@ class SongIndexItem extends React.Component {
               </div>
             </div>
             <p id='song-index-item-explicit'>{Explicit}</p>
-            <p id='song-index-item-duration'>duration</p>
+            <p id='song-index-item-duration'>{this.props.song.url.duration()}</p>
           </div>
 
       </li>

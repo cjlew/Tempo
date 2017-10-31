@@ -59,7 +59,9 @@ class PlaylistIndex extends React.Component {
                                       fetchSongs={this.props.fetchSongs}/>));
 
     return (
+
       <div id='playlist-index-container'>
+        <div id='playlist-index-background'></div>
         <div id='playlist-index-header-button'>
           <div id='playlist-index-header-invis'></div>
           <h1 id='playlists-index-header'>Playlists</h1>

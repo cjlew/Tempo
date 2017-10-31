@@ -28,6 +28,7 @@ export default class PlaylistShow extends React.Component{
     if (this.props.playlist && this.props.songs) {
       return (
         <div id='playlist-show-container'>
+          <div id='playlist-show-background'></div>
           <div id='playlist-show-container-left'>
             <img id='playlist-show-image'/>
             <p id='playlist-show-title'>{this.props.playlist.title}</p>

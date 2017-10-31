@@ -8,6 +8,7 @@
 
 # Database song / album seeder
 # Components of macro made by David Webster
+require 'taglib'
 User.delete_all
 Playlist.delete_all
 Album.delete_all
@@ -67,6 +68,13 @@ Pathname.new("#{Rails.root}/app/assets/artists").children.each do |artist|
             @album.artwork = File.open(song.to_s)
             @album.save!
           else
+            TagLib::FileRef.open("#{song}") do |fileref|
+              unless fileref.null?
+                debugger
+                tag = fileref.tag
+                tag.title
+              end
+            end
             song_title = titleize_song(song)
             song_ord = ord?(song)
             @song = build_song(song_title, @artist, @album, song_ord)
