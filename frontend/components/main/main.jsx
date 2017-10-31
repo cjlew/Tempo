@@ -32,7 +32,7 @@ class Main extends React.Component {
 
     return(
       <div id='main-page-grid-container'>
-
+        <div id='main-page-background'></div>
         <div id='main-page-header-grid-container'>
           <HeaderContainer />
         </div>

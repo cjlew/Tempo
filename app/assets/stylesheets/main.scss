@@ -1,7 +1,7 @@
 
 #main-page-header-grid-container {
   grid-area: header;
-  background-color: rgb(43, 64, 110);
+  background-color: rgba(40, 64, 110, 0);
 
 }
 
@@ -9,7 +9,7 @@
 
 #main-page-sidebar-grid-container {
   grid-area: sidebar;
-  background-color: #121b2e;
+  background-color: rgba(40, 40, 40, .7);
   position: fixed;
   left: 0;
   height: 100%;
@@ -20,7 +20,7 @@
 
 #main-page-mediaplayer-grid-container {
   grid-area: mediaplayer;
-  background-color: #282828;
+  background-color: rgba(40, 40, 40, 1);
   position: sticky;
   bottom: 0;
   width: 100%;
@@ -29,7 +29,17 @@
 
 #main-page-main-content-grid-container {
   grid-area: main;
+
+}
+
+#main-page-background {
   background-image: linear-gradient(rgb(43, 64, 110), rgb(4, 6, 11) 150%);
+  position: fixed;
+  height:100%;
+  width:100%;
+  bottom:0px;
+  left:0px;
+  z-index: -10;
 }
 
 #main-page-grid-container {
@@ -37,7 +47,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: 150px auto;
-  grid-template-rows: 50px auto 70px;
+  grid-template-rows: 50px auto 90px;
   grid-template-areas:
   "sidebar header"
   "sidebar main"
