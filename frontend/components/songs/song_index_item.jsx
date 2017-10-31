@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import AddSongToPlaylist from '../playlists/add_song_to_playlist';
+import AddSongToPlaylistContainer from '../playlists/add_song_to_playlist_container';
 
 import Modal from 'react-modal';
 
@@ -31,6 +31,7 @@ class SongIndexItem extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
   }
   //Modal
   openModal() {
@@ -45,7 +46,12 @@ class SongIndexItem extends React.Component {
   }
   //
 
-
+  handleRemove(e) {
+    e.preventDefault();
+    debugger
+    const updatedPlaylist = delete this.props.playlist.song_ids[this.props.song.id];
+    this.props.editPlaylist(updatedPlaylist);
+  }
   render () {
 
     const Explicit = this.props.song.explicit ? 'Explicit' : '';
@@ -61,7 +67,7 @@ class SongIndexItem extends React.Component {
                 <i className='material-icons'>expand more</i>
               </button>
               <div id='song-index-item-button-dropdown-content'>
-                <button id='song-index-item-dropdown-remove'>Remove from this Playlist</button>
+                <button onClick={this.handleRemove} id='song-index-item-dropdown-remove'>Remove from this Playlist</button>
                 <button onClick={this.openModal} id='song-index-item-dropdown-remove'>Add to a Playlist</button>
 
                 <Modal isOpen={this.state.modalIsOpen}
@@ -74,8 +80,8 @@ class SongIndexItem extends React.Component {
                     <button id='add-song-modal-close-modal' onClick={this.closeModal}>
                       <i id='add-song-modal-close-modal-icon' className='material-icons'>clear</i>
                     </button>
-                    <AddSongToPlaylist currentUser={this.props.currentUser}
-                                 createPlaylist={this.props.createPlaylist}
+                    <AddSongToPlaylistContainer
+                                 songId={this.props.song.id}
                                  />
                   </div>
                 </Modal>

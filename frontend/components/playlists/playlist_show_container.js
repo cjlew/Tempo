@@ -3,7 +3,7 @@ import { fetchSongs } from '../../actions/song_actions';
 import {
   fetchPlaylists,
   fetchPlaylist,
-  updatePlaylist,
+  editPlaylist,
   deletePlaylist,
 } from '../../actions/playlist_actions';
 import PlaylistShow from './playlist_show';
@@ -32,7 +32,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchPlaylists: () => dispatch(fetchPlaylists()),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
-  updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
+  editPlaylist: (playlist) => dispatch(editPlaylist(playlist)),
   deletePlaylist: (id) => dispatch(deletePlaylist(id)),
   fetchSongs: () => dispatch(fetchSongs()),
 });

@@ -1,8 +1,10 @@
 import {connect} from 'react-redux';
 import {
+  createPlaylist,
   fetchPlaylists,
   fetchPlaylist,
-  updatePlaylist,
+  editPlaylist,
+  addSong,
 } from '../../actions/playlist_actions';
 import AddSongToPlaylist from './add_song_to_playlist';
 import { withRouter } from 'react-router-dom';
@@ -18,16 +20,19 @@ const mapStateToProps = (state, ownProps) => {
     currentUserPlaylists.push(state.entities.playlists[playlistId]));
 
   return {
-    song_id: ownProps.song_id,
-    currentUserPlaylists
+    songId: ownProps.songId,
+    currentUserPlaylists,
+    currentUser: state.session.currentUser,
   };
 
 };
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPlaylists: () => dispatch(fetchPlaylists()),
+  createPlaylist: () => dispatch(createPlaylist()),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
-  updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
+  editPlaylist: (playlist) => dispatch(editPlaylist(playlist)),
+  addSong: (playlistId, songId) => dispatch(addSong(playlistId, songId))
 });
 
 export default withRouter(connect(

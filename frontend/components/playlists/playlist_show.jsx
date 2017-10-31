@@ -3,8 +3,7 @@ import Modal from 'react-modal';
 import { withRouter, Link } from 'react-router-dom';
 import SongIndexItem from '../songs/song_index_item';
 import SongIndex from '../songs/song_index';
-import UpdatePlaylist from './update_playlist';
-import DeletePlaylist from './delete_playlist';
+
 
 
 export default class PlaylistShow extends React.Component{
@@ -40,7 +39,7 @@ export default class PlaylistShow extends React.Component{
           </div>
 
           <div id='playlist-show-container-right'>
-            <SongIndex songs={songs}/>
+            <SongIndex songs={songs} playlist={this.props.playlist} editPlaylist={this.props.editPlaylist}/>
           </div>
         </div>
 

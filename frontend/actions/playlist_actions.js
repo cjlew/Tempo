@@ -27,6 +27,16 @@ export const removePlaylist = (playlistId) => ({
   playlistId
 });
 
+export const removeSong = (playlistId, songId) => (dispatch) => (
+  APIUtil.removeSong(playlistId, songId)
+    .then((playlist) => (dispatch(receivePlaylist(playlist))))
+);
+
+export const addSong = (playlistId, songId) => (dispatch) => (
+  APIUtil.addSong(playlistId, songId)
+    .then((playlist) => (dispatch(receivePlaylist(playlist))))
+);
+
 export const deletePlaylist = (playlistId) => (dispatch) => (
   APIUtil.deletePlaylist(playlistId)
     .then((playlist) => (dispatch(removePlaylist(playlist.id))))

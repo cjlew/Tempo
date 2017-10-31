@@ -1,4 +1,3 @@
-# == Schema Information
 #
 # Table name: playlists
 #
@@ -27,9 +26,21 @@ class Playlist < ApplicationRecord
 
   has_many :playlist_song_memberships,
     foreign_key: :playlist_id,
-    class_name: 'PlaylistSongMembership'
+    class_name: 'PlaylistSongMembership',
+    dependent: :destroy
 
   has_many :songs,
     through: :playlist_song_memberships,
     source: :song
+
+  def add_song(song_id)
+    song_ord = self.playlist_song_memberships.last ?  self.playlist_song_memberships.last.playlist_ord + 1 : 1
+    PlaylistSongMembership.create!({playlist_id: self.id, song_id: song_id, playlist_ord: song_ord})
+  end
+
+  def remove_song(song_id)
+    self.playlist_song_memberships.find_by(song_id: song_id).delete
+  end
+
+
 end

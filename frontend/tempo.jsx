@@ -16,14 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
   // Test only
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    window.deletePlaylist = deletePlaylist;
-    window.createPlaylist = createPlaylist;
-    window.fetchPlaylist = fetchPlaylist;
-    window.fetchPlaylists = fetchPlaylists;
-    window.editPlaylist = editPlaylist;
-
   //
 
 

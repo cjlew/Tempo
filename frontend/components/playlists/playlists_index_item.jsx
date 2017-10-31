@@ -5,13 +5,21 @@ import ReactDOM from 'react-dom';
 class PlaylistIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    if (this.props.addSong) {
+      this.props.addSong(this.props.playlist.id, this.props.songId);
+    }
+
   }
 
   render() {
     return(
 
     <li id='playlist-index-list-item'>
-      <Link to={`/playlists/${this.props.playlist.id}`}>
+      <Link onClick={this.handleClick} to={`/playlists/${this.props.playlist.id}`}>
 
         <div id='playlist-index-item-img-cont'>
           <div id='playlist-index-item-music-note'>
