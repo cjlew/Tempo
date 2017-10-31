@@ -48,9 +48,7 @@ class SongIndexItem extends React.Component {
 
   handleRemove(e) {
     e.preventDefault();
-    debugger
-    const updatedPlaylist = delete this.props.playlist.song_ids[this.props.song.id];
-    this.props.editPlaylist(updatedPlaylist);
+    this.props.removeSong(this.props.playlist.id, this.props.song.id);
   }
   render () {
 

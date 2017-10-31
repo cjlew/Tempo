@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderContainer from '../header/header_container';
 import SidebarContainer from '../sidebar/sidebar_container';
 import MainContentContainer from './main_content_container';
+import MediaPlayerContainer from '../media_player/media_player_container';
 
 import {
   withRouter,
@@ -44,7 +45,9 @@ class Main extends React.Component {
           <SidebarContainer />
         </div>
 
-        <div id='main-page-mediaplayer-grid-container'></div>
+        <div id='main-page-mediaplayer-grid-container'>
+          <MediaPlayerContainer />
+        </div>
       </div>
 
     );
