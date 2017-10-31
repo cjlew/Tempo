@@ -2,16 +2,29 @@
 #main-page-header-grid-container {
   grid-area: header;
   background-color: rgb(43, 64, 110);
+
 }
+
+
 
 #main-page-sidebar-grid-container {
   grid-area: sidebar;
   background-color: #121b2e;
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 150px;
+
+
 }
 
 #main-page-mediaplayer-grid-container {
   grid-area: mediaplayer;
   background-color: #282828;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+
 }
 
 #main-page-main-content-grid-container {

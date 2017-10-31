@@ -8,7 +8,7 @@ class MediaPlayer extends React.Component {
 
     this.state = {
       loaded: false,
-      playing: true,
+      playing: false,
       loop: false,
       mute: false,
       volume: 1.0
