@@ -6,12 +6,30 @@ export default class Header extends React.Component {
   render() {
     return(
       <div id='sidebar-container'>
-        <Link to='/'><img id='sidebar-logo' src={window.logo}/></Link>
-        <div id='sidebar-toggle-container'></div>
+        <div id='sidebar-top'>
+          <Link to='/'><img id='sidebar-logo' src={window.logo}/></Link>
+          <div className='sidebar-divider'></div>
+
+          <nav id='sidebar-nav'>
+            <ul>
+              <li><Link className='sidebar-nav-links' to='/'>Home</Link></li>
+              <li><Link className='sidebar-nav-links' to='/'>Your Music</Link></li>
+            </ul>
+          </nav>
+
+          <div className='sidebar-divider'></div>
+        </div>
+
         <div id='sort-by-button-container'></div>
-        <div id='friend-playlist-container'></div>
-        <img id='sidebar-profile-picture'
-             src={this.props.currentUser.profile_picture}/>
+        <div id='sidebar-bottom'>
+          <div className='sidebar-divider'></div>
+
+          <div id='sidebar-pic-username'>
+            <img id='sidebar-profile-picture'
+               src={this.props.currentUser.profile_picture}/>
+             <p id='sidebar-username'>{this.props.currentUser.username}</p>
+          </div>
+        </div>
       </div>
     );
   }

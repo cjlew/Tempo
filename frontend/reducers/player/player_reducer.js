@@ -9,6 +9,7 @@ const defaultState = {
   ord: -1
 };
 
+
 const playerReducer = (state = defaultState, action) => {
 
   let newQueue;
@@ -19,19 +20,33 @@ const playerReducer = (state = defaultState, action) => {
     case PLAY_NEXT_SONG:
       newOrd = state.ord + 1;
       currentSongId = state.queueSongIds[newOrd];
-      return Object.assign({}, state, { ord:newOrd, currentSongId});
+      if (currentSongId) {
+        return Object.assign({}, state, { ord:newOrd, currentSongId});
+      } else {
+        newOrd = 0;
+        currentSongId = state.queueSongIds[newOrd];
+        return Object.assign({}, state, { ord:newOrd, currentSongId});
+      }
+
     case PLAY_PREVIOUS_SONG:
       newOrd = state.ord - 1;
       currentSongId = state.queueSongIds[newOrd];
-      return Object.assign({}, state, { ord:newOrd, currentSongId});
+      if (currentSongId) {
+        return Object.assign({}, state, { ord:newOrd, currentSongId});
+      } else {
+        newOrd = 0;
+        currentSongId = state.queueSongIds[newOrd];
+        return Object.assign({}, state, { ord:newOrd, currentSongId});
+      }
+
     case TOGGLE_PLAY:
       return Object.assign({}, state, { playing: !state.playing });
+
     case PLAY:
       return Object.assign({}, state, { playing: true });
 
     case PAUSE:
       return Object.assign({}, state, { playing: false });
-
 
     case PLAY_SONG_NOW:
 

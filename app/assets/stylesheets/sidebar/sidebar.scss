@@ -1,7 +1,65 @@
 #sidebar-container{
   display:flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   margin-top: 20px;
+
+  position:relative;
+  height: calc(100% - 150px);
+}
+
+#sidebar-top {
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#sidebar-bottom{
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#sidebar-pic-username{
+  display:flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%
+}
+
+#sidebar-profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin-right: 5px;
+}
+#sidebar-username{
+  font-size: 15px;
+  color: #828282;
+}
+
+#sidebar-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 25px;
+}
+
+.sidebar-divider{
+  border-top: 1px solid;
+  border-color: hsla(0,0%,100%,.25);
+  width: 80%;
+  height: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar-nav-links{
+  color: #828282;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#sidebar-nav ul li{
+  margin-bottom: 10px;
 }

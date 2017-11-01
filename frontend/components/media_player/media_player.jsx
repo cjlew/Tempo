@@ -12,9 +12,9 @@ class MediaPlayer extends React.Component {
       playing: this.props.playing,
       loop: false,
       mute: false,
-      volume: .5
+      volume: .5,
+      currentSong: this.props.currentSong
     };
-    console.log(this.state.playing);
 
     this.handleToggle = this.handleToggle.bind(this);
     this.handleOnLoad = this.handleOnLoad.bind(this);
@@ -26,6 +26,7 @@ class MediaPlayer extends React.Component {
     this.handleMuteToggle = this.handleMuteToggle.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
     this.handleNext = this.handleNext.bind(this);
+    this.currentSong = this.currentSong.bind(this);
     }
 
 
@@ -74,6 +75,10 @@ class MediaPlayer extends React.Component {
     this.props.nextSong();
   }
 
+  currentSong() {
+    return this.props.currentSong;
+  }
+
   handleStop () {
     this.player.stop();
     this.setState({
@@ -107,6 +112,18 @@ class MediaPlayer extends React.Component {
   clearRAF () {
     raf.cancel(this._raf);
   }
+  // progress bar that no longer works
+  // {  (this.state.seek !== undefined) ? this.state.seek : '0'}
+  //
+  //    <input
+  //      type='range'
+  //      min='0.00'
+  //      max={this.state.duration}
+  //      step='.05'
+  //      value={this.state.seek}
+  //    />
+  //
+  //  {(this.state.duration) ? this.state.duration : 'NaN'}
 
 
   render() {
@@ -127,7 +144,7 @@ class MediaPlayer extends React.Component {
       <div id='media-player'>
         {Howl}
         <div id='media-player-song-info'>
-
+          {this.currentSong.title}
         </div>
 
         <div id='media-player-center'>
@@ -167,7 +184,7 @@ class MediaPlayer extends React.Component {
           <div id='media-player-status bar'>
             <p>
 
-          
+
             </p>
           </div>
         </div>

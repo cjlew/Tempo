@@ -11,6 +11,7 @@ export default class PlaylistShow extends React.Component{
   constructor(props){
     super(props);
     this.handleRemove = this.handleRemove.bind(this);
+    this.handleQueue = this.handleQueue.bind(this);
   }
 
   componentWillMount(){
@@ -23,6 +24,11 @@ export default class PlaylistShow extends React.Component{
     this.props.deletePlaylist(this.props.match.params.playlistId).then(()=> this.props.history.push(`/`));
   }
 
+  handleQueue(e) {
+    e.preventDefault();
+    this.props.queueSong(this.props.playlist.song_ids);
+  }
+
   render(){
     const songs = this.props.songs;
 
@@ -31,7 +37,7 @@ export default class PlaylistShow extends React.Component{
         <div id='playlist-show-container'>
           <div id='playlist-show-background'></div>
           <div id='playlist-show-container-left'>
-            <img id='playlist-show-image'/>
+            <img id='playlist-show-image' onClick={this.handleQueue}/>
             <p id='playlist-show-title'>{this.props.playlist.title}</p>
             <p id='playlist-show-creator'>By {this.props.playlist.creator_username}</p>
             <p id='playlist-show-song-count'>{this.props.songs.length} {this.props.songs.length === 1 ? 'SONG' : 'SONGS' }</p>
