@@ -8,8 +8,6 @@ export const receiveSongs= (songs) => ({
   songs
 });
 
-
-
 export const fetchSongs = () => (dispatch) => (
   APIUtil.fetchSongs()
     .then((songs) => (dispatch(receiveSongs(songs))))
