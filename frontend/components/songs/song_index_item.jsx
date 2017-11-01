@@ -32,6 +32,8 @@ class SongIndexItem extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.handleQueue = this.handleQueue.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
   }
   //Modal
   openModal() {
@@ -46,6 +48,16 @@ class SongIndexItem extends React.Component {
   }
   //
 
+  handleQueue(e) {
+    e.preventDefault();
+    this.props.queueSong(this.props.song.id);
+  }
+
+  handlePlay(e) {
+    e.preventDefault();
+    this.props.playSong(this.props.song.id);
+  }
+
   handleRemove(e) {
     e.preventDefault();
     this.props.removeSong(this.props.playlist.id, this.props.song.id);
@@ -54,7 +66,7 @@ class SongIndexItem extends React.Component {
 
     const Explicit = this.props.song.explicit ? 'Explicit' : '';
     return(
-      <li id='song-index-item-container'>
+      <li id='song-index-item-container' onDoubleClick={this.handlePlay}>
           <div id='song-index-item-info-left'>
             <p id='song-index-item-title'>{this.props.song.title}</p>
             <p id='song-index-item-artist-album'>{this.props.song.artist_name} - {this.props.song.album_name}</p>
@@ -66,6 +78,7 @@ class SongIndexItem extends React.Component {
               </button>
               <div id='song-index-item-button-dropdown-content'>
                 <button onClick={this.handleRemove} id='song-index-item-dropdown-remove'>Remove from this Playlist</button>
+                <button onClick={this.handleQueue} id='song-index-item-dropdown-queue'>Queue Song</button>
                 <button onClick={this.openModal} id='song-index-item-dropdown-remove'>Add to a Playlist</button>
 
                 <Modal isOpen={this.state.modalIsOpen}
@@ -87,7 +100,7 @@ class SongIndexItem extends React.Component {
               </div>
             </div>
             <p id='song-index-item-explicit'>{Explicit}</p>
-            <p id='song-index-item-duration'>{this.props.song.url.duration()}</p>
+            <p id='song-index-item-duration'>''</p>
           </div>
 
       </li>

@@ -40,7 +40,11 @@ export default class PlaylistShow extends React.Component{
           </div>
 
           <div id='playlist-show-container-right'>
-            <SongIndex songs={songs} playlist={this.props.playlist} removeSong={this.props.removeSong}/>
+            <SongIndex songs={songs}
+                       playlist={this.props.playlist}
+                       playSong={this.props.playSong}
+                       removeSong={this.props.removeSong}
+                       queueSong={this.props.queueSong}/>
           </div>
         </div>
 
