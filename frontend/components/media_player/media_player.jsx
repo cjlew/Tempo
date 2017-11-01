@@ -2,18 +2,18 @@ import React from 'react';
 import ReactHowler from 'react-howler';
 import raf from 'raf';
 import { Link, withRouter } from 'react-router-dom';
+import FontAwesome from 'react-fontawesome';
+import secToMin from 'sec-to-min';
 
 class MediaPlayer extends React.Component {
   constructor(props){
     super(props);
-
     this.state = {
       loaded: false,
       playing: this.props.playing,
       loop: false,
       mute: false,
       volume: .5,
-      currentSong: this.props.currentSong
     };
 
     this.handleToggle = this.handleToggle.bind(this);
@@ -26,7 +26,6 @@ class MediaPlayer extends React.Component {
     this.handleMuteToggle = this.handleMuteToggle.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
     this.handleNext = this.handleNext.bind(this);
-    this.currentSong = this.currentSong.bind(this);
     }
 
 
@@ -75,9 +74,7 @@ class MediaPlayer extends React.Component {
     this.props.nextSong();
   }
 
-  currentSong() {
-    return this.props.currentSong;
-  }
+
 
   handleStop () {
     this.player.stop();
@@ -112,21 +109,18 @@ class MediaPlayer extends React.Component {
   clearRAF () {
     raf.cancel(this._raf);
   }
-  // progress bar that no longer works
-  // {  (this.state.seek !== undefined) ? this.state.seek : '0'}
-  //
-  //    <input
-  //      type='range'
-  //      min='0.00'
-  //      max={this.state.duration}
-  //      step='.05'
-  //      value={this.state.seek}
-  //    />
-  //
-  //  {(this.state.duration) ? this.state.duration : 'NaN'}
 
 
   render() {
+    const SongInfo = this.props.currentSong ?
+
+      <div id='mp-song-info'>
+        <p id='mp-song-title'>{this.props.currentSong.title}</p>
+        <p id='mp-artist-name'>{this.props.currentSong.artist_name}</p>
+      </div>
+      : <p></p>;
+
+
     const Howl = this.props.currentSong ?
         <ReactHowler
         src={`${this.props.currentSong.song_url}`}
@@ -137,6 +131,7 @@ class MediaPlayer extends React.Component {
         loop={this.state.loop}
         mute={this.state.mute}
         volume={this.state.volume}
+        currentSong={this.state.currentSong}
         ref={(ref) => (this.player = ref)}
       /> : '';
 
@@ -144,21 +139,13 @@ class MediaPlayer extends React.Component {
       <div id='media-player'>
         {Howl}
         <div id='media-player-song-info'>
-          {this.currentSong.title}
+          {SongInfo}
         </div>
 
         <div id='media-player-center'>
           <div id='media-player-options-container'>
 
-            <label>
-             Loop:
-             <input
-               id='media-player-loop'
-               type='checkbox'
-               checked={this.state.loop}
-               onChange={this.handleLoopToggle}
-             />
-           </label>
+           <FontAwesome id='media-player-shuffle' name="random" aria-hidden='true'/>
 
            <button onClick={this.handlePrev} id='media-player-previous-song' className='next-prev'>
              <i className="material-icons">skip_previous</i>
@@ -176,16 +163,23 @@ class MediaPlayer extends React.Component {
              <i className="material-icons">skip_next</i>
            </button>
 
-           <button onClick={this.handleStop}>
-             Stop
-           </button>
+           <FontAwesome id='media-player-loop' name='repeat'/>
 
           </div>
-          <div id='media-player-status bar'>
-            <p>
+          <div id='media-player-status-bar'>
 
+              <p className='mp-time'>{  (this.state.seek !== undefined) ? secToMin(parseInt(this.state.seek)) : ''}</p>
 
-            </p>
+                 <input
+                   type='range'
+                   min='0.00'
+                   max={this.state.duration}
+                   step='.05'
+                   value={this.state.seek}
+                   onChange={e => this.setState({seek: parseFloat(e.target.value)})}
+                 />
+
+               <p className='mp-time'>{(this.state.duration) ? secToMin(parseInt(this.state.duration)) : ''}</p>
           </div>
         </div>
 
