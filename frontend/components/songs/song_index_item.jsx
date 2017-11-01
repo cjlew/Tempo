@@ -55,6 +55,7 @@ class SongIndexItem extends React.Component {
 
   handlePlay(e) {
     e.preventDefault();
+    this.props.pausePlayer();
     this.props.playSong(this.props.song.id);
   }
 

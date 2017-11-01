@@ -1,19 +1,38 @@
-import { RECEIVE_QUEUE, PLAY_SONG_NOW } from '../../actions/player_actions';
+import { RECEIVE_QUEUE, PLAY_SONG_NOW, PLAY, PAUSE,
+         TOGGLE_PLAY, PLAY_NEXT_SONG, PLAY_PREVIOUS_SONG } from '../../actions/player_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
   currentSongId : null,
   queueSongIds: [],
-  paused: false,
+  playing: false,
   ord: -1
 };
 
 const playerReducer = (state = defaultState, action) => {
+
   let newQueue;
   let newOrd;
   let currentSongId;
   Object.freeze(state);
   switch(action.type){
+    case PLAY_NEXT_SONG:
+      newOrd = state.ord + 1;
+      currentSongId = state.queueSongIds[newOrd];
+      return Object.assign({}, state, { ord:newOrd, currentSongId});
+    case PLAY_PREVIOUS_SONG:
+      newOrd = state.ord - 1;
+      currentSongId = state.queueSongIds[newOrd];
+      return Object.assign({}, state, { ord:newOrd, currentSongId});
+    case TOGGLE_PLAY:
+      return Object.assign({}, state, { playing: !state.playing });
+    case PLAY:
+      return Object.assign({}, state, { playing: true });
+
+    case PAUSE:
+      return Object.assign({}, state, { playing: false });
+
+
     case PLAY_SONG_NOW:
 
       newQueue=state.queueSongIds;

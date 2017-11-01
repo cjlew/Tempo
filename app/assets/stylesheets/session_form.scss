@@ -24,15 +24,17 @@
   text-align: center;
 }
 
-input {
-  padding-left: 10px;
-  outline: none;
 
-}
 
 .login-input {
   width: 300px;
   height: 40px;
+  padding-left: 10px;
+  outline: none;
+  font-size: 20px;
+  border-style: solid;
+  border-color: #828282;
+  border-width: 1px;
 }
 
 #session-form-welcome{

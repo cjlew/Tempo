@@ -6,6 +6,7 @@ import SongIndex from '../songs/song_index';
 
 
 
+
 export default class PlaylistShow extends React.Component{
   constructor(props){
     super(props);
@@ -41,6 +42,7 @@ export default class PlaylistShow extends React.Component{
 
           <div id='playlist-show-container-right'>
             <SongIndex songs={songs}
+                       pausePlayer={this.props.pausePlayer}
                        playlist={this.props.playlist}
                        playSong={this.props.playSong}
                        removeSong={this.props.removeSong}

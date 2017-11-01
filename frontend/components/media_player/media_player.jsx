@@ -9,11 +9,12 @@ class MediaPlayer extends React.Component {
 
     this.state = {
       loaded: false,
-      playing: false,
+      playing: this.props.playing,
       loop: false,
       mute: false,
-      volume: 1.0
+      volume: .5
     };
+    console.log(this.state.playing);
 
     this.handleToggle = this.handleToggle.bind(this);
     this.handleOnLoad = this.handleOnLoad.bind(this);
@@ -23,24 +24,39 @@ class MediaPlayer extends React.Component {
     this.renderSeekPos = this.renderSeekPos.bind(this);
     this.handleLoopToggle = this.handleLoopToggle.bind(this);
     this.handleMuteToggle = this.handleMuteToggle.bind(this);
-  }
+    this.handlePrev = this.handlePrev.bind(this);
+    this.handleNext = this.handleNext.bind(this);
+    }
 
 
   componentWillUnmount () {
     this.clearRAF();
   }
 
+  handlePrev () {
+    this.props.pausePlayer();
+    this.props.prevSong();
+  }
+
+  handleNext () {
+    this.props.pausePlayer();
+    this.props.nextSong();
+  }
+
   handleToggle() {
     this.setState({
       playing: !this.state.playing
     });
+    this.props.togglePlayer();
   }
 
   handleOnLoad() {
     this.setState({
       loaded: true,
-      duration: this.player.duration()
+      duration: this.player.duration(),
+      playing: true
     });
+    this.props.playPlayer();
   }
 
   handleOnPlay() {
@@ -55,6 +71,7 @@ class MediaPlayer extends React.Component {
       playing: false
     });
     this.clearRAF();
+    this.props.nextSong();
   }
 
   handleStop () {
@@ -93,21 +110,24 @@ class MediaPlayer extends React.Component {
 
 
   render() {
+    const Howl = this.props.currentSong ?
+        <ReactHowler
+        src={`${this.props.currentSong.song_url}`}
+        playing={this.state.playing}
+        onLoad={this.handleOnLoad}
+        onPlay={this.handleOnPlay}
+        onEnd={this.handleOnEnd}
+        loop={this.state.loop}
+        mute={this.state.mute}
+        volume={this.state.volume}
+        ref={(ref) => (this.player = ref)}
+      /> : '';
 
     return (
       <div id='media-player'>
+        {Howl}
         <div id='media-player-song-info'>
-          <ReactHowler
-              src={'http://s3-us-east-2.amazonaws.com/tempo-chris-dev/songs/audios/000/000/088/original/16_Mortal_Man.mp3?1509405823'}
-              playing={this.state.playing}
-              onLoad={this.handleOnLoad}
-              onPlay={this.handleOnPlay}
-              onEnd={this.handleOnEnd}
-              loop={this.state.loop}
-              mute={this.state.mute}
-              volume={this.state.volume}
-              ref={(ref) => (this.player = ref)}
-            />
+
         </div>
 
         <div id='media-player-center'>
@@ -123,7 +143,7 @@ class MediaPlayer extends React.Component {
              />
            </label>
 
-           <button id='media-player-previous-song' className='next-prev'>
+           <button onClick={this.handlePrev} id='media-player-previous-song' className='next-prev'>
              <i className="material-icons">skip_previous</i>
            </button>
 
@@ -135,7 +155,7 @@ class MediaPlayer extends React.Component {
              </button>
            </div>
 
-           <button id='media-player-next-song' className='next-prev'>
+           <button onClick={this.handleNext} id='media-player-next-song' className='next-prev'>
              <i className="material-icons">skip_next</i>
            </button>
 
@@ -147,17 +167,7 @@ class MediaPlayer extends React.Component {
           <div id='media-player-status bar'>
             <p>
 
-               {(this.state.seek !== undefined) ? this.state.seek.toFixed(2) : '0.00'}
-
-               <input
-                 type='range'
-                 min='0.00'
-                 max={this.state.duration}
-                 step='.05'
-                 value={this.state.seek}
-               />
-
-               {(this.state.duration) ? this.state.duration.toFixed(2) : 'NaN'}
+          
             </p>
           </div>
         </div>

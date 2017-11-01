@@ -10,9 +10,9 @@ const Splash = ({ logout }) => {
               <Link id='splash-header-link' to="/" className="splash-header-link">
                 <h1>Tempo</h1>
               </Link>
-              <Link id='login-button' to='/login'>Login</Link>
+              <Link id='login-button' to='/login'>LOGIN</Link>
               <div id='splash-border-line-top'></div>
-              <Link id='signup-button' to='/signup'>Sign Up</Link>
+              <Link id='signup-button' to='/signup'>SIGN UP</Link>
 
 
             </div>
