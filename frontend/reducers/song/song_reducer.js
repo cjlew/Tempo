@@ -1,4 +1,5 @@
-import { RECEIVE_SONGS} from '../../actions/song_actions';
+import { RECEIVE_SONGS } from '../../actions/song_actions';
+import { RECEIVE_SEARCH_SONGS } from '../../actions/search_actions';
 import merge from 'lodash/merge';
 
 const songReducer = (state = {}, action) => {
@@ -6,6 +7,8 @@ const songReducer = (state = {}, action) => {
   switch(action.type){
     case RECEIVE_SONGS:
       return Object.assign({}, state, action.songs);
+    case RECEIVE_SEARCH_SONGS:
+      return Object.assign({}, action.songs);
     default:
       return state;
   }
