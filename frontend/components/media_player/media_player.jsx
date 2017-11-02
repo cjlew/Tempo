@@ -112,6 +112,17 @@ class MediaPlayer extends React.Component {
 
 
   render() {
+    const ProgressBar = this.props.currentSong ?
+      <input
+        type='range'
+        min='0.00'
+        max={this.state.duration}
+        step='.05'
+        value={this.state.seek}
+        onChange={e => this.setState({seek: parseFloat(e.target.value)})}
+      /> : '' ;
+
+
     const SongInfo = this.props.currentSong ?
 
       <div id='mp-song-info'>
@@ -173,14 +184,7 @@ class MediaPlayer extends React.Component {
 
               <p className='mp-time'>{  (this.state.seek !== undefined) ? secToMin(parseInt(this.state.seek)) : ''}</p>
 
-                 <input
-                   type='range'
-                   min='0.00'
-                   max={this.state.duration}
-                   step='.05'
-                   value={this.state.seek}
-                   onChange={e => this.setState({seek: parseFloat(e.target.value)})}
-                 />
+                {ProgressBar}
 
                <p className='mp-time'>{(this.state.duration) ? secToMin(parseInt(this.state.duration)) : ''}</p>
           </div>
