@@ -12,3 +12,17 @@ export const fetchUsers = () => (
     url: 'api/users'
   })
 );
+
+export const addFriend = (friendId) => (
+  $.ajax({
+    method: 'POST',
+    url: `api/users/${friendId}/add_friend`
+  })
+);
+
+export const removeFriend = (friendId) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/users/${friendId}/remove_friend`
+  })
+);

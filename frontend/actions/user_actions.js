@@ -11,3 +11,13 @@ export const fetchUser = (userId) => (dispatch) => (
   APIUtil.fetchUser(userId)
     .then((user) => dispatch(receiveUser(user)))
 );
+
+export const addFriend = (friendId) => (dispatch) => (
+  APIUtil.addFriend(friendId)
+    .then((user) => dispatch(receiveUser(user)))
+);
+
+export const removeFriend = (friendId) => (dispatch) => (
+  APIUtil.removeFriend(friendId)
+    .then((user) => dispatch(receiveUser(user)))
+);

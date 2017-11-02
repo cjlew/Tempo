@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Profile from './profile';
 import {withRouter} from 'react-router-dom';
-import { fetchUser } from '../../actions/user_actions';
+import { fetchUser, removeFriend, addFriend } from '../../actions/user_actions';
 import { fetchPlaylists } from '../../actions/playlist_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,9 +18,6 @@ const mapStateToProps = (state, ownProps) => {
       }
     });
   }
-
-
-
   return({
     currentUser: state.session.currentUser,
     user,
@@ -29,6 +26,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
+  addFriend: (friendId) => dispatch(addFriend(friendId)),
+  removeFriend: (friendId) => dispatch(removeFriend(friendId)),
   fetchUser: (userId) => dispatch(fetchUser(userId)),
   fetchPlaylists: () => dispatch(fetchPlaylists()),
 });

@@ -7,6 +7,24 @@
   align-items: center;
 }
 
+#profile-follow-unfollow:hover {
+  filter:brightness(150%);
+}
+
+#profile-follow-unfollow {
+  height: 30px;
+  width: 150px;
+  border-radius: 30px;
+  font-size: 15px;
+  background-color: #1DB954;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-align: center;
+  line-height: 20px;
+  border: none;
+  outline: none;
+}
+
 #profile-page-picture {
   width: 150px;
   height: 150px;
@@ -24,7 +42,7 @@
   color: #ffffff;
   font-size: 25px;
   margin-bottom: 20px;
-
+  margin-top: 20px;
 }
 
 #profile-index-items {

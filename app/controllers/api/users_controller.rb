@@ -19,14 +19,16 @@ class Api::UsersController < ApplicationController
   end
 
   def add_friend
-    @friend = User.find(params[:user_id])
-    current_user.add_friend(@friend.id)
+    friend = User.find(params[:user_id])
+    current_user.add_friend(friend.id)
+    @user = current_user
     render :show
   end
 
   def remove_friend
-    @friend = User.find(params[:user_id])
-    current_user.remove_friend(@friend.id)
+    friend = User.find(params[:user_id])
+    current_user.remove_friend(friend.id)
+    @user= current_user
     render :show
   end
 
