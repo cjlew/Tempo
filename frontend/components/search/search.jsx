@@ -11,6 +11,7 @@ export default class Search extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchSongs();
   }
 
   update(field) {

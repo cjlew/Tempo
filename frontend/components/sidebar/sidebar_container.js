@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Sidebar from './sidebar';
 import { fetchPlaylists } from '../../actions/session_actions';
-import { clearSongState } from '../../actions/search_actions';
+import { clearSearch } from '../../actions/search_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, { location }) => {
 return {
-  clearSongState: () => dispatch(clearSongState()),
+  clearSearch: () => dispatch(clearSearch()),
   fetchPlaylists: (playlists) => dispatch(fetchPlaylists(playlists))
 };
 };
