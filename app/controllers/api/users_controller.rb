@@ -18,6 +18,18 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def add_friend
+    @friend = User.find(params[:user_id])
+    current_user.add_friend(@friend.id)
+    render :show
+  end
+
+  def remove_friend
+    @friend = User.find(params[:user_id])
+    current_user.remove_friend(@friend.id)
+    render :show
+  end
+
   def user_params
     params.require(:user).permit(:username, :password, :email, :profile_picture)
   end

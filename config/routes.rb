@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :index]
     resource :sessions, only: [:create, :destroy]
     resources :searches, only: [:index]
+
     post 'playlists/:playlist_id/add_song/:song_id', to: 'playlists#add_song'
     delete 'playlists/:playlist_id/remove_song/:song_id', to: 'playlists#remove_song'
+
+    post 'users/:user_id/add_friend', to: 'users#add_friend'
+    delete 'users/:user_id/remove_friend', to: 'users#remove_friend'  
   end
 end

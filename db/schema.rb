@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171029182207) do
+ActiveRecord::Schema.define(version: 20171102180409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20171029182207) do
     t.string "artwork_content_type"
     t.integer "artwork_file_size"
     t.datetime "artwork_updated_at"
+    t.string "genre"
     t.index ["artist_id"], name: "index_albums_on_artist_id"
   end
 
@@ -36,6 +37,15 @@ ActiveRecord::Schema.define(version: 20171029182207) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "friend_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "playlist_song_memberships", force: :cascade do |t|

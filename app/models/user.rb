@@ -29,9 +29,26 @@ class User < ApplicationRecord
     class_name: 'Playlist',
     dependent: :destroy
 
+  has_and_belongs_to_many :friends,
+    class_name: 'User',
+    foreign_key: :user_id,
+    association_foreign_key: :friend_id
+
+  has_many :friendships,
+    class_name:'Frienships',
+    foreign_key: :user_id
+
   attr_reader :password
 
   after_initialize :ensure_session_token
+
+  def add_friend(friend_id)
+    Friendship.create!(user_id: self.id, friend_id: friend_id)
+  end
+
+  def remove_friend(friend_id)
+    self.friendships.find_by(friend_id: friend_id).delete
+  end
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
