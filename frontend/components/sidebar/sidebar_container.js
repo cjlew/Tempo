@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Sidebar from './sidebar';
 import { fetchPlaylists } from '../../actions/session_actions';
+import { clearSongState } from '../../actions/search_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -9,7 +10,10 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch, { location }) => {
-return {fetchPlaylists: (playlists) => dispatch(fetchPlaylists(playlists))};
+return {
+  clearSongState: () => dispatch(clearSongState()),
+  fetchPlaylists: (playlists) => dispatch(fetchPlaylists(playlists))
+};
 };
 
 export default connect(

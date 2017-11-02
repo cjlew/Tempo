@@ -32,7 +32,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  pausePlayer: () => dispatch(pausePlayer),
+  pausePlayer: () => dispatch(pausePlayer()),
   playSong: (songId) => dispatch(playSong(songId)),
   queueSong: (songId) => dispatch(queueSong(songId)),
   removeSong: (playlistId, songId) => dispatch(removeSong(playlistId, songId)),

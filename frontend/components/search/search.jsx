@@ -22,6 +22,11 @@ export default class Search extends React.Component {
   }
 
   render() {
+    const SearchSongIndex = this.props.songs.length ?
+          <SongIndex songs={this.props.songs}
+               pausePlayer={this.props.pausePlayer}
+               playSong={this.props.playSong}
+               queueSong={this.props.queueSong}/>: '';
 
     return(
       <div id='search-container'>
@@ -34,6 +39,10 @@ export default class Search extends React.Component {
             value={this.state.search}
             onChange={this.update('search')}
             className='header-search-bar'/>
+        </div>
+
+        <div id='search-results-container'>
+          {SearchSongIndex}
         </div>
     </div>
     );

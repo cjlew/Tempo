@@ -2,7 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
 
-export default class Header extends React.Component {
+export default class Sidebar extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  handleSearch(e) {
+    this.props.clearSongState();
+  }
 
   render() {
     return(
@@ -19,7 +27,7 @@ export default class Header extends React.Component {
           </nav>
 
           <div className='sidebar-divider'></div>
-            <Link to='/search' id='sidebar-search-link'>
+            <Link onClick={this.handleSearch} to='/search' id='sidebar-search-link'>
               <p className='sidebar-nav-links'>Search</p>
               <FontAwesome className='sidebar-nav-links' name='search'></FontAwesome>
             </Link>
