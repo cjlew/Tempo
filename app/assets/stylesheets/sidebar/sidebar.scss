@@ -50,6 +50,11 @@
   border-radius: 25px;
 }
 
+#sidebar-logo:hover{
+  filter:brightness(120%);
+
+}
+
 .sidebar-divider{
   border-top: 1px solid;
   border-color: hsla(0,0%,100%,.25);
@@ -58,7 +63,13 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+#sidebar-search-link:hover > *{
+  filter:brightness(150%);
 
+}
+.sidebar-nav-links:hover {
+  filter:brightness(150%);
+}
 .sidebar-nav-links{
   color: #828282;
   font-size: 16px;

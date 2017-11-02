@@ -61,7 +61,9 @@
    border: none;
    outline: none;
  }
-
+ #new-playlist-submit:hover {
+   filter:brightness(150%);
+ }
 
  #new-playlist-title-input {
    margin: auto;

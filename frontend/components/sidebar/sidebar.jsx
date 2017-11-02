@@ -40,9 +40,11 @@ export default class Sidebar extends React.Component {
           <div className='sidebar-divider'></div>
 
           <div id='sidebar-pic-username'>
-            <img id='sidebar-profile-picture'
+            <Link to={`/users/${this.props.currentUser.id}`}>
+              <img id='sidebar-profile-picture'
                src={this.props.currentUser.profile_picture}/>
-             <p id='sidebar-username'>{this.props.currentUser.username}</p>
+             </Link>
+             <Link to={`/users/${this.props.currentUser.id}`} id='sidebar-username'>{this.props.currentUser.username}</Link>
           </div>
         </div>
       </div>

@@ -17,7 +17,9 @@
 #playlist-index-header-invis {
   width: 150px;
 }
-
+#playlists-index-new-playlist-button:hover {
+  filter:brightness(150%);
+}
 #playlists-index-new-playlist-button {
     height: 30px;
     width: 150px;
