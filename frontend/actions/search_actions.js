@@ -1,11 +1,11 @@
 import * as APIUtil from '../util/search_api_util';
 
 export const RECEIVE_SEARCH_SONGS = 'RECEIVE_SEARCH_SONGS';
-export const CLEAR_SONGS = 'CLEAR_SONGS';
+export const CLEAR_SEARCH = 'CLEAR_SEARCH';
 
 
-export const clearSongs = () => ({
-  type: CLEAR_SONGS,
+export const clearSearchSongs = () => ({
+  type: CLEAR_SEARCH,
 });
 
 export const receiveSearchSongs= (songs) => ({
@@ -13,8 +13,8 @@ export const receiveSearchSongs= (songs) => ({
   songs
 });
 
-export const clearSongState = () => (dispatch) => (
-  dispatch(clearSongs())
+export const clearSearch = () => (dispatch) => (
+  dispatch(clearSearchSongs())
 );
 
 export const search = (query) => (dispatch) => (

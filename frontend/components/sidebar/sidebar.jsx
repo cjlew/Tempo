@@ -9,7 +9,7 @@ export default class Sidebar extends React.Component {
   }
 
   handleSearch(e) {
-    this.props.clearSongState();
+    this.props.clearSearch();
   }
 
   render() {
