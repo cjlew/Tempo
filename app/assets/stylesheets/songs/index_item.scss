@@ -4,6 +4,10 @@
   padding: 10px 10px;
 }
 
+#song-index-item-container * {
+  cursor: pointer;
+}
+
 
 #song-index-item-container:hover {
   background-color: rgba(25, 20, 20, .3);
@@ -45,8 +49,6 @@
 // button
 #song-index-item-button-container{
   position: relative;
-  
-
 }
 
 #song-index-item-container:hover #song-index-item-button{
@@ -86,9 +88,16 @@
   color: #191414;
 
 }
+#song-index-item-button-dropdown-content > * {
+  width: 100%
+}
 
 #song-index-item-button-container:hover #song-index-item-button-dropdown-content {
-  display:block
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
 }
 #song-index-item-button-container:hover #song-index-item-button {
   background-color: #191414;

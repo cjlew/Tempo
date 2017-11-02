@@ -101,7 +101,7 @@ class SongIndexItem extends React.Component {
               </div>
             </div>
             <p id='song-index-item-explicit'>{Explicit}</p>
-            <p id='song-index-item-duration'>''</p>
+            <p id='song-index-item-duration'></p>
           </div>
 
       </li>
