@@ -1,8 +1,14 @@
 import * as APIUtil from '../util/search_api_util';
-import { receiveSongs } from './song_actions';
 
+export const RECEIVE_SEARCH_SONGS = 'RECEIVE_SEARCH_SONGS';
+
+
+export const receiveSearchSongs= (songs) => ({
+  type: RECEIVE_SEARCH_SONGS,
+  songs
+});
 
 export const search = (query) => (dispatch) => (
   APIUtil.search(query)
-    .then(results => dispatch(receiveSongs(results)) )
+    .then(results => dispatch(receiveSearchSongs(results)) )
 );

@@ -10,10 +10,15 @@ export default class Search extends React.Component {
     };
   }
 
+  componentDidMount() {
+  }
+
   update(field) {
-    return e => this.setState({
+    return e => {
+      this.props.search(e.currentTarget.value);
+      this.setState({
       [field]: e.currentTarget.value
-    });
+    });};
   }
 
   render() {
