@@ -8,16 +8,22 @@
 }
 
 #profile-page-picture {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
 }
 
 #profile-name {
-
+  color: #ffffff;
+  font-size: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 #profile-playlists-label {
+  color: #ffffff;
+  font-size: 25px;
+  margin-bottom: 20px;
 
 }
 
@@ -27,5 +33,5 @@
 
 #profile-index-list {
   display: flex;
-  
+
 }

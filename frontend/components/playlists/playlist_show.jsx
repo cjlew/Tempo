@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { withRouter, Link } from 'react-router-dom';
-import SongIndexItem from '../songs/song_index_item';
 import SongIndex from '../songs/song_index';
 
 
@@ -39,7 +38,7 @@ export default class PlaylistShow extends React.Component{
           <div id='playlist-show-container-left'>
             <img id='playlist-show-image' onClick={this.handleQueue}/>
             <p id='playlist-show-title'>{this.props.playlist.title}</p>
-            <p id='playlist-show-creator'>By {this.props.playlist.creator_username}</p>
+            <Link to={`/users/${this.props.playlist.creator_id}`} id='playlist-show-creator'>By {this.props.playlist.creator_username}</Link>
             <p id='playlist-show-song-count'>{this.props.songs.length} {this.props.songs.length === 1 ? 'SONG' : 'SONGS' }</p>
             <Link id='playlist-show-delete-link' to='/' onClick={this.handleRemove}>
               Delete Playlist

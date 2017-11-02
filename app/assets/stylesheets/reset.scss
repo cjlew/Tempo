@@ -26,6 +26,9 @@ html,
     text-decoration: none;
 
   }
+  input, button {
+    outline: none;
+  }
   html, body {
     height: 100%;
     width: 100%;

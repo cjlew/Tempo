@@ -9,16 +9,20 @@
   height: calc(100% - 150px);
 }
 
+#sidebar-search-link {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
 #sidebar-top {
-  width: 100%;
+  width: calc(100% - 10%);
   margin-left: 10%;
-  margin-right: 10%;
 }
 
 #sidebar-bottom{
-  width: 100%;
+  width: calc(100% - 10%);
   margin-left: 10%;
-  margin-right: 10%;
 }
 
 #sidebar-pic-username{

@@ -4,11 +4,15 @@
  display: flex;
  align-items: center;
  justify-content: space-between;
- 
+
 }
 
 #header-container * {
 
+}
+
+#header-invis{
+  width: 200px;
 }
 
 #header-search {

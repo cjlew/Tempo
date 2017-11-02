@@ -8,10 +8,17 @@ const mapStateToProps = (state, ownProps) => {
   const userId = parseInt(ownProps.match.params.userId);
   const user = state.entities.users[userId];
   const userPlaylists = [];
+  let playlist;
+  
   if (user) {
-    user.playlist.forEach(playlistId =>
-      userPlaylists.push(state.entities.playlists[playlistId]));
-    }
+    user.playlist.forEach(playlistId =>{
+      playlist = state.entities.playlists[playlistId];
+      if (playlist){
+        userPlaylists.push(state.entities.playlists[playlistId]);
+      }
+    });
+  }
+
 
 
   return({

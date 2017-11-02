@@ -1,7 +1,7 @@
 
 class Api::SearchesController < ApplicationController
   def index
-    search = params[:search];
+    search = params[:query];
 
     @song_results = Song.where("title LIKE ?", "%#{search_}%");
 
@@ -12,7 +12,7 @@ class Api::SearchesController < ApplicationController
     Artist.where('name LIKE ?', "%#{search}%").each do |artist|
       @song_results += artist.songs
     end
-    
+
     @users_found = User.where('username LIKE ? and id != ?', "%#{search}%", current_user.id);
   end
 end

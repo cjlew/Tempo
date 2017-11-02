@@ -19,22 +19,13 @@ export default class Header extends React.Component {
 
     return(
       <div id='header-container'>
-
-        <div id='header-search'>
-          <input type='text'
-            placeholder={'Search'}
-            value={this.state.search}
-            onChange={this.update('search')}
-            className='header-search-bar'>
-          </input>
-        </div>
-
+        <div id='header-invis'></div>
         <div id='header-logo'>
 
         </div>
 
         <div id='header-currentUser-info'>
-          
+
           <Link id='header-currentUser-link'
             to={`/users/${this.props.currentUser.id}`}>
             {this.props.currentUser.username}
