@@ -8,7 +8,6 @@
 
 # Database song / album seeder
 # Components of macro made by David Webster
-require 'taglib'
 User.delete_all
 Playlist.delete_all
 Album.delete_all
