@@ -31,13 +31,32 @@ export default class PlaylistShow extends React.Component{
 
   handleFollow(e) {
     e.preventDefault();
-    
+    if (this.props.currentUser.followed_playlists){
+      if(this.props.currentUser.followed_playlists[this.props.playlist.id]) {
+        this.props.unfollowPlaylist(this.props.playlist.id);
+      } else {
+      this.props.followPlaylist(this.props.playlist.id); }
+    }
+    this.props.fetchUser(this.props.currentUser.id);
+
   }
 
   render(){
+    let Follow;
+
+
+
+
     const songs = this.props.songs;
 
     if (this.props.playlist && this.props.songs) {
+      if (this.props.currentUser.followed_playlists) {
+        Follow = this.props.currentUser.followed_playlists[this.props.playlist.id] ?
+        <button onClick={this.handleFollow} id='playlist-show-follow'>Unfollow Playlist</button>
+      : <button onClick={this.handleFollow} id='playlist-show-follow'>Follow Playlist</button>;
+    } else {Follow =<button onClick={this.handleFollow} id='playlist-show-follow'>Follow Playlist</button>;}
+
+
       return (
         <div id='playlist-show-container'>
           <div id='playlist-show-background'></div>
@@ -46,6 +65,9 @@ export default class PlaylistShow extends React.Component{
             <p id='playlist-show-title'>{this.props.playlist.title}</p>
             <Link to={`/users/${this.props.playlist.creator_id}`} id='playlist-show-creator'>By {this.props.playlist.creator_username}</Link>
             <p id='playlist-show-song-count'>{this.props.songs.length} {this.props.songs.length === 1 ? 'SONG' : 'SONGS' }</p>
+
+          {this.props.currentUser.id === this.props.playlist.creator_id ? null : Follow}
+
             <Link id='playlist-show-delete-link' to='/' onClick={this.handleRemove}>
               Delete Playlist
             </Link>

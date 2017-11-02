@@ -11,7 +11,9 @@ if user.id == current_user.id
       end
     end
   else
-    json.friends {}
+    json.friends do
+      Hash.new 
+    end
   end
 end
 

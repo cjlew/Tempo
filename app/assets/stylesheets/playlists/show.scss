@@ -22,6 +22,21 @@
 
 }
 
+#playlist-show-follow {
+  height: 30px;
+  width: 150px;
+  border-radius: 30px;
+  font-size: 15px;
+  background-color: #1DB954;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-align: center;
+  line-height: 20px;
+  border: none;
+  outline: none;
+
+}
+
 #playlist-show-title{
   text-align: center;
   font-size: 30px;
@@ -51,6 +66,7 @@
   margin: 0 auto;
   width: 130px;
   text-align: center;
+  margin-top: 15px;
 }
 
 #playlist-show-delete-link:hover {
