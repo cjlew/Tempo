@@ -18,7 +18,12 @@ export default class Profile extends React.Component {
 
   render() {
     if (!this.props.user) {
-      return (<p>loading...</p>);
+
+      return (
+        <div id='profile-background'>
+          <p>loading...</p>
+        </div>
+      );
     } else {
       const PlaylistIndexItems = this.props.userPlaylists.map((playlist) => {
         return(
