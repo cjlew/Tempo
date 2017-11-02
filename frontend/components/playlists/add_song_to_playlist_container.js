@@ -8,6 +8,7 @@ import {
 } from '../../actions/playlist_actions';
 import AddSongToPlaylist from './add_song_to_playlist';
 import { withRouter } from 'react-router-dom';
+import { fetchUser } from '../../actions/user_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -28,6 +29,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchUser: (userId) => dispatch(fetchUser(userId)),
   fetchPlaylists: () => dispatch(fetchPlaylists()),
   createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),

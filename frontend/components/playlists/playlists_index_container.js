@@ -7,6 +7,7 @@ import {
 } from '../../actions/playlist_actions';
 import PlaylistIndex from './playlists_index';
 import { withRouter } from 'react-router-dom';
+import { fetchUser } from '../../actions/user_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -23,6 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPlaylists: () => dispatch(fetchPlaylists()),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
   fetchSongs: () => dispatch(fetchSongs()),
+  fetchUser: (userId) => dispatch(fetchUser(userId)),
 });
 
 export default withRouter(connect(

@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
   queueSong: (songId) => dispatch(queueSong(songId)),
   clearSearch: () => dispatch(clearSearch()),
   search: (query) => dispatch(search(query)),
-  fetchUsers: () => dispatch(fetchUser()),
+  fetchUser: (userId) => dispatch(fetchUser(userId)),
   fetchPlaylists: () => dispatch(fetchPlaylists()),
   fetchSongs: () => dispatch(fetchSongs()),
 });

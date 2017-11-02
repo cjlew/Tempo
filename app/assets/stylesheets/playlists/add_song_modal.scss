@@ -15,7 +15,7 @@
 
 #add-song-top{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%
 }
 
@@ -27,6 +27,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 80%;
 }
 
 #add-song-modal-content {

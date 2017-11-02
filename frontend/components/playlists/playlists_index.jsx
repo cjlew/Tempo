@@ -80,7 +80,8 @@ class PlaylistIndex extends React.Component {
               <NewPlaylist currentUser={this.props.currentUser}
                            createPlaylist={this.props.createPlaylist}
                            closeModal={this.closeModal}
-                           fetchPlaylists={this.props.fetchPlaylists}/>
+                           fetchPlaylists={this.props.fetchPlaylists}
+                           fetchUser={this.props.fetchUser}/>
             </div>
           </Modal>
 

@@ -28,7 +28,7 @@ class NewPlaylist extends React.Component {
       // why is the promise returning the value like this
       this.props.history.push(`/playlists/${Object.values(newPlaylist.playlist)[0].id}`);
     }, () => console.log('broke'));
-
+    this.props.fetchUser(this.props.currentUser.id);
   }
 
 

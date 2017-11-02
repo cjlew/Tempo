@@ -27,7 +27,8 @@ export default class Search extends React.Component {
           <SongIndex songs={this.props.songs}
                pausePlayer={this.props.pausePlayer}
                playSong={this.props.playSong}
-               queueSong={this.props.queueSong}/>: '';
+               queueSong={this.props.queueSong}
+               fetchUser={this.props.fetchUser}/>: '';
 
     return(
       <div id='search-container'>
