@@ -6,3 +6,37 @@
   height: 100%;
   justify-content: center;
 }
+
+#add-song-header {
+  color: #ffffff;
+  font-size: 30px;
+
+}
+
+#add-song-top{
+  display: flex;
+  justify-content: space-around;
+  width: 100%
+}
+
+#add-song-empty-div{
+  width: 150px;
+}
+#add-song-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#add-song-modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#add-song-modal-close-modal-icon {
+  color: #ffffff;
+  font-size: 60px;
+}

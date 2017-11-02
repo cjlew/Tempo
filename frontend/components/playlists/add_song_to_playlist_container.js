@@ -29,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPlaylists: () => dispatch(fetchPlaylists()),
-  createPlaylist: () => dispatch(createPlaylist()),
+  createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
   editPlaylist: (playlist) => dispatch(editPlaylist(playlist)),
   addSong: (playlistId, songId) => dispatch(addSong(playlistId, songId))
