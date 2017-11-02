@@ -14,3 +14,16 @@ if user.id == current_user.id
     json.friends {}
   end
 end
+
+if user.id == current_user.id
+  followed_playlists_ids = user.followed_playlists.pluck(:id)
+  if followed_playlists_ids.length > 0
+    json.followed_playlists do
+      followed_playlists_ids.each do |id|
+        json.set! id, id
+      end
+    end
+  else
+    json.followed_playlists {}
+  end
+end

@@ -14,6 +14,11 @@ Rails.application.routes.draw do
     delete 'playlists/:playlist_id/remove_song/:song_id', to: 'playlists#remove_song'
 
     post 'users/:user_id/add_friend', to: 'users#add_friend'
-    delete 'users/:user_id/remove_friend', to: 'users#remove_friend'  
+    delete 'users/:user_id/remove_friend', to: 'users#remove_friend'
+
+    post 'playlists/:playlist_id/follow', to: 'users#follow_playlist'
+    delete 'playlists/:playlist_id/unfollow', to: 'users#unfollow_playlist'
+
+
   end
 end

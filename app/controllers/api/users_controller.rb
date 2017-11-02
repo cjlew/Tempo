@@ -28,7 +28,21 @@ class Api::UsersController < ApplicationController
   def remove_friend
     friend = User.find(params[:user_id])
     current_user.remove_friend(friend.id)
-    @user= current_user
+    @user = current_user
+    render :show
+  end
+
+  def follow_playlist
+    playlist = Playlist.find(params[:playlist_id])
+    current_user.follow_playlist(playlist.id)
+    @user = current_user
+    render :show
+  end
+
+  def unfollow_playlist
+    playlist = Playlist.find(params[:playlist_id])
+    current_user.unfollow_playlist(playlist.id)
+    @user = current_user
     render :show
   end
 

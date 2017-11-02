@@ -39,10 +39,26 @@ class User < ApplicationRecord
     class_name: 'Friendship',
     foreign_key: :user_id
 
+  has_many :playlist_followships,
+    class_name: 'PlaylistFollowship',
+    foreign_key: :user_id
+
+  has_many :followed_playlists,
+    through: :playlist_followships,
+    source: :playlist
+
 
   attr_reader :password
 
   after_initialize :ensure_session_token
+
+  def follow_playlist(playlist_id)
+    PlaylistFollowship.create(user_id: self.id, playlist_id: playlist_id)
+  end
+
+  def unfollow_playlist(playlist_id)
+    self.playlist_followships.find_by(playlist_id: playlist_id).delete
+  end
 
   def add_friend(friend_id)
     Friendship.create!(user_id: self.id, friend_id: friend_id)
