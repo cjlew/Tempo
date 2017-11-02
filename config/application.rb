@@ -10,7 +10,7 @@ module Tempo
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
-    config.assets.initialize_on_precompile = false
+    # config.assets.initialize_on_precompile = false
 
     config.paperclip_defaults = {
       :storage => :s3,

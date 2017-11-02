@@ -19,7 +19,7 @@ export default class Header extends React.Component {
           </nav>
 
           <div className='sidebar-divider'></div>
-            <Link to='/search' id='sidebar-search-link' >
+            <Link to='/search' id='sidebar-search-link'>
               <p className='sidebar-nav-links'>Search</p>
               <FontAwesome className='sidebar-nav-links' name='search'/>
             </Link>
