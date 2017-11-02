@@ -131,7 +131,7 @@ class SessionForm extends React.Component {
           <div id='session-form-welcome'>
             <span id="welcome-message">Welcome to Tempo</span>
             <br/>
-            <span >Please {this.props.formType} or {this.navLink()}</span>
+            <span>Please {this.props.formType} or {this.navLink()}</span>
           </div>
           {this.renderErrors()}
           <div className="login-form">

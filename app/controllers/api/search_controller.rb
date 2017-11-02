@@ -3,7 +3,7 @@ class Api::SearchesController < ApplicationController
   def index
     search = params[:query];
 
-    @song_results = Song.where("title LIKE ?", "%#{search_}%");
+    @song_results = Song.where("title LIKE ?", "%#{search}%");
 
     Album.where('title LIKE ?', "%#{search}%").each do |album|
       @song_results += album.songs

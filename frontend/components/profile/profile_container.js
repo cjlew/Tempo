@@ -9,9 +9,9 @@ const mapStateToProps = (state, ownProps) => {
   const user = state.entities.users[userId];
   const userPlaylists = [];
   let playlist;
-  
+
   if (user) {
-    user.playlist.forEach(playlistId =>{
+    user.playlist.forEach(playlistId => {
       playlist = state.entities.playlists[playlistId];
       if (playlist){
         userPlaylists.push(state.entities.playlists[playlistId]);

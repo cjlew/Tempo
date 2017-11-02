@@ -33,8 +33,7 @@ export default class Search extends React.Component {
             placeholder={'Search'}
             value={this.state.search}
             onChange={this.update('search')}
-            className='header-search-bar'>
-          </input>
+            className='header-search-bar'/>
         </div>
     </div>
     );
