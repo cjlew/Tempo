@@ -21,3 +21,13 @@ export const removeFriend = (friendId) => (dispatch) => (
   APIUtil.removeFriend(friendId)
     .then((user) => dispatch(receiveUser(user)))
 );
+
+export const followPlaylist = (playlistId) => (dispatch) => (
+  APIUtil.followPlaylist(playlistId)
+    .then((user) => dispatch(receiveUser(user)))
+);
+
+export const unfollowPlaylist = (playlistId) => (dispatch) => (
+  APIUtil.unfollowPlaylist(playlistId)
+    .then((user) => dispatch(receiveUser(user)))
+);

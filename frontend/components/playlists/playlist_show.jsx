@@ -11,6 +11,7 @@ export default class PlaylistShow extends React.Component{
     super(props);
     this.handleRemove = this.handleRemove.bind(this);
     this.handleQueue = this.handleQueue.bind(this);
+    this.handleFollow = this.handleFollow.bind(this);
   }
 
   componentWillMount(){
@@ -26,6 +27,11 @@ export default class PlaylistShow extends React.Component{
   handleQueue(e) {
     e.preventDefault();
     this.props.queueSong(this.props.playlist.song_ids);
+  }
+
+  handleFollow(e) {
+    e.preventDefault();
+    
   }
 
   render(){

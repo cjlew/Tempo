@@ -26,3 +26,18 @@ export const removeFriend = (friendId) => (
     url: `api/users/${friendId}/remove_friend`
   })
 );
+
+export const followPlaylist = (playlistId) => (
+  $.ajax({
+    method: 'POST',
+    url: `api/playlists/${playlistId}/follow`
+  })
+);
+
+
+export const unfollowPlaylist = (playlistId) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/playlists/${playlistId}/unfollow`
+  })
+);

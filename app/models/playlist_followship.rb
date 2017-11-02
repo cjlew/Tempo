@@ -13,7 +13,7 @@ class PlaylistFollowship < ApplicationRecord
   validates :user_id, :playlist_id, presence: true
 
   belongs_to :user,
-    foreign_key: user_id,
+    foreign_key: :user_id,
     class_name: 'User'
 
   belongs_to :playlist,

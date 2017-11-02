@@ -8,6 +8,8 @@ import {
   deletePlaylist,
   removeSong
 } from '../../actions/playlist_actions';
+
+import { followPlaylist, unfollowPlaylist } from '../../actions/user_actions';
 import PlaylistShow from './playlist_show';
 import { withRouter } from 'react-router-dom';
 
@@ -32,6 +34,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
+  followPlaylist: (playlistId) => dispatch(followPlaylist(playlistId)),
+  unfollowPlaylist: (playlistId) => dispatch(unfollowPlaylist(playlistId)),
   pausePlayer: () => dispatch(pausePlayer()),
   playSong: (songId) => dispatch(playSong(songId)),
   queueSong: (songId) => dispatch(queueSong(songId)),
