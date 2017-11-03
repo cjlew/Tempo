@@ -10,10 +10,6 @@ if user.id == current_user.id
         json.set! id, id
       end
     end
-  else
-    json.friends do
-      Hash.new 
-    end
   end
 end
 
@@ -25,7 +21,5 @@ if user.id == current_user.id
         json.set! id, id
       end
     end
-  else
-    json.followed_playlists {}
   end
 end

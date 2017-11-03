@@ -21,7 +21,9 @@ export default class PlaylistShow extends React.Component{
 
   handleRemove(e) {
     e.preventDefault();
-    this.props.deletePlaylist(this.props.match.params.playlistId).then(()=> this.props.history.push(`/`));
+    this.props.deletePlaylist(this.props.match.params.playlistId).then(()=> {
+      this.props.fetchPlaylists();
+      this.props.history.push(`/`);});
   }
 
   handleQueue(e) {
@@ -36,7 +38,7 @@ export default class PlaylistShow extends React.Component{
         this.props.unfollowPlaylist(this.props.playlist.id);
       } else {
       this.props.followPlaylist(this.props.playlist.id); }
-    }
+    } else {this.props.followPlaylist(this.props.playlist.id);}
     this.props.fetchUser(this.props.currentUser.id);
 
   }
