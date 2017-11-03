@@ -1,24 +1,17 @@
-# README
+# Tempo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tempo is a live streaming music app inspired by Spotify. Users can enjoy their favorite songs while exploring the many playlists created by their friends. Tempo was created using Rails 5, React, Redux, PostgreSQL and Amazon Web Services S3. The current iteration of Tempo only has some of the many functionalities that Spotify offers.
 
-Things you may want to cover:
+### Features
 
-* Ruby version
+*Persistant streaming while navigating through the site.
 
-* System dependencies
+*Following playlists and friending other users
 
-* Configuration
+*Backend and frontend User authentication
 
-* Database creation
+*Create your own playlists with your favorite songs
 
-* Database initialization
+*Search for your favorite songs by artists, album or song title
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+###
