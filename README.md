@@ -17,3 +17,9 @@ Listen live at [tempo-.com](https://tempo-.herokuapp.com/#/)
 *Search for your favorite songs by artists, album or song title
 
 ###
+
+### To-Do:
+* [ ] Index views for followed playlists, followed users, albums and artists
+* [ ] Show views for albums and artists
+* [ ] Preloading queued songs
+* [ ] Adding a more robust library of songs
