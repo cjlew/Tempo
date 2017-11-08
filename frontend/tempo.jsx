@@ -2,9 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { deletePlaylist, createPlaylist,
-      fetchPlaylist, fetchPlaylists,
-      editPlaylist} from './actions/playlist_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -15,8 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  // Test only
-  //
 
 
   const root = document.getElementById('root');

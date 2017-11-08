@@ -5,7 +5,6 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-
     <script type="text/javascript">
       window.music_note_black = "<%= image_url('music_note_black.png') %>"
       window.music_note_white = "<%= image_url('music_note_white.png') %>"
@@ -17,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
   <body>
