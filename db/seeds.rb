@@ -8,73 +8,140 @@
 
 # Database song / album seeder
 # Components of macro made by David Webster
+require 'mp3info'
 User.delete_all
 Playlist.delete_all
 Album.delete_all
 Song.delete_all
 
-def build_song(title, artist, album, ord)
-  Song.create!(title: title, artist_id: artist.id, album_id: album.id, ord: ord)
-end
 
-def titleize_song(path)
-  /([\d]+)\s(.+)(?:.mp3|.MP3)/.match(path.to_s)[-1]
-end
-
-def titleize(path)
-  path = path.to_s.split('/').last.split('_').join(' ')
-
-  if path[0] == "*"
-    path = path[1..-1]
-  else
-    path = path.split('_').map(&:capitalize).join(' ')
-  end
-
-  path
-end
-
-def ord?(path)
-  /([\d]+)\S/.match(path.to_s)[0].to_i
-end
-
+#
+# def titleize_song(path)
+#   /([\d]+)\s(.+)(?:.mp3|.MP3)/.match(path.to_s)[-1]
+# end
+#
+# def titleize(path)
+#   path = path.to_s.split('/').last.split('_').join(' ')
+#
+#   if path[0] == "*"
+#     path = path[1..-1]
+#   else
+#     path = path.split('_').map(&:capitalize).join(' ')
+#   end
+#
+#   path
+# end
+#
+# def ord?(path)
+#   /([\d]+)\S/.match(path.to_s)[0].to_i
+# end
+#
+#
+# Pathname.new("#{Rails.root}/app/assets/artists").children.each do |artist|
+#   next if /DS_Store/.match(artist.to_s)
+#
+#   artist_name = titleize(artist)
+#
+#   @artist = Artist.create!(name: artist_name)
+#
+#   artist.children.each do |child|
+#     next if /DS_Store/.match(child.to_s)
+#
+#
+#     if child.file?
+#       @artist.image = File.open(child.to_s)
+#       @artist.save!
+#     else
+#       child.children.each do |album|
+#         next if /DS_Store/.match(album.to_s)
+#
+#         @album = Album.create!(title: titleize(album), release_year: 0000, artist_id: @artist.id)
+#
+#         album.children.each do |song|
+#           next if /DS_Store/.match(song.to_s)
+#           if is_image?(song)
+#             @album.artwork = File.open(song.to_s)
+#             @album.save!
+#           else
+#             song_title = titleize_song(song)
+#             song_ord = ord?(song)
+#             @song = build_song(song_title, @artist, @album, song_ord)
+#             @song.audio = File.open(song.to_s)
+#             @song.save!
+#           end
+#         end
+#
+#       end
+#     end
+#   end
+# end
 def is_image?(path)
   /jpg|jpeg|png|gif|tiff|svg/.match(path.to_s)
 end
 
+def artist_seeded?(artist_name)
+  artist = Artist.find_by(name: artist_name)
+  unless artist
+    artist = Artist.create!(name: artist_name)
+  end
+  artist.save!
+  artist
+end
+
+def album_seeded?(album_name, artist, year)
+  album = Album.find_by(title: album_name, artist_id: artist.id)
+  unless album
+    album = Album.create!(title: album_name, artist_id: artist.id, release_year:year)
+  end
+  album.save!
+  album
+end
+
+def build_song(title, artist, album, ord)
+  Song.create!(title: title, artist_id: artist.id, album_id: album.id, ord: ord)
+end
+
+
 Pathname.new("#{Rails.root}/app/assets/artists").children.each do |artist|
   next if /DS_Store/.match(artist.to_s)
-
-  artist_name = titleize(artist)
-
-  @artist = Artist.create!(name: artist_name)
 
   artist.children.each do |child|
     next if /DS_Store/.match(child.to_s)
 
-
     if child.file?
-      @artist.image = File.open(child.to_s)
-      @artist.save!
+      @artist_image = child
     else
       child.children.each do |album|
         next if /DS_Store/.match(album.to_s)
-
-        @album = Album.create!(title: titleize(album), release_year: 0000, artist_id: @artist.id)
-
         album.children.each do |song|
-          next if /DS_Store/.match(song.to_s)
           if is_image?(song)
-            @album.artwork = File.open(song.to_s)
-            @album.save!
-          else
-            song_title = titleize_song(song)
-            song_ord = ord?(song)
-            @song = build_song(song_title, @artist, @album, song_ord)
-            @song.audio = File.open(song.to_s)
-            @song.save!
+            @album_image = File.open(song)
           end
         end
+        album.children.each do |song|
+          next if /DS_Store/.match(song.to_s)
+          next if is_image?(song)
 
+          Mp3Info.open(song) do |mp3|
+            title = mp3.tag.title
+            artist = mp3.tag.artist
+            album = mp3.tag.album
+            ord = mp3.tag.tracknum
+            year = mp3.tag.year
+            apic = mp3.tag2.APIC
+
+            @artist = artist_seeded?(artist)
+            @artist
+
+            @album = album_seeded?(album, @artist, year)
+            @album.artwork = @album_image
+            @album.save!
+            @song = build_song(title, @artist, @album, ord)
+            @song.audio = File.open(song)
+            @song.save!
+          end
+
+        end
       end
     end
   end

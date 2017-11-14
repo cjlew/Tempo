@@ -3,4 +3,5 @@ json.set! song.id do
   json.artist_name song.artist.name
   json.album_name song.album.title
   json.song_url asset_path(song.audio.url(:original))
+  json.artwork asset_path(song.album.artwork.url(:original))
 end

@@ -126,7 +126,7 @@ class MediaPlayer extends React.Component {
     const SongInfo = this.props.currentSong ?
 
       <div id='mp-song-info'>
-        <img id='mp-album-art'></img>
+        <img id='mp-album-art' src={this.props.currentSong.artwork}></img>
         <div id='mp-words'>
           <p id='mp-song-title'>{this.props.currentSong.title}</p>
           <p id='mp-artist-name'>{this.props.currentSong.artist_name}</p>
