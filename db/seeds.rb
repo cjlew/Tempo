@@ -25,13 +25,19 @@ class S3Runner
     secret_access_key: ENV['s3_secret_access_key']
   )
 
+  def get_cover_art(path)
+    album_title = /cover_art\/(.*).jpg/.match(path)[1]
+    @album_art[album_title] = complete_path(path)
+  end
+
   def make_hash
     song_paths = []
     S3BUCKET.list_objects(bucket: @bucket).contents.each do |content|
       path = content.key
-      
-      if /songs\/./.match(path)
-        path = path.gsub(/\s/, '+')
+      if /cover_art\/./.match(path)
+        get_cover_art(path)
+      end
+      if /album-songs\/./.match(path)
         song_paths.push(complete_path(path))
       end
     end
@@ -39,16 +45,22 @@ class S3Runner
   end
 
   def complete_path(path)
+    path = path.gsub(/\s/, '+')
     'https://s3.us-east-2.amazonaws.com/' + @bucket + '/' + path
+  end
+
+  def fix_album_title(title)
+    title.gsub('"', '')
   end
 
   def seed_mp3
     @song_paths.each do |song_path|
       audio = open(song_path)
+
       Mp3Info.open(audio) do |mp3|
         tag = mp3.tag
         artist = artist_seeded?(tag.artist)
-        album = album_seeded?(tag.album, artist, tag.year)
+        album = album_seeded?(fix_album_title(tag.album), artist, tag.year)
         build_song(tag.title, artist, album, tag.tracknum, song_path)
       end
     end
@@ -78,9 +90,19 @@ class S3Runner
   end
 
   def initialize
+    @album_art = Hash.new
     @bucket = 'tempo-chris-dev'
     @song_paths = make_hash
     seed_mp3
+    seed_artwork
+  end
+
+  def seed_artwork
+    @album_art.each do |title, path|
+      album = Album.find_by(title: title)
+      album.artwork = path
+      album.save!
+    end
   end
 end
 
