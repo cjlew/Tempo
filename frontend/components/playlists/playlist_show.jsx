@@ -63,7 +63,13 @@ export default class PlaylistShow extends React.Component{
         <div id='playlist-show-container'>
           <div id='playlist-show-background'></div>
           <div id='playlist-show-container-left'>
-            <img id='playlist-show-image' src={this.props.playlist.image} onClick={this.handleQueue}/>
+            <div id='playlist-show-img-cont' onClick={this.handleQueue}>
+
+              <div id='playlist-show-music-note'>
+                <img id='playlist-show-image' src={this.props.playlist.image}></img>
+              </div>
+            </div>
+
             <p id='playlist-show-title'>{this.props.playlist.title}</p>
             <Link to={`/users/${this.props.playlist.creator_id}`} id='playlist-show-creator'>By {this.props.playlist.creator_username}</Link>
             <p id='playlist-show-song-count'>{this.props.songs.length} {this.props.songs.length === 1 ? 'SONG' : 'SONGS' }</p>
