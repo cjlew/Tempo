@@ -53,6 +53,15 @@ class S3Runner
     title.gsub('"', '')
   end
 
+  def timify(seconds)
+    min = seconds / 60
+    sec = seconds % 60
+
+    time = min.round.to_s + "\:" + sec.round.to_s
+    time
+
+  end
+
   def seed_mp3
     @song_paths.each do |song_path|
       audio = open(song_path)
@@ -61,14 +70,14 @@ class S3Runner
         tag = mp3.tag
         artist = artist_seeded?(tag.artist)
         album = album_seeded?(fix_album_title(tag.album), artist, tag.year)
-        build_song(tag.title, artist, album, tag.tracknum, song_path)
+        build_song(tag.title, artist, album, tag.tracknum, song_path, mp3.length)
       end
     end
   end
 
-  def build_song(title, artist, album, ord, song_path)
+  def build_song(title, artist, album, ord, song_path, duration)
     Song.create!(title: title, artist_id: artist.id, album_id: album.id,
-                 ord: ord, audio: song_path)
+                 ord: ord, audio: song_path, duration: duration)
   end
 
   def artist_seeded?(artist_name)

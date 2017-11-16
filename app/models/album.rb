@@ -12,7 +12,6 @@
 #  artwork_content_type :string
 #  artwork_file_size    :integer
 #  artwork_updated_at   :datetime
-#  genre                :string
 #
 
 class Album < ApplicationRecord

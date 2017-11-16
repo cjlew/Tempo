@@ -14,10 +14,11 @@
 #  audio_content_type :string
 #  audio_file_size    :integer
 #  audio_updated_at   :datetime
+#  duration           :integer
 #
 
 class Song < ApplicationRecord
-  validates :album_id, :title, :artist_id, :ord, presence: true
+  validates :album_id, :title, :artist_id, :ord, :duration, presence: true
   validates :explicit, inclusion: { in: [true, false] }
 
   has_attached_file :audio, default_url: ''

@@ -15,6 +15,7 @@ class PlaylistIndexItem extends React.Component {
 
   }
 
+  // <i id='playlist-index-item-play' className='material-icons'>play_circle_outline</i>
   render() {
     return(
 
@@ -22,7 +23,6 @@ class PlaylistIndexItem extends React.Component {
       <Link onClick={this.handleClick} to={`/playlists/${this.props.playlist.id}`}>
 
         <div id='playlist-index-item-img-cont'>
-
           <div id='playlist-index-item-music-note'>
             <img className='playlist-index-img' src={`${this.props.playlist.image}`}></img>
           </div>
