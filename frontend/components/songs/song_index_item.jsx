@@ -63,27 +63,14 @@ class SongIndexItem extends React.Component {
     e.preventDefault();
     this.props.removeSong(this.props.playlist.id, this.props.song.id);
   }
-
-  fixTime(length) {
-    let seconds  = `${Math.floor(length % 60)}`;
-    if (seconds.length < 2) {
-      seconds += '0';
-    }
-    return Math.floor(length / 60) + ":" + seconds;
-  }
-
   render () {
 
     const Explicit = this.props.song.explicit ? 'Explicit' : '';
     return(
       <li id='song-index-item-container' onDoubleClick={this.handlePlay}>
-          <div id='song-index-item-left'>
-            <i id='song-index-play' className='material-icons'>play_circle_outline</i>
-            <div id='song-index-item-info-left'>
-              <p id='song-index-item-title'>{this.props.song.title}</p>
-
-              <p id='song-index-item-artist-album'>{this.props.song.artist_name} - {this.props.song.album_name}</p>
-            </div>
+          <div id='song-index-item-info-left'>
+            <p id='song-index-item-title'>{this.props.song.title}</p>
+            <p id='song-index-item-artist-album'>{this.props.song.artist_name} - {this.props.song.album_name}</p>
           </div>
           <div id='song-index-item-info-right'>
             <div id='song-index-item-button-container'>
@@ -113,8 +100,8 @@ class SongIndexItem extends React.Component {
 
               </div>
             </div>
-            <p id='song-index-item-duration'>{this.fixTime(this.props.song.duration)}</p>
             <p id='song-index-item-explicit'>{Explicit}</p>
+            <p id='song-index-item-duration'></p>
           </div>
 
       </li>
