@@ -3,9 +3,6 @@ import Modal from 'react-modal';
 import { withRouter, Link } from 'react-router-dom';
 import SongIndex from '../songs/song_index';
 
-
-
-
 export default class AlbumShow extends React.Component{
   constructor(props){
     super(props);
@@ -40,7 +37,7 @@ export default class AlbumShow extends React.Component{
 
 
             <p id='album-show-title'>{this.props.album.title}</p>
-            <Link to={`/users/${this.props.album.artist}`} id='album-show-artist'>By {this.props.album.artist}</Link>
+            <Link to={`/users/${this.props.album.artist_id}`} id='album-show-artist'>By {this.props.album.artist}</Link>
             <p id='album-show-song-count'>{this.props.songs.length} {this.props.songs.length === 1 ? 'SONG' : 'SONGS' }</p>
           </div>
 

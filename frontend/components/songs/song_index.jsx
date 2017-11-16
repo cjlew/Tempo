@@ -12,7 +12,8 @@ const SongIndex = (props) => {
                      pausePlayer={props.pausePlayer}
                      removeSong={props.removeSong}
                      queueSong={props.queueSong}
-                     fetchUser={props.fetchUser}/>);
+                     fetchUser={props.fetchUser}
+                     fetchAlbum={props.fetchAlbum}/>);
     });
   return (
     <ul id='song-index-list'>

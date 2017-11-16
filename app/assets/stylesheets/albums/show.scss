@@ -1,0 +1,78 @@
+#album-show-container {
+  margin-top: 30px;
+  display:flex;
+  justify-content: space-around;
+  height: 100%;
+  margin-left: 100px;
+}
+
+#album-show-background {
+
+}
+
+#album-show-container-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+#album-show-img-cont {
+  width: 240px;
+  height: 240px;
+  background-color: #282828;
+}
+#album-show-image:hover {
+  filter: brightness(50%);
+}
+
+#album-show-music-note:hover{
+width: 240px;
+height: 240px;
+background-image: image-url(music_note_white);
+background-size: 100px 100px;
+background-repeat: no-repeat;
+}
+
+#album-show-music-note{
+  background-position: center;
+  width: 240px;
+  height: 240px;
+  background-image: image-url(music_note_black);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+
+
+#album-show-image {
+  width: 240px;
+  height: 240px;
+}
+
+#album-show-title{
+  text-align: center;
+  font-size: 30px;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+#album-show-artist {
+  text-align: center;
+  font-size: 15px;
+  color: #ffffff;
+  margin-top: 18px;
+}
+
+#album-show-song-count {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+#album-show-container-right {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}

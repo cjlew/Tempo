@@ -10,6 +10,18 @@
 
 }
 
+#album-show-background {
+  background-image: linear-gradient(rgb(204, 159, 0), rgb(4, 6, 11) 110%);
+  position: fixed;
+  height:100%;
+  width:100%;
+  bottom:0px;
+  left:0px;
+  z-index: -10;
+
+}
+
+
 #playlist-show-background {
   background-image: linear-gradient(rgb(136, 15, 3), rgb(4, 6, 11) 110%);
   position: fixed;

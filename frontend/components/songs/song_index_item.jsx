@@ -34,6 +34,7 @@ class SongIndexItem extends React.Component {
     this.handleRemove = this.handleRemove.bind(this);
     this.handleQueue = this.handleQueue.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
+    this.handleAlbum = this.handleAlbum.bind(this);
   }
   //Modal
   openModal() {
@@ -60,9 +61,15 @@ class SongIndexItem extends React.Component {
   }
 
   handleRemove(e) {
-    
+
     e.preventDefault();
     this.props.removeSong(this.props.playlist.id, this.props.song.id);
+  }
+
+  handleAlbum(e) {
+    e.preventDefault();
+    this.props.fetchAlbum(this.props.song.album_id);
+    this.props.history.push(`/albums/${this.props.song.album_id}`);
   }
 
   fixTime(length) {
@@ -89,7 +96,13 @@ class SongIndexItem extends React.Component {
             <div id='song-index-item-info-left'>
               <p id='song-index-item-title'>{this.props.song.title}</p>
 
-              <p id='song-index-item-artist-album'>{this.props.song.artist_name} - {this.props.song.album_name}</p>
+              <p id='song-index-item-artist-album'>
+                {this.props.song.artist_name} -
+                 <Link onClick={this.handleAlbum} to={`/albums/${this.props.song.album_id}`}>
+                   {this.props.song.album_name}
+                </Link>
+
+                </p>
             </div>
           </div>
           <div id='song-index-item-info-right'>
