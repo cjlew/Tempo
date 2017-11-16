@@ -22,7 +22,7 @@ export default class Sidebar extends React.Component {
           <nav id='sidebar-nav'>
             <ul>
               <li><Link className='sidebar-nav-links' to='/'>Home</Link></li>
-              <li><Link className='sidebar-nav-links' to='/'>Your Music</Link></li>
+              <li><Link className='sidebar-nav-links' to='/myplaylists'>Your Music</Link></li>
             </ul>
           </nav>
 

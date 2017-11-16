@@ -52,7 +52,6 @@ class PlaylistIndex extends React.Component {
   //
 
   render () {
-
     let PlaylistItems = this.props.playlists.map(playlist =>
                   (<PlaylistIndexItem playlist={playlist}
                                       key={playlist.id}

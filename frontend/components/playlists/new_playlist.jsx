@@ -26,8 +26,9 @@ class NewPlaylist extends React.Component {
         this.props.addSong(Object.values(newPlaylist.playlist)[0].id , this.props.songId);
       }
       this.props.history.push(`/playlists/${Object.values(newPlaylist.playlist)[0].id}`);
+      this.props.fetchUser(this.props.currentUser.id);
+
     });
-    this.props.fetchUser(this.props.currentUser.id);
   }
 
 

@@ -3,6 +3,7 @@ import PlaylistIndexContainer from '../playlists/playlists_index_container';
 import PlaylistShowContainer from '../playlists/playlist_show_container';
 import ProfileContainer from '../profile/profile_container';
 import SearchContainer from '../search/search_container';
+import MyPlaylistsIndexContainer from '../playlists/my_playlist_index_container';
 
 import {
   withRouter,
@@ -27,6 +28,7 @@ class MainContent extends React.Component {
           <Route path='/playlists/:playlistId' component={PlaylistShowContainer}/>
           <Route path='/users/:userId' component={ProfileContainer} />
           <Route path='/search' component={SearchContainer} />
+          <Route path='/myplaylists' component={MyPlaylistsIndexContainer} />
           <Route path='/' component={PlaylistIndexContainer} />
         </Switch>
       </div>
