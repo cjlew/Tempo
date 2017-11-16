@@ -21,7 +21,6 @@ class MainContent extends React.Component {
   }
 
   render() {
-
     return(
       <div id='main-page-main-content-container'>
         <Switch>

@@ -71,14 +71,20 @@ class SongIndexItem extends React.Component {
     }
     return Math.floor(length / 60) + ":" + seconds;
   }
-  
+
   render () {
 
+    const Remove =  (this.props.removeSong) ?
+        <button onClick={this.handleRemove}
+               id='song-index-item-dropdown-remove'>
+               Remove from this Playlist
+        </button>
+        : "";
     const Explicit = this.props.song.explicit ? 'Explicit' : '';
     return(
       <li id='song-index-item-container' onDoubleClick={this.handlePlay}>
         <div id='song-index-item-left'>
-            <i id='song-index-play' className='material-icons'>play_circle_outline</i>
+            <i id='song-index-play' onClick={this.handlePlay} className='material-icons'>play_circle_outline</i>
             <div id='song-index-item-info-left'>
               <p id='song-index-item-title'>{this.props.song.title}</p>
 
@@ -91,7 +97,7 @@ class SongIndexItem extends React.Component {
                 <i className='material-icons'>expand_more</i>
               </button>
               <div id='song-index-item-button-dropdown-content'>
-                <button onClick={this.handleRemove} id='song-index-item-dropdown-remove'>Remove from this Playlist</button>
+                {Remove}
                 <button onClick={this.handleQueue} id='song-index-item-dropdown-queue'>Queue Song</button>
                 <button onClick={this.openModal} id='song-index-item-dropdown-remove'>Add to a Playlist</button>
 
