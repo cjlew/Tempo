@@ -2,7 +2,6 @@
   display:flex;
   justify-content: space-between;
   padding: 10px 10px;
-  list-style: square;
 }
 
 #song-index-item-container * {
@@ -18,17 +17,52 @@
 
 }
 
-#song-index-item-info-left {
+#song-index-play {
+  display: none;
+}
+
+#song-index-item-container:hover #song-index-play {
+  display: block;
+  margin-right: 15px;
+  color: #fff;
+  font-size: 30px;
+
+}
+
+#song-index-item-left {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#song-index-item-container:hover #song-index-item-left::before {
+  display: none;
+  counter-increment: section;
+  content: counter(section);
+  margin-right: 20px;
+  color: #fff;
+  font-size: 15px;
+
+}
+#song-index-item-left::before {
+  counter-increment: section;
+  content: counter(section);
+  margin-right: 20px;
+  color: #fff;
+  font-size: 15px;
+
 }
 
 #song-index-item-title {
-  font-size: 20;
+  font-size: 20px;
   color: #ffffff;
   margin-bottom: 5px;
 }
 
 #song-index-item-artist-album {
-  font-size: 12;
+  font-size: 15px;
   color: #ffffff;
 }
 

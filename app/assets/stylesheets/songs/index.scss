@@ -1,3 +1,4 @@
 #song-index-list {
-  list-style: square;
+  counter-reset: section;
+  list-style-type: none;
 }

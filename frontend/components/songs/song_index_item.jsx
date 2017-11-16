@@ -69,7 +69,6 @@ class SongIndexItem extends React.Component {
     if (seconds.length < 2) {
       seconds += '0';
     }
-    debugger
     return Math.floor(length / 60) + ":" + seconds;
   }
 
@@ -78,9 +77,13 @@ class SongIndexItem extends React.Component {
     const Explicit = this.props.song.explicit ? 'Explicit' : '';
     return(
       <li id='song-index-item-container' onDoubleClick={this.handlePlay}>
-          <div id='song-index-item-info-left'>
-            <p id='song-index-item-title'>{this.props.song.title}</p>
-            <p id='song-index-item-artist-album'>{this.props.song.artist_name} - {this.props.song.album_name}</p>
+          <div id='song-index-item-left'>
+            <i id='song-index-play' className='material-icons'>play_circle_outline</i>
+            <div id='song-index-item-info-left'>
+              <p id='song-index-item-title'>{this.props.song.title}</p>
+
+              <p id='song-index-item-artist-album'>{this.props.song.artist_name} - {this.props.song.album_name}</p>
+            </div>
           </div>
           <div id='song-index-item-info-right'>
             <div id='song-index-item-button-container'>
