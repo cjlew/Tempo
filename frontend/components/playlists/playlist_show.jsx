@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { withRouter, Link } from 'react-router-dom';
-import SongIndex from '../songs/song_index';
+import SongIndexContainer from '../songs/song_index_container';
 
 
 
@@ -82,12 +82,9 @@ export default class PlaylistShow extends React.Component{
           </div>
 
           <div id='playlist-show-container-right'>
-            <SongIndex songs={songs}
-                       pausePlayer={this.props.pausePlayer}
+            <SongIndexContainer songs={songs}
                        playlist={this.props.playlist}
-                       playSong={this.props.playSong}
-                       removeSong={this.props.removeSong}
-                       queueSong={this.props.queueSong}/>
+                       />
           </div>
         </div>
 

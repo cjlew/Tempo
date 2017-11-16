@@ -60,6 +60,7 @@ class SongIndexItem extends React.Component {
   }
 
   handleRemove(e) {
+    
     e.preventDefault();
     this.props.removeSong(this.props.playlist.id, this.props.song.id);
   }

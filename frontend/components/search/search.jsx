@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import SongIndex from '../songs/song_index';
+import SongIndexContainer from '../songs/song_index_container';
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -24,11 +24,7 @@ export default class Search extends React.Component {
 
   render() {
     const SearchSongIndex = this.props.songs.length ?
-          <SongIndex songs={this.props.songs}
-               pausePlayer={this.props.pausePlayer}
-               playSong={this.props.playSong}
-               queueSong={this.props.queueSong}
-               fetchUser={this.props.fetchUser}/>: '';
+          <SongIndexContainer songs={this.props.songs}/>: '';
 
     return(
       <div id='search-container'>

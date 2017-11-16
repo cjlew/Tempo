@@ -3,16 +3,16 @@ import Modal from 'react-modal';
 import { Link, withRouter } from 'react-router-dom';
 import SongIndexItem from './song_index_item';
 
-const SongIndex = ({songs, playlist, removeSong, queueSong, playSong, pausePlayer, fetchUser}) => {
-  const SongList = songs.map((song, i) =>{
+const SongIndex = (props) => {
+  const SongList = props.songs.map((song, i) =>{
     return (
       <SongIndexItem song={song} key={i}
-                     playlist={playlist}
-                     playSong={playSong}
-                     pausePlayer={pausePlayer}
-                     removeSong={removeSong}
-                     queueSong={queueSong}
-                     fetchUser={fetchUser}/>);
+                     playlist={props.playlist}
+                     playSong={props.playSong}
+                     pausePlayer={props.pausePlayer}
+                     removeSong={props.removeSong}
+                     queueSong={props.queueSong}
+                     fetchUser={props.fetchUser}/>);
     });
   return (
     <ul id='song-index-list'>
