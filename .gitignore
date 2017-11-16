@@ -28,3 +28,4 @@ npm-debug.log
 # Ignore application configuration
 /config/application.yml
 /app/assets/local_artists
+/app/assets/artists
