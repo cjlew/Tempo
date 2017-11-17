@@ -8,7 +8,6 @@
 
 # Database song / album seeder
 require 'mp3info'
-require 'taglib'
 User.delete_all
 Playlist.delete_all
 Album.delete_all

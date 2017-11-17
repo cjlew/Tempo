@@ -21,7 +21,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'aws-sdk'
 gem 'figaro'
 
-gem 'taglib-ruby'
 gem 'ruby-mp3info'
 
 gem "paperclip",  '~> 5.0.0'
