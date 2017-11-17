@@ -97,7 +97,7 @@ class S3Runner
   def album_seeded?(album_name, artist, year)
     album = Album.find_by(title: album_name, artist_id: artist.id)
     unless album
-      album = Album.create!(title: album_name, artist_id: artist.id, release_year:year)
+      album = Album.create!(title: album_name, artist_id: artist.id, release_year: year)
     end
     album.save!
     album

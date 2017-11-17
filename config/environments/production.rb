@@ -1,4 +1,6 @@
 Rails.application.configure do
+
+  Paperclip.options[:content_type_mappings] = { mp3: "application/octet-stream" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
