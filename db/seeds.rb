@@ -25,6 +25,11 @@ class S3Runner
     secret_access_key: ENV['s3_secret_access_key']
   )
 
+  def get_artist_image(path)
+    artist_name = /artist_pics\/(.*).jpg/.match(path)[1]
+    @artist_image[artist_name] = complete_path(path)
+  end
+
   def get_cover_art(path)
     album_title = /cover_art\/(.*).jpg/.match(path)[1]
     @album_art[album_title] = complete_path(path)
@@ -34,10 +39,11 @@ class S3Runner
     song_paths = []
     S3BUCKET.list_objects(bucket: @bucket).contents.each do |content|
       path = content.key
-      if /cover_art\/./.match(path)
+      if /artist_pics\/./.match(path)
+        get_artist_image(path)
+      elsif /cover_art\/./.match(path)
         get_cover_art(path)
-      end
-      if /album-songs\/./.match(path)
+      elsif /album-songs\/./.match(path)
         song_paths.push(complete_path(path))
       end
     end
@@ -100,10 +106,20 @@ class S3Runner
 
   def initialize
     @album_art = Hash.new
+    @artist_image = Hash.new
     @bucket = 'tempo-chris-dev'
     @song_paths = make_hash
     seed_mp3
     seed_artwork
+    seed_artist_image
+  end
+
+  def seed_artist_image
+    @artist_image.each do |name, path|
+      artist = Artist.find_by(name: name)
+      artist.image = path
+      artist.save!
+    end
   end
 
   def seed_artwork
@@ -117,121 +133,6 @@ end
 
 
 S3Runner.new
-
-
-#
-# def titleize_song(path)
-#   /([\d]+)\s(.+)(?:.mp3|.MP3)/.match(path.to_s)[-1]
-# end
-#
-# def titleize(path)
-#   path = path.to_s.split('/').last.split('_').join(' ')
-#
-#   if path[0] == "*"
-#     path = path[1..-1]
-#   else
-#     path = path.split('_').map(&:capitalize).join(' ')
-#   end
-#
-#   path
-# end
-#
-# def ord?(path)
-#   /([\d]+)\S/.match(path.to_s)[0].to_i
-# end
-#
-#
-# Pathname.new("#{Rails.root}/app/assets/artists").children.each do |artist|
-#   next if /DS_Store/.match(artist.to_s)
-#
-#   artist_name = titleize(artist)
-#
-#   @artist = Artist.create!(name: artist_name)
-#
-#   artist.children.each do |child|
-#     next if /DS_Store/.match(child.to_s)
-#
-#
-#     if child.file?
-#       @artist.image = File.open(child.to_s)
-#       @artist.save!
-#     else
-#       child.children.each do |album|
-#         next if /DS_Store/.match(album.to_s)
-#
-#         @album = Album.create!(title: titleize(album), release_year: 0000, artist_id: @artist.id)
-#
-#         album.children.each do |song|
-#           next if /DS_Store/.match(song.to_s)
-#           if is_image?(song)
-#             @album.artwork = File.open(song.to_s)
-#             @album.save!
-#           else
-#             song_title = titleize_song(song)
-#             song_ord = ord?(song)
-#             @song = build_song(song_title, @artist, @album, song_ord)
-#             @song.audio = File.open(song.to_s)
-#             @song.save!
-#           end
-#         end
-#
-#       end
-#     end
-#   end
-# end
-# def is_image?(path)
-#   /jpg|jpeg|png|gif|tiff|svg/.match(path.to_s)
-# end
-#
-#
-
-#
-
-
-
-# Pathname.new("#{Rails.root}/app/assets/artists").children.each do |artist|
-#   next if /DS_Store/.match(artist.to_s)
-#
-#   artist.children.each do |child|
-#     next if /DS_Store/.match(child.to_s)
-#
-#     if child.file?
-#       @artist_image = child
-#     else
-#       child.children.each do |album|
-#         next if /DS_Store/.match(album.to_s)
-#         album.children.each do |song|
-#           if is_image?(song)
-#             @album_image = File.open(song)
-#           end
-#         end
-#         album.children.each do |song|
-#           next if /DS_Store/.match(song.to_s)
-#           next if is_image?(song)
-#
-#           Mp3Info.open(song) do |mp3|
-#             title = mp3.tag.title
-#             artist = mp3.tag.artist
-#             album = mp3.tag.album
-#             ord = mp3.tag.tracknum
-#             year = mp3.tag.year
-#             apic = mp3.tag2.APIC
-#
-#             @artist = artist_seeded?(artist)
-#             @artist
-#
-#             @album = album_seeded?(album, @artist, year)
-#             @album.artwork = @album_image
-#             @album.save!
-
-#           end
-#
-#         end
-#       end
-#     end
-#   end
-# end
-#
 
 
 guest = User.create!(username: 'guest', password: 'password', email: 'guest1@guest.com')

@@ -10,8 +10,10 @@ export default class AlbumShow extends React.Component{
   }
 
   componentWillMount(){
-    this.props.fetchAlbum(this.props.match.params.albumId);
-    this.props.fetchSongs();
+    if (this.props.match){
+      this.props.fetchAlbum(this.props.match.params.albumId);
+      this.props.fetchSongs();
+    }
   }
 
 
@@ -22,14 +24,14 @@ export default class AlbumShow extends React.Component{
 
 
   render(){
+    const Background = this.props.match ? <div id='album-show-background'></div> : '';
     const songs = this.props.songs;
     if (this.props.album) {
       return (
         <div id='album-show-container'>
-          <div id='album-show-background'></div>
           <div id='album-show-container-left'>
             <div id='album-show-img-cont' onClick={this.handleQueue}>
-
+              {Background}
               <div id='album-show-music-note'>
                 <img id='album-show-image' src={this.props.album.artwork}></img>
               </div>

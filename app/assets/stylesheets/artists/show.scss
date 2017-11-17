@@ -1,0 +1,59 @@
+#artist-page-container {
+
+}
+
+#artist-page-header {
+
+}
+
+#artist-page-image{
+ width: 100%
+}
+
+#artist-album-show-background{
+  background-color: #000000;
+  height:100%;
+  width:100%;
+
+}
+
+#artist-album-show {
+  width: 100%;
+
+}
+
+#artist-page-header-background {
+  position: fixed;
+  height:100%;
+  width:100%;
+  top:0px;
+  left:0px;
+  z-index: -10;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#artist-page-dim{
+  background-image: linear-gradient(rgba(0, 0,0,.3), rgba(0, 0, 0,.9) 80%);
+
+  width: 100%;
+  height: 100%;
+}
+
+#artist-page-name{
+ color: #ffffff;
+ font-size: 50px;
+ text-align: center;
+ margin-top: 375px
+}
+
+#artist-page-popular{
+
+}
+
+#artist-album-index {
+
+}
+
+#artist-album-show{
+
+}

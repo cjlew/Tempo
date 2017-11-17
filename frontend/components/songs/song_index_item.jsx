@@ -28,6 +28,7 @@ class SongIndexItem extends React.Component {
     this.state = {
       modalIsOpen: false
     };
+    this.handleArtist = this.handleArtist.bind(this);
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -72,6 +73,12 @@ class SongIndexItem extends React.Component {
     this.props.history.push(`/albums/${this.props.song.album_id}`);
   }
 
+  handleArtist(e) {
+    e.preventDefault();
+    this.props.fetchArtist(this.props.song.artist_id);
+    this.props.history.push(`/artists/${this.props.song.artist_id}`);
+  }
+
   fixTime(length) {
     let seconds  = `${Math.floor(length % 60)}`;
     if (seconds.length < 2) {
@@ -88,7 +95,6 @@ class SongIndexItem extends React.Component {
                Remove from this Playlist
         </button>
         : "";
-    const Explicit = this.props.song.explicit ? 'Explicit' : '';
     return(
       <li id='song-index-item-container' onDoubleClick={this.handlePlay}>
         <div id='song-index-item-left'>
@@ -97,7 +103,10 @@ class SongIndexItem extends React.Component {
               <p id='song-index-item-title'>{this.props.song.title}</p>
 
               <p id='song-index-item-artist-album'>
-                {this.props.song.artist_name} -
+                <Link onClick={this.handleArtist} to={`/artists/${this.props.song.artist_id}`}>
+                  {this.props.song.artist_name}
+                </Link>
+                 -
                  <Link onClick={this.handleAlbum} to={`/albums/${this.props.song.album_id}`}>
                    {this.props.song.album_name}
                 </Link>
