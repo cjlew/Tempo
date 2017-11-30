@@ -1,5 +1,7 @@
 import { RECEIVE_QUEUE, PLAY_SONG_NOW, PLAY, PAUSE,
          TOGGLE_PLAY, PLAY_NEXT_SONG, PLAY_PREVIOUS_SONG } from '../../actions/player_actions';
+import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
+
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -64,6 +66,11 @@ const playerReducer = (state = defaultState, action) => {
         return Object.assign({}, state, { currentSongId, queueSongIds: newQueue});
       } else {
         return Object.assign({}, state, { queueSongIds: newQueue});
+      }
+
+    case RECEIVE_CURRENT_USER:
+      if (action.user === null) {
+        return Object.assign({}, defaultState);
       }
 
     default:
