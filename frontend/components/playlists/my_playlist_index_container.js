@@ -13,10 +13,13 @@ import { fetchUser } from '../../actions/user_actions';
 const mapStateToProps = (state, ownProps) => {
   let playlists = [];
   Object.keys(state.entities.playlists).forEach(id => {
-    if (state.entities.playlists[id].creator_id === state.session.currentUser.id) {
+    if (state.entities.playlists[id].creator_id === state.session.currentUser.id ||
+        state.session.currentUser.followed_playlists[id] !== undefined) {
       playlists.push(state.entities.playlists[id]);
     }
   });
+
+
 
   return {
     currentUser: state.session.currentUser,
