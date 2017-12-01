@@ -24,76 +24,24 @@ const customStyles ={
 };
 
 
-class browse extends React.Component {
+class Browse extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modalIsOpen: false
-    };
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-  }
-
-  // Modal
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-
-  afterOpenModal() {
 
   }
 
-  //
+
 
 
   render() {
 
     return(
       <div className='browse-container'>
-        <div className='browse-top-bar'>
-          <div className='browse-empty'></div>
-          <nav className='browse-options'>
-            <ul className='browse-options-ul'>
-              <Link to='/browse/featured'><li>Featured</li></Link>
-              <Link to='/browse/genres'><li>Genres and Moods</li></Link>
-              <Link to='/browse/discover'><li>Discover</li></Link>
-            </ul>
-          </nav>
-
-          <button id='playlists-index-new-playlist-button'
-                  onClick={this.openModal}>New Playlist</button>
-          <Modal isOpen={this.state.modalIsOpen}
-                onAfterOpen={this.afterOpenModal}
-                onRequestClose={this.closeModal}
-                contentLabel="new-playlist-modal"
-                style={customStyles}>
-            <div id='modal-content'>
-
-              <button id='modal-close-modal' onClick={this.closeModal}>
-                <i id='modal-close-modal-icon' className='material-icons'>clear</i>
-              </button>
-              <NewPlaylist currentUser={this.props.currentUser}
-                           createPlaylist={this.props.createPlaylist}
-                           closeModal={this.closeModal}
-                           fetchPlaylists={this.props.fetchPlaylists}
-                           fetchUser={this.props.fetchUser}/>
-            </div>
-          </Modal>
-        </div>
-
-        <div className='browse-playlist-index'>
-
-          <Route path='/browse/featured' component={FeaturedContainer}/>
-        </div>
+        <Route path='/browse/featured' component={FeaturedContainer}/>
       </div>
     );
   }
 
 }
 
-export default withRouter(browse);
+export default withRouter(Browse);

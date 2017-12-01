@@ -2,17 +2,18 @@
 
 }
 
-.browse-options {
-
-}
-
 .browse-options-ul {
   text-align: center;
   list-style: none;
+  margin-bottom: 30px;
 }
 
-.browse-options-ul > * {
-  display: inline;
+.browse-unselected {
+  display: inline-block;
+  margin: 0px 10px 0px 10px;
+  color: #ffffff;
+  font-size: 15px;
+  filter:brightness(70%);
 
 }
 
@@ -22,6 +23,16 @@
 
 }
 
-.browse-empty{
+.browse-selected{
+  filter:brightness(100%);
+  display: inline-block;
+  margin: 0px 10px 0px 10px;
+  color: #ffffff;
+  font-size: 15px;
+  border-bottom: 2px solid #1DB954;
 
+}
+
+.browse-options-ul li:hover {
+  filter:brightness(100%);
 }

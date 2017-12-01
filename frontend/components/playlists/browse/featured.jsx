@@ -19,6 +19,11 @@ class Featured extends React.Component {
 
       <div id='playlist-index-container'>
         <div id='playlist-index-background'></div>
+        <ul className='browse-options-ul'>
+          <Link className='browse-selected' to='/browse/featured'><li>FEATURED</li></Link>
+          <Link className='browse-unselected'to='/browse/genres'><li>GENRES AND MOODS</li></Link>
+          <Link className='browse-unselected'to='/browse/discover'><li>DISCOVER</li></Link>
+        </ul>
 
         <div id='playlist-index-items'>
           <ul id='playlists-index-list'>
