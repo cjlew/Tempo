@@ -3,7 +3,10 @@ import { Link, withRouter, Route } from 'react-router-dom';
 import PlaylistIndexContainer from '../playlists_index_container';
 import Modal from 'react-modal';
 import NewPlaylist from '../new_playlist';
-import FeaturedContainer from './featured_container.js'
+import FeaturedContainer from './featured_container.js';
+import DiscoverContainer from './discover_container.js';
+import GenresContainer from './genres_container.js';
+
 
 
 const customStyles ={
@@ -38,6 +41,8 @@ class Browse extends React.Component {
     return(
       <div className='browse-container'>
         <Route path='/browse/featured' component={FeaturedContainer}/>
+        <Route path='/browse/genres' component={GenresContainer}/>
+        <Route path='/browse/discover' component={DiscoverContainer}/>
       </div>
     );
   }

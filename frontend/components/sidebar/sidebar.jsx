@@ -16,12 +16,12 @@ export default class Sidebar extends React.Component {
     return(
       <div id='sidebar-container'>
         <div id='sidebar-top'>
-          <Link to='/'><img id='sidebar-logo' src={window.logo}/></Link>
+          <Link to='/browse/featured'><img id='sidebar-logo' src={window.logo}/></Link>
           <div className='sidebar-divider'></div>
 
           <nav id='sidebar-nav'>
             <ul>
-              <li><Link className='sidebar-nav-links' to='/'>Home</Link></li>
+              <li><Link className='sidebar-nav-links' to='/browse/featured'>Home</Link></li>
               <li><Link className='sidebar-nav-links' to='/myplaylists'>Your Music</Link></li>
             </ul>
           </nav>

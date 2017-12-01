@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
-      this.props.history.push('/');
+      this.props.history.push('/browse/featured');
     }
   }
 
@@ -34,7 +34,9 @@ class SessionForm extends React.Component {
     e.preventDefault();
     this.setState({username:'guest', password:'password'}, () => {
       let user = this.state;
-      this.props.demoLogin({user});
+      this.props.demoLogin({user}).then(()=> {
+        this.props.history.push('/browse/featured');
+      });
     });
   }
 
@@ -123,7 +125,7 @@ class SessionForm extends React.Component {
 
     return (
       <div className="login-form-container">
-        <Link to="/" className="splash-header-link">
+        <Link to="/browse/featured" className="splash-header-link">
           <h1>Tempo</h1>
         </Link>
         <div id='border-line'></div>
