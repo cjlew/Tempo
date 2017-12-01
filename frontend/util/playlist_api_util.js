@@ -54,6 +54,6 @@ export const deletePlaylist = (playlistId) => (
 export const fetchFeaturedPlaylists = () => (
   $.ajax({
     method: 'GET',
-    url: 'api/playlists/featured'
+    url: 'api/browse/featured'
   })
 );

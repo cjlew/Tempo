@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :searches, only: [:index]
 
 
-    get 'playlists/featured', to: 'playlists#get_featured'
+    get 'browse/featured', to: 'playlists#get_featured'
 
 
     post 'playlists/:playlist_id/add_song/:song_id', to: 'playlists#add_song'

@@ -11,9 +11,11 @@
 #  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  featured           :boolean          default(FALSE)
 #
+
 class Playlist < ApplicationRecord
-  validates :creator_id, :title, presence: true
+  validates :creator_id, :title, :featured, presence: true
 
   has_attached_file :image, default_url: 'no_image.png'
   validates_attachment_content_type :image,
@@ -41,6 +43,11 @@ class Playlist < ApplicationRecord
   has_many :followers,
     through: :playlist_followships,
     source: :user
+
+  def feature
+    self.featured = true
+    self.save!
+  end
 
   def add_song(song_id)
     song_ord = self.playlist_song_memberships.last ?  self.playlist_song_memberships.last.playlist_ord + 1 : 1

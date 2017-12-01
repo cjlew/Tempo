@@ -39,7 +39,7 @@ class Api::PlaylistsController < ApplicationController
 
   def get_featured
     @playlists = Playlist.where(featured: true)
-    render :show
+    render :index
   end
 
   def edit
