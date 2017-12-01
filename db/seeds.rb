@@ -9,20 +9,23 @@
 # Database song / album seeder
 require 'mp3info'
 User.delete_all
-Playlist.delete_all
-Album.delete_all
-Song.delete_all
+# Playlist.delete_all
+# Album.delete_all
+# Song.delete_all
+# Artist.delete_all
+Genre.delete_all
 # s3.list_objects(bucket:'tempo-chris-dev', max_keys:1).contents
 # this will get the path on AWS to a certain file
 
-class S3Runner
-
+class S3SongRunner
 
   S3BUCKET = Aws::S3::Client.new(
     region: ENV["s3_region"],
     access_key_id: ENV['s3_access_key_id'],
     secret_access_key: ENV['s3_secret_access_key']
   )
+
+
 
   def get_artist_image(path)
     artist_name = /artist_pics\/(.*).jpg/.match(path)[1]
@@ -130,12 +133,58 @@ class S3Runner
   end
 end
 
+GENRES = ['Hip Hop', 'Rock', 'Classical', 'Indie', 'Pop', 'Country',
+          'Latin', 'R&B', 'Jazz', 'Metal', 'Soul',
+          'Punk', 'Funk', 'Blues', 'Reggae', 'Chill', 'Party',
+          'Electronic'].freeze
 
-S3Runner.new
+GENRES.each do |genre|
+  Genre.create!(title: genre)
+end
+#
+class S3GenreRunner
+
+  S3BUCKET = Aws::S3::Client.new(
+    region: ENV["s3_region"],
+    access_key_id: ENV['s3_access_key_id'],
+    secret_access_key: ENV['s3_secret_access_key']
+  )
+
+  def get_genre_image(path)
+    genre_name = /genre_pics\/(.*).jpg/.match(path)[1]
+    genre = Genre.find_by(title: genre_name)
+    genre.image = complete_path(path)
+    genre.save!
+  end
+
+  def find_images
+    S3BUCKET.list_objects(bucket: @bucket).contents.each do |content|
+      path = content.key
+      if /genre_pics\/./.match(path)
+        get_genre_image(path)
+      end
+    end
+  end
+
+  def initialize
+    @bucket = 'tempo-chris-dev'
+    find_images
+  end
+
+  def complete_path(path)
+    path = path.gsub(/\s/, '+')
+    'https://s3.us-east-2.amazonaws.com/' + @bucket + '/' + path
+  end
+
+end
+
+S3GenreRunner.new
+S3SongRunner.new
+
 
 
 guest = User.create!(username: 'guest', password: 'password', email: 'guest1@guest.com')
-guest2 = User.create!(username:'guest2', password: 'password', email:'guest2@guest.com')
+guest2 = User.create!(username: 'guest2', password: 'password', email:'guest2@guest.com')
 
 # artist1 = Artist.create!(name:'Chris Lew')
 # artist2 = Artist.create!(name:'George')
