@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { fetchPlaylists, fetchPlaylist } from '../../../actions/playlist_actions';
+import {  fetchPlaylist, fetchFeaturedPlaylists } from '../../../actions/playlist_actions';
 import Featured from './featured';
 import { withRouter } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPlaylists: () => dispatch(fetchPlaylists()),
+  fetchFeaturedPlaylists: () => dispatch(fetchFeaturedPlaylists()),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
 });
 

@@ -49,3 +49,11 @@ export const deletePlaylist = (playlistId) => (
     url: `api/playlists/${playlistId}`,
   })
 );
+
+
+export const fetchFeaturedPlaylists = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/playlists/featured'
+  })
+);

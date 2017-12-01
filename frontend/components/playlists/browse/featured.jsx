@@ -9,6 +9,10 @@ class Featured extends React.Component {
     super(props);
   }
 
+  componentWillMount(){
+    this.props.fetchFeaturedPlaylists();
+  }
+
   render () {
     let PlaylistItems = this.props.playlists.map(playlist =>
                   (<PlaylistIndexItem playlist={playlist}

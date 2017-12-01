@@ -61,3 +61,8 @@ export const editPlaylist = (edittedPlaylist) => (dispatch) => (
   APIUtil.editPlaylist(edittedPlaylist)
     .then((playlist) => (dispatch(receivePlaylist(playlist))))
 );
+
+export const fetchFeaturedPlaylists = () => (dispatch) => (
+  APIUtil.fetchFeaturedPlaylists()
+    .then((playlists) => (dispatch(receivePlaylists(playlists))))
+);
