@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-      search: ''
-    };
   }
 
   update(field) {
@@ -16,11 +13,10 @@ export default class Header extends React.Component {
   }
 
   render () {
-
     return(
       <div id='header-container'>
         <div id='header-invis'></div>
-        <div id='header-logo'>
+        <div id='playlist-index-options'>
 
         </div>
 

@@ -1,16 +1,13 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import  PlaylistIndexItem  from './playlists_index_item';
-import NewPlaylist from './new_playlist';
-import Modal from 'react-modal';
+import  PlaylistIndexItem  from '../playlists_index_item';
 
 
 
-class PlaylistIndex extends React.Component {
+class Featured extends React.Component {
   constructor(props) {
     super(props);
   }
-
 
   render () {
     let PlaylistItems = this.props.playlists.map(playlist =>
@@ -22,7 +19,7 @@ class PlaylistIndex extends React.Component {
 
       <div id='playlist-index-container'>
         <div id='playlist-index-background'></div>
-        
+
         <div id='playlist-index-items'>
           <ul id='playlists-index-list'>
             {PlaylistItems}
@@ -33,4 +30,4 @@ class PlaylistIndex extends React.Component {
   }
 }
 
-export default PlaylistIndex;
+export default Featured;
