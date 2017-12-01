@@ -37,6 +37,11 @@ class Api::PlaylistsController < ApplicationController
 
   end
 
+  def get_featured
+    @playlists = Playlist.where(featured: true)
+    render :show
+  end
+
   def edit
 
   end

@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resource :sessions, only: [:create, :destroy]
     resources :searches, only: [:index]
 
+
+    get 'playlists/featured', to: 'playlists#get_featured'
+
+
     post 'playlists/:playlist_id/add_song/:song_id', to: 'playlists#add_song'
     delete 'playlists/:playlist_id/remove_song/:song_id', to: 'playlists#remove_song'
 
