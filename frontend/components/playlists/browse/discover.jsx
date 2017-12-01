@@ -9,6 +9,10 @@ class Discover extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchPlaylists();
+  }
+
   render () {
     let PlaylistItems = this.props.playlists.map(playlist =>
                   (<PlaylistIndexItem playlist={playlist}
