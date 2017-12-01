@@ -12,11 +12,12 @@ export default class Sidebar extends React.Component {
     this.props.clearSearch();
   }
 
+
   render() {
     return(
       <div id='sidebar-container'>
         <div id='sidebar-top'>
-          <Link to='/browse/featured'><img id='sidebar-logo' src={window.logo}/></Link>
+          <Link  to='/browse/featured'><img id='sidebar-logo' src={window.logo}/></Link>
           <div className='sidebar-divider'></div>
 
           <nav id='sidebar-nav'>

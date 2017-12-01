@@ -10,6 +10,10 @@ class Featured extends React.Component {
   }
 
   componentWillMount(){
+    this.props.clearPlaylists();
+  }
+
+  componentDidMount(){
     this.props.fetchFeaturedPlaylists();
   }
 

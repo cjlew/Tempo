@@ -4,6 +4,11 @@ export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const REMOVE_PLAYLIST = 'REMOVE_PLAYLIST';
+export const CLEAR_PLAYLISTS = 'CLEAR_PLAYLISTS';
+
+export const clearPlaylists = () => ({
+  type: CLEAR_PLAYLISTS
+});
 
 export const receivePlaylist = (playlist) => ({
   type: RECEIVE_PLAYLIST,
