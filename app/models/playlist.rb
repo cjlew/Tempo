@@ -26,6 +26,15 @@ class Playlist < ApplicationRecord
     primary_key: :id,
     class_name: 'User'
 
+  has_many :genre_memberships,
+    foreign_key: :playlist_id,
+    class_name: 'GenreMembership',
+    dependent: :destroy
+
+  has_many :genres,
+    through: :genre_memberships,
+    source: :genre
+
   has_many :playlist_song_memberships,
     foreign_key: :playlist_id,
     class_name: 'PlaylistSongMembership',
