@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import  PlaylistIndexItem  from '../playlists_index_item';
+import GenreIndexItem from './genre_index_item'
 
 
 
@@ -9,11 +9,14 @@ class Genres extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchGenres();
+  }
+
   render () {
-    let PlaylistItems = this.props.playlists.map(playlist =>
-                  (<PlaylistIndexItem playlist={playlist}
-                                      key={playlist.id}
-                                      fetchSongs={this.props.fetchSongs}/>));
+    let GenreItems = this.props.genres.map(genre =>
+                  (<GenreIndexItem genre={genre}
+                                      key={genre.id}/>));
 
     return (
 
@@ -25,9 +28,9 @@ class Genres extends React.Component {
           <Link className='browse-unselected'to='/browse/discover'><li>DISCOVER</li></Link>
         </ul>
 
-        <div id='playlist-index-items'>
-          <ul id='playlists-index-list'>
-            {PlaylistItems}
+        <div id='genre-index-items'>
+          <ul id='genres-index-list'>
+            {GenreItems}
           </ul>
         </div>
       </div>

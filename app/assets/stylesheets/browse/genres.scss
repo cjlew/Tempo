@@ -1,0 +1,79 @@
+#genre-index-item-play {
+  display: none;
+}
+
+#genre-index-item-img-cont:hover #genre-index-item-play {
+  display: block;
+  position: absolute;
+  color: #ffffff;
+  font-size: 80px;
+  left: 25%;
+  top: 15%;
+}
+
+
+
+#genre-index-item-img-cont {
+  width: 180px;
+  height: 180px;
+  background-color: #282828;
+  position:relative;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+#genre-index-item-music-note {
+  background-position: center;
+  width: 180px;
+  height: 180px;
+  background-image: image-url(music_note_black);
+  background-size: 75px 75px;
+  background-repeat: no-repeat;
+}
+#genre-index-item-music-note:hover {
+  width: 180px;
+  height: 180px;
+  background-image: image-url(music_note_white);
+  background-size: 75px 75px;
+  background-repeat: no-repeat;}
+
+#genre-index-item-img-cont:hover {
+  filter: brightness(50%);
+}
+
+#genre-index-list-item {
+  margin: 10px 30px 10px 30px;
+
+}
+
+.genre-index-img {
+  width: 100%;
+  height: 100%;
+
+}
+
+#genre-index-item-title {
+  text-align: center;
+  margin: 10 0 10 0;
+  font-size: 20px;
+  color: white;
+  font-family:'Lato', sans-serif;
+}
+
+#genre-index-item-creator {
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  font-family:'Lato', sans-serif;
+}
+
+
+
+
+#genre-index-list{
+
+  display: flex;
+
+  flex-flow: row wrap;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
