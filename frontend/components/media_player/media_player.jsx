@@ -14,7 +14,6 @@ class MediaPlayer extends React.Component {
       loop: false,
       mute: false,
       volume: .5,
-      seek: 0
     };
 
     this.handleToggle = this.handleToggle.bind(this);

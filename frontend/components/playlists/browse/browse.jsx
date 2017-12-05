@@ -11,19 +11,13 @@ import GenresContainer from './genres_container.js';
 class Browse extends React.Component {
   constructor(props) {
     super(props);
-
   }
-
-
-
-
-
+  
   render() {
-
     return(
       <div className='browse-container'>
         <Switch>
-          <Route path='/' component={FeaturedContainer}/>
+          <Route exact path='/' component={FeaturedContainer}/>
           <Route path='/browse/featured' component={FeaturedContainer}/>
           <Route path='/browse/genres' component={GenresContainer}/>
           <Route path='/browse/discover' component={DiscoverContainer}/>
