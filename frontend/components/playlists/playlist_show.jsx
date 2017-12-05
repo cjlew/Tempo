@@ -75,10 +75,11 @@ export default class PlaylistShow extends React.Component{
             <p id='playlist-show-song-count'>{this.props.songs.length} {this.props.songs.length === 1 ? 'SONG' : 'SONGS' }</p>
 
           {this.props.currentUser.id === this.props.playlist.creator_id ? null : Follow}
-
+          {this.props.currentUser.id !== this.props.playlist.creator_id ? null :
             <Link id='playlist-show-delete-link' to='/' onClick={this.handleRemove}>
               Delete Playlist
             </Link>
+          }
           </div>
 
           <div id='playlist-show-container-right'>
