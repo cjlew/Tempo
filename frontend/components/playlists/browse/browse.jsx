@@ -8,25 +8,6 @@ import DiscoverContainer from './discover_container.js';
 import GenresContainer from './genres_container.js';
 
 
-
-const customStyles ={
-  overlay : {
-      backgroundColor: 'rgba(25,20,20,.7)'
-  },
-  content : {
-    border: 'none',
-    height: '100%',
-    width: '100%',
-      top                   : '0%',
-      left                  : '0%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      backgroundColor: 'rgba(25,20,20,.7)'
-
-  }
-};
-
-
 class Browse extends React.Component {
   constructor(props) {
     super(props);
@@ -42,6 +23,7 @@ class Browse extends React.Component {
     return(
       <div className='browse-container'>
         <Switch>
+          <Route path='/' component={FeaturedContainer}/>
           <Route path='/browse/featured' component={FeaturedContainer}/>
           <Route path='/browse/genres' component={GenresContainer}/>
           <Route path='/browse/discover' component={DiscoverContainer}/>

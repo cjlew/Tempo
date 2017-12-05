@@ -9,6 +9,7 @@ export default class Profile extends React.Component {
   }
   componentDidMount () {
     this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchPlaylists();
   }
 
   componentWillReceiveProps(nextProps) {
