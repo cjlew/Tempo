@@ -1,6 +1,6 @@
 #playlist-index-background{
 
-  background-image: linear-gradient(rgb(43, 64, 110), rgb(4, 6, 11) 110%);
+  background-image: linear-gradient(rgb(43, 64, 110), rgb(4, 6, 11) 85%);
   position: fixed;
   height:100%;
   width:100%;
@@ -10,10 +10,20 @@
 
 }
 
+#genre-index-background {
+  background-image: linear-gradient(rgb(94, 59, 60), rgb(9, 5, 6) 85%);
+  position: fixed;
+  height:100%;
+  width:100%;
+  bottom:0px;
+  left:0px;
+  z-index: -10;
+}
+
 
 
 #album-show-background {
-  background-image: linear-gradient(rgb(204, 159, 0), rgb(4, 6, 11) 110%);
+  background-image: linear-gradient(rgb(204, 159, 0), rgb(4, 6, 11) 85%);
   position: fixed;
   height:100%;
   width:100%;
@@ -24,7 +34,7 @@
 }
 
 #artist-page-background {
-  background-image: linear-gradient(rgb(16, 7, 25), rgb(4, 6, 11) 110%);
+  background-image: linear-gradient(rgb(16, 7, 25), rgb(4, 6, 11) 85%);
   position: fixed;
   height:100%;
   width:100%;
@@ -37,7 +47,7 @@
 
 
 #playlist-show-background {
-  background-image: linear-gradient(rgb(136, 15, 3), rgb(4, 6, 11) 110%);
+  background-image: linear-gradient(rgb(136, 15, 3), rgb(4, 6, 11) 85%);
   position: fixed;
   height:100%;
   width:100%;
@@ -47,7 +57,7 @@
 }
 
 #search-background{
-  background-image: linear-gradient(rgb(28, 1, 24), rgb(4, 6, 11) 110%);
+  background-image: linear-gradient(rgb(28, 1, 24), rgb(4, 6, 11) 85%);
   position: fixed;
   height:100%;
   width:100%;
@@ -56,10 +66,39 @@
   z-index: -10;
 }
 
+#featured-index-background {
+  background-image: linear-gradient(rgb(134, 53, 19), rgb(13, 5, 1) 85%);
+  position: fixed;
+  height:100%;
+  width:100%;
+  bottom:0px;
+  left:0px;
+  z-index: -10;
+}
+
+#discover-index-background {
+  background-image: linear-gradient(rgb(96, 67, 57), rgb(9, 6, 5) 85%);
+  position: fixed;
+  height:100%;
+  width:100%;
+  bottom:0px;
+  left:0px;
+  z-index: -10;
+}
+
+#genre-show-index-background {
+  background-image: linear-gradient(rgb(14, 95, 138), rgb(1, 9, 13) 85%);
+  position: fixed;
+  height:100%;
+  width:100%;
+  bottom:0px;
+  left:0px;
+  z-index: -10;
+}
 
 #profile-background{
 
-  background-image: linear-gradient(rgb(32, 120, 114), rgb(3, 12, 11) 110%);
+  background-image: linear-gradient(rgb(48, 84, 105), rgb(4, 8, 10) 85%);
   position: fixed;
   height:100%;
   width:100%;

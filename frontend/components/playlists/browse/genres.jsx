@@ -21,7 +21,7 @@ class Genres extends React.Component {
     return (
 
       <div id='playlist-index-container'>
-        <div id='playlist-index-background'></div>
+        <div id='genre-index-background'></div>
         <ul className='browse-options-ul'>
           <Link className='browse-unselected' to='/browse/featured'><li>FEATURED</li></Link>
           <Link className='browse-selected'to='/browse/genres'><li>GENRES AND MOODS</li></Link>

@@ -24,7 +24,7 @@ export default class GenreShow extends React.Component {
     return (
 
       <div id='playlist-index-container'>
-        <div id='playlist-index-background'></div>
+        <div id='genre-show-index-background'></div>
 
         <div id='playlist-index-items'>
           <ul id='playlists-index-list'>

@@ -14,6 +14,7 @@ class MediaPlayer extends React.Component {
       loop: false,
       mute: false,
       volume: .5,
+      seek: 0
     };
 
     this.handleToggle = this.handleToggle.bind(this);
@@ -105,6 +106,9 @@ class MediaPlayer extends React.Component {
     }
   }
 
+  setTime() {
+
+  }
 
   clearRAF () {
     raf.cancel(this._raf);
@@ -117,11 +121,10 @@ class MediaPlayer extends React.Component {
         type='range'
         min='0.00'
         max={this.state.duration}
-        step='.05'
-        value={this.state.seek}
+        step='1'
         onChange={e => this.setState({seek: parseFloat(e.target.value)})}
+        value={this.state.seek}
       /> : '' ;
-
 
     const SongInfo = this.props.currentSong ?
 

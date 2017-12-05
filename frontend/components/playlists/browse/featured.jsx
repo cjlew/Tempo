@@ -26,7 +26,7 @@ class Featured extends React.Component {
     return (
 
       <div id='playlist-index-container'>
-        <div id='playlist-index-background'></div>
+        <div id='featured-index-background'></div>
         <ul className='browse-options-ul'>
           <Link className='browse-selected' to='/browse/featured'><li>FEATURED</li></Link>
           <Link className='browse-unselected'to='/browse/genres'><li>GENRES AND MOODS</li></Link>
