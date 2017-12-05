@@ -6,11 +6,18 @@ import { withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = (state, ownProps) => {
-  
+  let genres=[];
+  if (state.entities.genres) {
+    Object.keys(state.entities.genres).forEach((id) => {
+      let genre = state.entities.genres[id];
+      if (genre.playlist_ids.length > 0) {
+        genres.push(genre);
+      }
+    });
+  }
   return {
     currentUser: state.session.currentUser,
-    genres: Object.keys(state.entities.genres)
-                     .map(key => state.entities.genres[key])
+    genres
   };
 };
 

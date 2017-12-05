@@ -9,10 +9,13 @@ export default class GenreShow extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchGenre(this.props.match.params.genreId);
     this.props.fetchPlaylists();
   }
 
-  render () {
+
+
+  render() {
     let PlaylistItems = this.props.playlists.map(playlist =>
                   (<PlaylistIndexItem playlist={playlist}
                                       key={playlist.id}
@@ -31,4 +34,6 @@ export default class GenreShow extends React.Component {
       </div>
     );
   }
+
+
 }

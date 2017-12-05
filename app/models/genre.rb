@@ -27,5 +27,18 @@ class Genre < ApplicationRecord
     through: :genre_memberships,
     source: :playlist
 
+    def add_playlist(playlist_id)
+      GenreMembership.create!(playlist_id: playlist_id, genre_id: self.id)
+    end
+
+    def self.types
+      genres = Genre.all
+      genres_hash = {}
+      genres.each do |genre|
+        genres_hash[genre.title] = genre.id
+      end
+      genres_hash
+    end
+
 
 end

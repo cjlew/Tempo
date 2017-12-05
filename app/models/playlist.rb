@@ -15,8 +15,7 @@
 #
 
 class Playlist < ApplicationRecord
-  validates :creator_id, :title, presence: true
-
+  validates :creator_id, :title, :featured, presence: true
   has_attached_file :image, default_url: 'no_image.png'
   validates_attachment_content_type :image,
                                     content_type: /\Aimage\/.*\Z/
@@ -56,6 +55,10 @@ class Playlist < ApplicationRecord
   def feature
     self.featured = true
     self.save!
+  end
+
+  def define_genre(genre_id)
+    GenreMembership.create!(playlist_id: self.id, genre_id: genre_id)
   end
 
   def add_song(song_id)

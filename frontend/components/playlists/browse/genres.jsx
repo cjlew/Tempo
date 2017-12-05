@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import GenreIndexItem from './genre_index_item'
+import GenreIndexItem from './genre_index_item';
 
 
 

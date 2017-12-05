@@ -51,11 +51,12 @@ export default class PlaylistShow extends React.Component{
     const songs = this.props.songs;
 
     if (this.props.playlist && this.props.songs) {
+
       if (this.props.currentUser.followed_playlists) {
         Follow = this.props.currentUser.followed_playlists[this.props.playlist.id] ?
         <button onClick={this.handleFollow} id='playlist-show-follow'>Unfollow Playlist</button>
-      : <button onClick={this.handleFollow} id='playlist-show-follow'>Follow Playlist</button>;
-    } else {Follow =<button onClick={this.handleFollow} id='playlist-show-follow'>Follow Playlist</button>;}
+        : <button onClick={this.handleFollow} id='playlist-show-follow'>Follow Playlist</button>;
+        } else {Follow =<button onClick={this.handleFollow} id='playlist-show-follow'>Follow Playlist</button>;}
 
 
       return (
