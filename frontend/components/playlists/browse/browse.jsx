@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter, Route } from 'react-router-dom';
+import { Link, withRouter, Route, Switch } from 'react-router-dom';
 import PlaylistIndexContainer from '../playlists_index_container';
 import Modal from 'react-modal';
 import NewPlaylist from '../new_playlist';
@@ -34,16 +34,18 @@ class Browse extends React.Component {
   }
 
 
-  
+
 
 
   render() {
 
     return(
       <div className='browse-container'>
-        <Route path='/browse/featured' component={FeaturedContainer}/>
-        <Route path='/browse/genres' component={GenresContainer}/>
-        <Route path='/browse/discover' component={DiscoverContainer}/>
+        <Switch>
+          <Route path='/browse/featured' component={FeaturedContainer}/>
+          <Route path='/browse/genres' component={GenresContainer}/>
+          <Route path='/browse/discover' component={DiscoverContainer}/>
+        </Switch>
       </div>
     );
   }

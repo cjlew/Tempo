@@ -14,7 +14,7 @@ class GenreIndexItem extends React.Component {
   }
 
   render() {
-    return(
+        return(
 
     <li id='genre-index-list-item'>
       <Link onClick={this.handleClick} to={`/genres/${this.props.genre.id}`}>
