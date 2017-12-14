@@ -160,6 +160,43 @@ electronic = Genre.create!(title: 'Electronic')
 #   genres.push(Genre.create!(title: genre))
 # end
 #
+
+class S3PlaylistRunner
+
+  S3BUCKET = Aws::S3::Client.new(
+    region: ENV["s3_region"],
+    access_key_id: ENV['s3_access_key_id'],
+    secret_access_key: ENV['s3_secret_access_key']
+  )
+
+  def get_playlist_image(path)
+    playlist_name = /playlist_pics\/(.*).jpeg/.match(path)[1]
+    playlist = Playlist.find_by(title: playlist_name)
+    playlist.image = complete_path(path)
+    playlist.save!
+  end
+
+  def find_images
+    S3BUCKET.list_objects(bucket: @bucket).contents.each do |content|
+      path = content.key
+      if /playlist_pics\/./.match(path)
+        get_playlist_image(path)
+      end
+    end
+  end
+
+  def initialize
+    @bucket = 'tempo-chris-dev'
+    find_images
+  end
+
+  def complete_path(path)
+    path = path.gsub(/\s/, '+')
+    'https://s3.us-east-2.amazonaws.com/' + @bucket + '/' + path
+  end
+
+end
+
 class S3GenreRunner
 
   S3BUCKET = Aws::S3::Client.new(
@@ -196,45 +233,40 @@ class S3GenreRunner
 
 end
 
-# S3GenreRunner.new
-# S3SongRunner.new
-
-
 
 guest = User.create!(username: 'guest', password: 'password', email: 'guest1@guest.com')
 guest2 = User.create!(username: 'guest2', password: 'password', email:'guest2@guest.com')
-tempo = User.create!(username: 'tempo', password: 'password1!', email: 'tempo@tempo.com')
+tempo = User.create!(username: 'Tempo', password: 'password1!', email: 'tempo@tempo.com')
 
-top_hits = Playlist.create!(creator_id: tempo.id, title: 'Top Hits', featured: true)
+pop_rising = Playlist.create!(creator_id: tempo.id, title: 'Pop Rising', featured: true)
 rap_caviar = Playlist.create!(creator_id: tempo.id, title: 'Rap Caviar', featured: true)
-hard_hitting_rap = Playlist.create!(creator_id: tempo.id, title: 'Hard Hitting Rap', featured: false)
-rockin_and_rollin  = Playlist.create!(creator_id: tempo.id, title: 'Rockin and Rollin', featured: true)
+rock_hard  = Playlist.create!(creator_id: tempo.id, title: 'Rock Hard', featured: true)
 alt_rock = Playlist.create!(creator_id: tempo.id, title: 'Alt Rock', featured: true)
-wild_country = Playlist.create!(creator_id: tempo.id, title: 'Wild Country', featured: false)
+hot_country = Playlist.create!(creator_id: tempo.id, title: 'Hot Country', featured: false)
 radar_latino = Playlist.create!(creator_id: tempo.id, title: 'Radar Latino', featured: true)
 new_music = Playlist.create!(creator_id: tempo.id, title: 'New Music', featured: false)
 evening_acoustic = Playlist.create!(creator_id: tempo.id, title: 'Evening Acoustic', featured: true)
 straight_soul = Playlist.create!(creator_id: tempo.id, title: 'Straight Soul', featured: false)
 dance_dance = Playlist.create!(creator_id: tempo.id, title: 'Dance Dance', featured: false)
-funky_town = Playlist.create!(creator_id: tempo.id, title: 'Funky Town', featured: false)
 
 
+S3GenreRunner.new
+# S3SongRunner.new
+S3PlaylistRunner.new
 
-GenreMembership.create!(genre_id: rock.id, playlist_id: rockin_and_rollin.id)
-GenreMembership.create!(genre_id: pop.id, playlist_id: top_hits.id)
+
+GenreMembership.create!(genre_id: rock.id, playlist_id: rock_hard.id)
+GenreMembership.create!(genre_id: pop.id, playlist_id: pop_rising.id)
 GenreMembership.create!(genre_id: hip_hop.id, playlist_id: rap_caviar.id)
-GenreMembership.create!(genre_id: hip_hop.id, playlist_id: hard_hitting_rap.id)
 GenreMembership.create!(genre_id: rock.id, playlist_id: alt_rock.id)
 GenreMembership.create!(genre_id: indie.id, playlist_id: alt_rock.id)
 GenreMembership.create!(genre_id: chill.id, playlist_id: evening_acoustic.id )
 GenreMembership.create!(genre_id: pop.id, playlist_id: evening_acoustic.id)
-GenreMembership.create!(genre_id: country.id, playlist_id: wild_country.id )
+GenreMembership.create!(genre_id: country.id, playlist_id: hot_country.id )
 GenreMembership.create!(genre_id: pop.id, playlist_id: new_music.id)
 GenreMembership.create!(genre_id: latin.id, playlist_id: radar_latino.id )
 GenreMembership.create!(genre_id: pop.id, playlist_id: radar_latino.id)
 GenreMembership.create!(genre_id: soul.id, playlist_id: straight_soul.id)
-GenreMembership.create!(genre_id: funk.id, playlist_id: funky_town.id)
-GenreMembership.create!(genre_id: party.id, playlist_id: funky_town.id)
 GenreMembership.create!(genre_id: electronic.id, playlist_id: dance_dance.id)
 GenreMembership.create!(genre_id: party.id, playlist_id: dance_dance.id)
 

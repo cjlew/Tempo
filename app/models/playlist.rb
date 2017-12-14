@@ -15,7 +15,8 @@
 #
 
 class Playlist < ApplicationRecord
-  validates :creator_id, :title, :featured, presence: true
+  validates :creator_id, :title, presence: true
+  validates :featured, inclusion: { in: [ true, false ] }
   has_attached_file :image, default_url: 'no_image.png'
   validates_attachment_content_type :image,
                                     content_type: /\Aimage\/.*\Z/
