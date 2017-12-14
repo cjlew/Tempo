@@ -31,6 +31,11 @@ class AddSongToPlaylist extends React.Component{
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
+
+  componentWillMount(){
+    this.props.fetchPlaylists();
+  }
+  
   //Modal
   openModal() {
     this.setState({modalIsOpen: true});
@@ -45,7 +50,6 @@ class AddSongToPlaylist extends React.Component{
   //
 
   render () {
-
     const PlaylistItems = this.props.currentUserPlaylists.map ((playlist) => {
       return(
       <PlaylistIndexItem playlist={playlist}
