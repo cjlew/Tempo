@@ -9,11 +9,12 @@
 # Database song / album seeder
 require 'mp3info'
 User.delete_all
-# Playlist.delete_all
+Playlist.delete_all
 # Album.delete_all
 # Song.delete_all
 # Artist.delete_all
 Genre.delete_all
+#
 # s3.list_objects(bucket:'tempo-chris-dev', max_keys:1).contents
 # this will get the path on AWS to a certain file
 
@@ -138,6 +139,7 @@ GENRES = ['Hip Hop', 'Rock', 'Classical', 'Indie', 'Pop', 'Country',
 hip_hop = Genre.create!(title: 'Hip Hop')
 rock = Genre.create!(title: 'Rock')
 indie = Genre.create(title: 'Indie')
+classical = Genre.create(title: 'Classical')
 pop = Genre.create!(title: 'Pop')
 country = Genre.create!(title: 'Country')
 latin = Genre.create!(title: 'Latin')
@@ -148,7 +150,7 @@ soul = Genre.create!(title: 'Soul')
 punk = Genre.create!(title: 'Punk')
 funk = Genre.create!(title: 'Funk')
 blues = Genre.create!(title: 'Blues')
-reggae = Genre.craete!(title: 'Reggae')
+reggae = Genre.create!(title: 'Reggae')
 chill = Genre.create!(title: 'Chill')
 party = Genre.create!(title: 'Party')
 electronic = Genre.create!(title: 'Electronic')
@@ -194,8 +196,8 @@ class S3GenreRunner
 
 end
 
-S3GenreRunner.new
-S3SongRunner.new
+# S3GenreRunner.new
+# S3SongRunner.new
 
 
 
@@ -203,18 +205,18 @@ guest = User.create!(username: 'guest', password: 'password', email: 'guest1@gue
 guest2 = User.create!(username: 'guest2', password: 'password', email:'guest2@guest.com')
 tempo = User.create!(username: 'tempo', password: 'password1!', email: 'tempo@tempo.com')
 
-top_hits = Playlist.create!(creator_id: tempo.id, title: 'Top Hits')
-rap_caviar = Playlist.create!(creator_id: tempo.id, title: 'Rap Caviar')
-hard_hitting_rap = Playlist.create!(creator_id: tempo.id, title: 'Hard Hitting Rap')
-rockin_and_rollin  = Playlist.create!(creator_id: tempo.id, title: 'Rockin and Rollin')
-alt_rock = Playlist.create!(creator_id: tempo.id, title: 'Alt Rock')
-wild_country = Playlist.create!(creator_id: tempo.id, title: 'Wild Country')
-radar_latino = Playlist.create!(creator_id: tempo.id, title: 'Radar Latino')
-new_music = Playlist.create!(creator_id: tempo.id, title: 'New Music')
-evening_acoustic = Playlist.create!(creator_id: tempo.id, title: 'Evening Acoustic')
-straight_soul = Playlist.create!(creator_id: tempo.id, title: 'Straight Soul')
-dance_dance = Playlist.create!(creator_id: tempo.id, title: 'Dance Dance')
-funky_town = Playlist.create!(creator_id: tempo.id, title: 'Funky Town')
+top_hits = Playlist.create!(creator_id: tempo.id, title: 'Top Hits', featured: true)
+rap_caviar = Playlist.create!(creator_id: tempo.id, title: 'Rap Caviar', featured: true)
+hard_hitting_rap = Playlist.create!(creator_id: tempo.id, title: 'Hard Hitting Rap', featured: false)
+rockin_and_rollin  = Playlist.create!(creator_id: tempo.id, title: 'Rockin and Rollin', featured: true)
+alt_rock = Playlist.create!(creator_id: tempo.id, title: 'Alt Rock', featured: true)
+wild_country = Playlist.create!(creator_id: tempo.id, title: 'Wild Country', featured: false)
+radar_latino = Playlist.create!(creator_id: tempo.id, title: 'Radar Latino', featured: true)
+new_music = Playlist.create!(creator_id: tempo.id, title: 'New Music', featured: false)
+evening_acoustic = Playlist.create!(creator_id: tempo.id, title: 'Evening Acoustic', featured: true)
+straight_soul = Playlist.create!(creator_id: tempo.id, title: 'Straight Soul', featured: false)
+dance_dance = Playlist.create!(creator_id: tempo.id, title: 'Dance Dance', featured: false)
+funky_town = Playlist.create!(creator_id: tempo.id, title: 'Funky Town', featured: false)
 
 
 
