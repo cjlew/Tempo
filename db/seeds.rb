@@ -135,9 +135,28 @@ GENRES = ['Hip Hop', 'Rock', 'Classical', 'Indie', 'Pop', 'Country',
           'Punk', 'Funk', 'Blues', 'Reggae', 'Chill', 'Party',
           'Electronic'].freeze
 
-GENRES.each do |genre|
-  Genre.create!(title: genre)
-end
+hip_hop = Genre.create!(title: 'Hip Hop')
+rock = Genre.create!(title: 'Rock')
+indie = Genre.create(title: 'Indie')
+pop = Genre.create!(title: 'Pop')
+country = Genre.create!(title: 'Country')
+latin = Genre.create!(title: 'Latin')
+r_n_b = Genre.create!(title: 'R&B')
+jazz = Genre.create!(title: 'Jazz')
+metal = Genre.create!(title: 'Metal')
+soul = Genre.create!(title: 'Soul')
+punk = Genre.create!(title: 'Punk')
+funk = Genre.create!(title: 'Funk')
+blues = Genre.create!(title: 'Blues')
+reggae = Genre.craete!(title: 'Reggae')
+chill = Genre.create!(title: 'Chill')
+party = Genre.create!(title: 'Party')
+electronic = Genre.create!(title: 'Electronic')
+
+# genres = []
+# GENRES.each do |genre|
+#   genres.push(Genre.create!(title: genre))
+# end
 #
 class S3GenreRunner
 
@@ -186,11 +205,38 @@ tempo = User.create!(username: 'tempo', password: 'password1!', email: 'tempo@te
 
 top_hits = Playlist.create!(creator_id: tempo.id, title: 'Top Hits')
 rap_caviar = Playlist.create!(creator_id: tempo.id, title: 'Rap Caviar')
+hard_hitting_rap = Playlist.create!(creator_id: tempo.id, title: 'Hard Hitting Rap')
+rockin_and_rollin  = Playlist.create!(creator_id: tempo.id, title: 'Rockin and Rollin')
+alt_rock = Playlist.create!(creator_id: tempo.id, title: 'Alt Rock')
 wild_country = Playlist.create!(creator_id: tempo.id, title: 'Wild Country')
 radar_latino = Playlist.create!(creator_id: tempo.id, title: 'Radar Latino')
 new_music = Playlist.create!(creator_id: tempo.id, title: 'New Music')
 evening_acoustic = Playlist.create!(creator_id: tempo.id, title: 'Evening Acoustic')
 straight_soul = Playlist.create!(creator_id: tempo.id, title: 'Straight Soul')
+dance_dance = Playlist.create!(creator_id: tempo.id, title: 'Dance Dance')
+funky_town = Playlist.create!(creator_id: tempo.id, title: 'Funky Town')
+
+
+
+GenreMembership.create!(genre_id: rock.id, playlist_id: rockin_and_rollin.id)
+GenreMembership.create!(genre_id: pop.id, playlist_id: top_hits.id)
+GenreMembership.create!(genre_id: hip_hop.id, playlist_id: rap_caviar.id)
+GenreMembership.create!(genre_id: hip_hop.id, playlist_id: hard_hitting_rap.id)
+GenreMembership.create!(genre_id: rock.id, playlist_id: alt_rock.id)
+GenreMembership.create!(genre_id: indie.id, playlist_id: alt_rock.id)
+GenreMembership.create!(genre_id: chill.id, playlist_id: evening_acoustic.id )
+GenreMembership.create!(genre_id: pop.id, playlist_id: evening_acoustic.id)
+GenreMembership.create!(genre_id: country.id, playlist_id: wild_country.id )
+GenreMembership.create!(genre_id: pop.id, playlist_id: new_music.id)
+GenreMembership.create!(genre_id: latin.id, playlist_id: radar_latino.id )
+GenreMembership.create!(genre_id: pop.id, playlist_id: radar_latino.id)
+GenreMembership.create!(genre_id: soul.id, playlist_id: straight_soul.id)
+GenreMembership.create!(genre_id: funk.id, playlist_id: funky_town.id)
+GenreMembership.create!(genre_id: party.id, playlist_id: funky_town.id)
+GenreMembership.create!(genre_id: electronic.id, playlist_id: dance_dance.id)
+GenreMembership.create!(genre_id: party.id, playlist_id: dance_dance.id)
+
+
 
 
 # artist1 = Artist.create!(name:'Chris Lew')
