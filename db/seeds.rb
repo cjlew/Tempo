@@ -25,8 +25,6 @@ class S3SongRunner
     secret_access_key: ENV['s3_secret_access_key']
   )
 
-
-
   def get_artist_image(path)
     artist_name = /artist_pics\/(.*).jpg/.match(path)[1]
     @artist_image[artist_name] = complete_path(path)
@@ -66,7 +64,6 @@ class S3SongRunner
     sec = seconds % 60
 
     time = min.round.to_s + "\:" + sec.round.to_s
-    time
 
   end
 
@@ -185,6 +182,16 @@ S3SongRunner.new
 
 guest = User.create!(username: 'guest', password: 'password', email: 'guest1@guest.com')
 guest2 = User.create!(username: 'guest2', password: 'password', email:'guest2@guest.com')
+tempo = User.create!(username: 'tempo', password: 'password1!', email: 'tempo@tempo.com')
+
+top_hits = Playlist.create!(creator_id: tempo.id, title: 'Top Hits')
+rap_caviar = Playlist.create!(creator_id: tempo.id, title: 'Rap Caviar')
+wild_country = Playlist.create!(creator_id: tempo.id, title: 'Wild Country')
+radar_latino = Playlist.create!(creator_id: tempo.id, title: 'Radar Latino')
+new_music = Playlist.create!(creator_id: tempo.id, title: 'New Music')
+evening_acoustic = Playlist.create!(creator_id: tempo.id, title: 'Evening Acoustic')
+straight_soul = Playlist.create!(creator_id: tempo.id, title: 'Straight Soul')
+
 
 # artist1 = Artist.create!(name:'Chris Lew')
 # artist2 = Artist.create!(name:'George')
