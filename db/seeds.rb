@@ -10,9 +10,9 @@
 require 'mp3info'
 User.delete_all
 Playlist.delete_all
-# Album.delete_all
-# Song.delete_all
-# Artist.delete_all
+Album.delete_all
+Song.delete_all
+Artist.delete_all
 Genre.delete_all
 #
 # s3.list_objects(bucket:'tempo-chris-dev', max_keys:1).contents
@@ -251,7 +251,7 @@ dance_dance = Playlist.create!(creator_id: tempo.id, title: 'Dance Dance', featu
 
 
 S3GenreRunner.new
-# S3SongRunner.new
+S3SongRunner.new
 S3PlaylistRunner.new
 
 
