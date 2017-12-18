@@ -7,6 +7,7 @@ const SongIndex = (props) => {
   const SongList = props.songs.map((song, i) =>{
     return (
       <SongIndexItem song={song} key={i}
+                     currentUser={props.currentUser}
                      playlist={props.playlist}
                      playSong={props.playSong}
                      pausePlayer={props.pausePlayer}

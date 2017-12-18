@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 return {
   songs,
   playlist,
-  album
+  album,
+  currentUser: state.session.currentUser
 };
 };
 
