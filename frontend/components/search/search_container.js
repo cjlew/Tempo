@@ -10,11 +10,25 @@ import { queueSong, playSong, pausePlayer } from '../../actions/player_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const songs=[];
-
-  Object.values(state.search).forEach(song =>
-    songs.push(song));
+  const artists=[];
+  const albums=[];
+  
+  if (state.search.songs) {
+    Object.values(state.search.songs).forEach(song =>
+      songs.push(song));
+    }
+  if(state.search.artists) {
+    Object.values(state.search.artists).forEach(artist =>
+      artists.push(artist));
+    }
+  if(state.search.albums) {
+    Object.values(state.search.albums).forEach(album =>
+      albums.push(album));
+  }
   return ({
-    songs
+    songs,
+    artists,
+    albums
   });
 
 };

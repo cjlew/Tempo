@@ -4,14 +4,11 @@ class Api::SearchesController < ApplicationController
 
     @song_results = Song.where("lower(title) LIKE lower(?)", "%#{search}%");
 
-    Album.where('lower(title) LIKE lower(?)', "%#{search}%").each do |album|
-      @song_results += album.songs
-    end
+    @album_results = Album.where('lower(title) LIKE lower(?)', "%#{search}%")
 
-    Artist.where('lower(name) LIKE lower(?)', "%#{search}%").each do |artist|
-      @song_results += artist.songs
-    end
+    @artist_results = Artist.where('lower(name) LIKE lower(?)', "%#{search}%")
 
-    # @users_found = User.where('lower(username) LIKE lower(?) and id != ?', "%#{search}%", current_user.id);
+    @users_results = User.where('lower(username) LIKE lower(?) and id != ?', "%#{search}%", current_user.id);
+    
   end
 end
