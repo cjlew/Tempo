@@ -89,13 +89,15 @@ class SongIndexItem extends React.Component {
 
   render () {
     let Remove = '';
-    if (this.props.playlist && this.props.playlist.creator_id === this.props.currentUser.id) {
-      Remove =
-          <button onClick={this.handleRemove}
-                 id='song-index-item-dropdown-remove'>
-                 Remove from this Playlist
-          </button>;
-    }
+    if (this.props.playlist &&
+        this.props.playlist.creator_id === this.props.currentUser.id) {
+          Remove =
+              <button onClick={this.handleRemove}
+                     id='song-index-item-dropdown-remove'>
+                     Remove from this Playlist
+              </button>;
+            }
+            
     return(
       <li id='song-index-item-container' onDoubleClick={this.handlePlay}>
         <div id='song-index-item-left'>
