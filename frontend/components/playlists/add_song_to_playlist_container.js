@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
   currentUserPlaylistIds.forEach(playlistId =>
 
     currentUserPlaylists.push(state.entities.playlists[playlistId]));
-  debugger
+  
   return {
     songId: ownProps.songId,
     currentUserPlaylists,
