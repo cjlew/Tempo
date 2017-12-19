@@ -14,3 +14,31 @@
   color: #ffffff;
   position: relative;
 }
+
+#search-type-list {
+  display: flex;
+  flex-direction: row;
+  color: #ffffff;
+  justify-content: center;
+  list-style: none;
+}
+
+.type-radio {
+  visibility: hidden;
+}
+
+.type-radio-label {
+  cursor: pointer;
+}
+
+
+.type-radio:not(:checked) + .type-radio-label {
+  filter:brightness(50%);
+}
+.type-radio-label:hover {
+  filter:brightness(100%);
+}
+
+.type-radio:checked + .type-radio-label{
+  filter:brightness(150%);
+}
