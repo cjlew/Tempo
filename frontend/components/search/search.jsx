@@ -2,6 +2,9 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import SongIndexContainer from '../songs/song_index_container';
 import ArtistsSearchIndex from './search_artists';
+import AlbumsSearchIndex from './search_albums';
+import NoResults from './no_results';
+
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -17,6 +20,7 @@ export default class Search extends React.Component {
     e.preventDefault();
     this.setState({type: e.currentTarget.value});
   }
+
   componentDidMount() {
     this.props.fetchPlaylists();
     this.props.fetchSongs();
@@ -30,17 +34,18 @@ export default class Search extends React.Component {
     });};
   }
 
+
   render() {
-    const SearchSongIndex = this.props.songs.length ?
+
+    const SearchSongIndex = this.props.songs.length  ?
           <SongIndexContainer songs={this.props.songs}/>: '';
 
-    const SearchArtistsIndex = this.props.artists.length ?
+    const SearchArtistsIndex = this.props.artists.length  ?
           <ArtistsSearchIndex artists={this.props.artists}/> : '';
 
-    // const SearchAlbumsIndex = this.props.albums.length?
-    //       <AlbumsSearchIndex albums={this.props.albums}/> : '';
+    const SearchAlbumsIndex = this.props.albums.length  ?
+          <AlbumsSearchIndex albums={this.props.albums}/> : '';
 
-    const SearchAlbumsIndex = '';
 
     let CurrentResults;
 
