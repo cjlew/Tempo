@@ -1,18 +1,27 @@
+
+
+
 .artist-search-index-item {
-
-}
-
-
-#artist-search-index-item {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 220px;
+  width: 220px;
+  margin: 5px 5px 5px 5px;
 }
 
 #artist-search-index-name {
   color: #ffffff;
+  text-align: center;
+  margin-top: 10px;
 }
 
 #artists-search-index {
   margin: 20px 20px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .artist-search-index-img {

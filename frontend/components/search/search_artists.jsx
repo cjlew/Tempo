@@ -8,11 +8,9 @@ const ArtistsSearchIndex = ({artists}) => {
                                                     key={artist.id}/>);
 
   return(
-    <div id='artists-search-index'>
-      <ul>
+      <ul id='artists-search-index'>
         {ArtistsIndexItems}
       </ul>
-    </div>
   );
 };
 

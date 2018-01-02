@@ -11,7 +11,7 @@ const ArtistsSearchIndexItem = ({artist}) => {
         </Link>
       </div>
 
-      <Link id='artist-search-index-name' 
+      <Link id='artist-search-index-name'
             to={`/artists/${artist.id}`}>{artist.name}</Link>
 
     </li>
