@@ -32,13 +32,7 @@
 }
 
 
-.type-radio:not(:checked) + .type-radio-label {
-  filter:brightness(50%);
-}
-.type-radio-label:hover {
-  filter:brightness(100%);
-}
 
-.type-radio:checked + .type-radio-label{
-  filter:brightness(150%);
+.type-radio-label:hover {
+  filter:brightness(50%);
 }
