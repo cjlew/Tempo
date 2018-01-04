@@ -29,7 +29,6 @@ Ruby on Rails' Active Record is used to query the SQL database for matches in th
 ###
 
 ## To-Do:
-* [ ] Index views for followed playlists, followed users, albums and artists
-* [ ] Show views for albums and artists
 * [ ] Preloading queued songs
 * [ ] Adding a more robust library of songs
+* [ ] Creating a new media player from scratch
