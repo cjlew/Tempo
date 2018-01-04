@@ -6,9 +6,9 @@ Listen live at [tempo-app.com](http://www.tempo-app.com/#/)
 
 ## Features
 
-### Persistant streaming while navigating through the site.
+### Persistent streaming while navigating through the site.
 
-Utilizing Redux's ability to pass specific props from the store to key components, music streaming is achieved by creating a seperate slice of state for the audio file, ensuring that the media player component is allowed to run as the rest of the components change.
+Utilizing Redux's ability to pass specific props from the store to key components, music streaming is achieved by creating a separate slice of state for the audio file, ensuring that the media player component is allowed to run as the rest of the components change.
 
 ### Following playlists and friending other users
 
