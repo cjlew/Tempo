@@ -2,9 +2,7 @@ import {connect} from 'react-redux';
 import { fetchSongs } from '../../actions/song_actions';
 import { queueSong, playSong, pausePlayer } from '../../actions/player_actions';
 import {
-  fetchPlaylists,
   fetchPlaylist,
-  editPlaylist,
   deletePlaylist,
   removeSong
 } from '../../actions/playlist_actions';
@@ -42,9 +40,7 @@ const mapDispatchToProps = (dispatch) => ({
   playSong: (songId) => dispatch(playSong(songId)),
   queueSong: (songId) => dispatch(queueSong(songId)),
   removeSong: (playlistId, songId) => dispatch(removeSong(playlistId, songId)),
-  fetchPlaylists: () => dispatch(fetchPlaylists()),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
-  editPlaylist: (playlist) => dispatch(editPlaylist(playlist)),
   deletePlaylist: (id) => dispatch(deletePlaylist(id)),
   fetchSongs: () => dispatch(fetchSongs()),
 });
