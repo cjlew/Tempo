@@ -12,6 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   let artist = state.entities.artists[parseInt(ownProps.match.params.artistId)];
   let albums = [];
   let songs = [];
+  
   if (state.entities.albums && artist && Object.keys(state.entities.songs).length > 0) {
   Object.keys(state.entities.albums).forEach((albumId) => {
     let album = state.entities.albums[albumId];

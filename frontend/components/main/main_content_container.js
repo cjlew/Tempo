@@ -13,8 +13,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, { location }) => {
 return {
-  fetchSongs: () => dispatch(fetchSongs()),
-  fetchPlaylists: () => dispatch(fetchPlaylists())
+  f
 };
 };
 

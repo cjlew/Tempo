@@ -18,15 +18,6 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount () {
-    // this.props.fetchPlaylists();
-  }
-
-  componentWillReceiveProps(newProps) {
-    // if (newProps.location.pathname !== this.props.location.pathname) {
-    //   this.props.fetchPlaylists();
-    // }
-  }
 
   render () {
 
