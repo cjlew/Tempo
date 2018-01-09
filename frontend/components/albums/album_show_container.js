@@ -1,10 +1,7 @@
 import {connect} from 'react-redux';
 import { fetchSongs } from '../../actions/song_actions';
 import { queueSong, playSong, pausePlayer } from '../../actions/player_actions';
-import {
-  fetchAlbum,
-  fetchAlbums
-} from '../../actions/album_actions';
+import { fetchAlbum } from '../../actions/album_actions';
 import AlbumShow from './album_show';
 import { withRouter } from 'react-router-dom';
 
@@ -21,11 +18,12 @@ const mapStateToProps = (state, ownProps) => {
         }
       });
   }
-return ({
-  album,
-  songs,
-  currentUser: state.session.currentUser
-});
+
+  return ({
+    album,
+    songs,
+    currentUser: state.session.currentUser
+  });
 };
 
 const mapDispatchToProps = (dispatch) => ({

@@ -37,7 +37,7 @@ class MainContent extends React.Component {
           <Route path='/users/:userId' component={ProfileContainer} />
           <Route path='/search' component={SearchContainer} />
           <Route path='/myplaylists' component={MyPlaylistsIndexContainer} />
-          <Route path='/' component={BrowseContainer} />
+          <Route path='/browse' component={BrowseContainer} />
           <Route component={NoRoute} />
         </Switch>
       </div>
