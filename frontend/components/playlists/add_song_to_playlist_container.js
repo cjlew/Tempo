@@ -3,7 +3,6 @@ import {
   createPlaylist,
   fetchPlaylists,
   fetchPlaylist,
-  editPlaylist,
   addSong,
 } from '../../actions/playlist_actions';
 import AddSongToPlaylist from './add_song_to_playlist';
@@ -19,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
   currentUserPlaylistIds.forEach(playlistId =>
 
     currentUserPlaylists.push(state.entities.playlists[playlistId]));
-  
+
   return {
     songId: ownProps.songId,
     currentUserPlaylists,
@@ -33,7 +32,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPlaylists: () => dispatch(fetchPlaylists()),
   createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
-  editPlaylist: (playlist) => dispatch(editPlaylist(playlist)),
   addSong: (playlistId, songId) => dispatch(addSong(playlistId, songId))
 });
 
