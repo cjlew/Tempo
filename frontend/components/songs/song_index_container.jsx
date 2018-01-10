@@ -1,9 +1,8 @@
  import { connect } from 'react-redux';
 import { fetchPlaylists, removeSong} from '../../actions/playlist_actions';
-import { fetchAlbums, fetchAlbum } from '../../actions/album_actions';
+import { fetchAlbum } from '../../actions/album_actions';
 import { fetchArtist } from '../../actions/artist_actions';
 import { queueSong, playSong, pausePlayer } from '../../actions/player_actions';
-import { fetchUser } from '../../actions/user_actions';
 
 import SongIndex from './song_index';
 
@@ -25,7 +24,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchArtist: (id) => dispatch(fetchArtist(id)),
   fetchPlaylists: () => dispatch(fetchPlaylists()),
   fetchAlbum: (id) => dispatch(fetchAlbum(id)),
-  fetchAlbums: () => dispatch(fetchAlbums()),
   pausePlayer: () => dispatch(pausePlayer()),
   playSong: (songId) => dispatch(playSong(songId)),
   queueSong: (songId) => dispatch(queueSong(songId)),
