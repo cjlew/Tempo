@@ -23,7 +23,7 @@ gem 'figaro'
 
 gem 'ruby-mp3info'
 
-gem "paperclip",  '~> 5.0.0'
+gem "paperclip"
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
